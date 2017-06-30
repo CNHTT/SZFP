@@ -1,5 +1,6 @@
 package com.szfp.szfp.view.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -11,7 +12,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
-import com.szfp.szfp.R;
 import com.szfp.szfplib.utils.ToastUtils;
 
 /**
@@ -62,6 +62,9 @@ public abstract class BasePrintActivity extends BaseActivity {
         }
     }
 
+
+
+
     @Override
     public void onStart() {
         super.onStart();
@@ -76,6 +79,43 @@ public abstract class BasePrintActivity extends BaseActivity {
         } else {
             if (mChatService == null) setupChat();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(D) Log.e(TAG, "+ ON RESUME +");
+
+        // Performing this check in onResume() covers the case in which BT was
+        // not enabled during onStart(), so we were paused to enable it...
+        // onResume() will be called when ACTION_REQUEST_ENABLE activity returns.
+        if (mChatService != null) {
+            // Only if the state is STATE_NONE, do we know that we haven't started already
+            if (mChatService.getState() == BluetoothPrintDriver.STATE_NONE) {
+                // Start the Bluetooth chat services
+                mChatService.start();
+            }
+        }
+    }
+
+    @SuppressLint("NewApi")
+    private void ensureDiscoverable() {
+        if(D) Log.d(TAG, "ensure discoverable");
+        if (mBluetoothAdapter.getScanMode() !=
+                BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+            Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+            discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+            startActivity(discoverableIntent);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        // Stop the Bluetooth chat services
+        if (mChatService != null) mChatService.stop();
+        if(D) Log.e(TAG, "--- ON DESTROY ---");
     }
 
     private void setupChat() {
@@ -100,7 +140,6 @@ public abstract class BasePrintActivity extends BaseActivity {
                         case BluetoothPrintDriver.STATE_LISTEN:
 
                         case BluetoothPrintDriver.STATE_NONE:
-                           ToastUtils.error(getString(R.string.title_not_connected));
                             break;
                     }
                     break;

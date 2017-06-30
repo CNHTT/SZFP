@@ -389,4 +389,8 @@
     <string name="button_scan">Scan for devices</string>
     <string name="export_str">Export to PDF format</string>
     <string name="no">NO</string>
+    <string name="static_fare">Static Fare</string>
+    <string name="fare">FARE</string>
+    <string name="please_press_the_fingerprint">Please press the fingerprint</string>
+    <string name="please_press_the_fingerprint_receipt">Please press the fingerprint \n Need a receipt</string>
 </resources>

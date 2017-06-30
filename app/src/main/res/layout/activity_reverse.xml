@@ -87,6 +87,18 @@
             android:visibility="invisible"
             android:layout_marginRight="@dimen/space_20"/>
     </LinearLayout>
+
+    <CheckBox
+        android:layout_marginTop="@dimen/space_20"
+        android:textSize="@dimen/text_size_24"
+        android:layout_marginLeft="@dimen/space_50"
+        android:id="@+id/ck_reverse_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/give_receipt"/>
+
+
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"

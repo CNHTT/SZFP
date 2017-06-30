@@ -18,6 +18,7 @@ import com.szfp.szfp.bean.CommuterAccountInfoBean;
 import com.szfp.szfp.utils.DbHelper;
 import com.szfp.szfplib.utils.ContextUtils;
 import com.szfp.szfplib.utils.DataUtils;
+import com.szfp.szfplib.utils.SPUtils;
 import com.szfp.szfplib.utils.ToastUtils;
 import com.szfp.szfplib.weight.StateButton;
 
@@ -75,7 +76,7 @@ public class TransportActivity extends BaseActivity {
                         startActivity(new Intent(TransportActivity.this, DynamicActivity.class));
                         break;
                     case 3:
-                        startActivity(new Intent(TransportActivity.this, StaticFareActivity.class));
+                        startActivity(new Intent(TransportActivity.this, TransportStaticFareActivity.class));
                         break;
                     case 4:
                         startActivity(new Intent(TransportActivity.this, ReverseActivity.class));
@@ -137,7 +138,7 @@ public class TransportActivity extends BaseActivity {
 
     private CommuterAccountInfoBean c;
 
-    @OnClick({R.id.li_search_commuter, R.id.trans_top_up, R.id.trans_upload_data, R.id.trans_reports})
+    @OnClick({R.id.li_search_commuter, R.id.trans_top_up, R.id.trans_upload_data, R.id.trans_reports,R.id.sbt_charge})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.li_search_commuter:
@@ -150,6 +151,15 @@ public class TransportActivity extends BaseActivity {
                 ToastUtils.success("UPLOAD DATA");
                 break;
             case R.id.trans_reports:
+                break;
+            case R.id.sbt_charge:
+
+                if (SPUtils.getBoolean(this,ConstantValue.STATIC_FARE_TYPE))
+                {
+                    startActivity(new Intent(TransportActivity.this,TransportChargeActivity.class));
+                }else {
+                    startActivity(new Intent(TransportActivity.this,StaticFareActivity.class));
+                }
                 break;
         }
     }

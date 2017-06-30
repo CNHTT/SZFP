@@ -1,42 +1,53 @@
 package com.szfp.szfp.view.activity;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 
 import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
+import com.szfp.szfp.ConstantValue;
 import com.szfp.szfp.R;
 import com.szfp.szfp.asynctask.AsyncFingerprint;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
 import com.szfp.szfp.inter.OnSaveListener;
 import com.szfp.szfp.utils.DbHelper;
-import com.szfp.szfplib.utils.DataUtils;
+import com.szfp.szfplib.utils.SPUtils;
 import com.szfp.szfplib.utils.ToastUtils;
 import com.szfp.szfplib.weight.StateButton;
+
+import java.util.concurrent.TimeUnit;
 
 import android_serialport_api.FingerprintAPI;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 
-public class StaticFareActivity extends BasePrintActivity implements OnSaveListener {
+public class TransportChargeActivity extends BasePrintActivity implements OnSaveListener {
 
-    @BindView(R.id.ed_fixed_fare)
-    EditText edFixedFare;
-    @BindView(R.id.bt_stat_sava)
-    StateButton btStatSava;
-    @BindView(R.id.bt_stat_cancel)
-    StateButton btStatCancel;
-    @BindView(R.id.ck_staic_fare_checkbox)
-    CheckBox ckStaicFareCheckbox;
+    @BindView(R.id.sbt_charge)
+    StateButton sbtCharge;
+    @BindView(R.id.sbt_charge_print)
+    StateButton sbtChargePrint;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_transport_charge);
+        ButterKnife.bind(this);
+    }
+
+
+
+    private  boolean isPrint =false;
+    private ProgressDialog progressDialog;
+    private AsyncFingerprint asyncFingerprint;
 
 
     private Handler mHandler = new Handler() {
@@ -68,9 +79,7 @@ public class StaticFareActivity extends BasePrintActivity implements OnSaveListe
                     cancleProgressDialog();
                     if (msg.obj != null) {
                         Integer id = (Integer) msg.obj;
-
-                        ToastUtils.showToast(getString(R.string.register_success) + "  pageId="
-                                + id);
+                        ToastUtils.showToast(getString(R.string.register_success) + "  pageId=" + id);
                     } else {
                         ToastUtils.showToast(R.string.register_success);
                     }
@@ -111,41 +120,39 @@ public class StaticFareActivity extends BasePrintActivity implements OnSaveListe
 
     };
 
-    private CommuterAccountInfoBean bean;
 
+    private CommuterAccountInfoBean bean;
+    private String input;
     private void showValidateResult(Integer r) {
         String id = String.valueOf(r);
-        bean = DbHelper.getCommuterInfo(id, input, this);
+        input = SPUtils.getString(this, ConstantValue.STATIC_FARE);
+        bean = DbHelper.getCommuterInfo(id, input, this,isPrint);
     }
 
-    private void showValidateResult(boolean matchResult) {
-        if (matchResult) {
-            ToastUtils.showToast(
-                    R.string.verifying_through);
-        } else {
-            ToastUtils.showToast(
-                    R.string.verifying_fail);
-        }
+    private void showValidateResult(boolean obj) {
+        ToastUtils.error(getResources().getString(R.string.verifying_fail));
+        asyncFingerprint.validate2();
     }
-
-    private ProgressDialog progressDialog;
-    private AsyncFingerprint asyncFingerprint;
 
     private void showProgressDialog(int resId) {
+        if (resId==R.string.print_finger){
+            ToastUtils.success("Please click fingerprints!");
+            return;
+        }
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getResources().getString(resId));
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-
-            @Override
-            public boolean onKey(DialogInterface dialog, int keyCode,
-                                 KeyEvent event) {
-                if (KeyEvent.KEYCODE_BACK == keyCode) {
-                    asyncFingerprint.setStop(true);
-                }
-                return false;
-            }
-        });
+        progressDialog.setCanceledOnTouchOutside(true);
+//        progressDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+//
+//            @Override
+//            public boolean onKey(DialogInterface dialog, int keyCode,
+//                                 KeyEvent event) {
+//                if (KeyEvent.KEYCODE_BACK == keyCode) {
+//                    asyncFingerprint.setStop(true);
+//                }
+//                return false;
+//            }
+//        });
         progressDialog.show();
     }
 
@@ -161,6 +168,7 @@ public class StaticFareActivity extends BasePrintActivity implements OnSaveListe
     protected void onResume() {
         super.onResume();
         initData();
+        asyncFingerprint.validate2();
     }
 
     private void initData() {
@@ -168,18 +176,6 @@ public class StaticFareActivity extends BasePrintActivity implements OnSaveListe
         asyncFingerprint.setFingerprintType(FingerprintAPI.BIG_FINGERPRINT_SIZE);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        cancleProgressDialog();
-        asyncFingerprint.setStop(true);
-    }
-
-    @Override
-    protected void onDestroy() {
-        cancleProgressDialog();
-        super.onDestroy();
-    }
 
     @Override
     protected void showConnecting() {
@@ -188,67 +184,64 @@ public class StaticFareActivity extends BasePrintActivity implements OnSaveListe
 
     @Override
     protected void showConnectedDeviceName(String mConnectedDeviceName) {
-        isPrint =true;
-        ckStaicFareCheckbox.setChecked(isPrint);
-        ToastUtils.success("Connect success" + "   "+mConnectedDeviceName);
+        if (asyncFingerprint.isStop){
+            asyncFingerprint.validate2();
+        }
+        isPrint=true;
+
+
     }
 
-
-    private  boolean isPrint =false;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_static_fare);
-        ButterKnife.bind(this);
-
-
-        ckStaicFareCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    if (BluetoothPrintDriver.IsNoConnection())
-                        ckStaicFareCheckbox.setChecked(false);
-                    showDeviceList();
-                }else  isPrint =false;
-            }
-        });
-    }
-
-    @OnClick({R.id.bt_stat_sava, R.id.bt_stat_cancel})
+    @OnClick({R.id.sbt_charge, R.id.sbt_charge_print})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.bt_stat_sava:
-                save();
+            case R.id.sbt_charge:
+                if (asyncFingerprint.isStop){
+                    asyncFingerprint.validate2();
+                }
+                isPrint=false;
                 break;
-            case R.id.bt_stat_cancel:
-                edFixedFare.setText("");
+            case R.id.sbt_charge_print:
+                if (BluetoothPrintDriver.IsNoConnection())
+                showDeviceList();
                 break;
         }
     }
-
-    private String input;
-
-    private void save() {
-        input = edFixedFare.getText().toString();
-        if (DataUtils.isNullString(input)) {
-            ToastUtils.error(getResources().getString(R.string.please_input));
-            return;
-        }
-
-        asyncFingerprint.validate2();
-
-    }
-
     @Override
     public void success() {
-        ToastUtils.success("SUCCESS");
-        onBackPressed();
+        Observable.timer(3, TimeUnit.SECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Long>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(Long value) {
+                        //正常接收数据调用
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        asyncFingerprint.validate2();
+                    }
+                });
     }
 
     @Override
     public void error(String str) {
-        ToastUtils.error(str);
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        cancleProgressDialog();
+    }
+
 }

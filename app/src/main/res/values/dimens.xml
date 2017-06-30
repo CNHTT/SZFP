@@ -28,7 +28,9 @@
 
 
     <!-- 通用 -->
-    <dimen name="text_size_32">32.0sp</dimen>
+    <dimen name="text_size_50">50.0sp</dimen>
+    <dimen name="text_size_60">60.0sp</dimen>
+    <dimen name="text_size_40">40.0sp</dimen>
     <dimen name="text_size_31">31.0sp</dimen>
     <dimen name="text_size_30">30.0sp</dimen>
     <dimen name="text_size_29">29.0sp</dimen>

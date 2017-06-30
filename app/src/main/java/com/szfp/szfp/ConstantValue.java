@@ -11,6 +11,8 @@ public class ConstantValue {
     public static final String FINGERPRINT ="FINGERPRINT=";
     public static final String FINGERPRINT_END ="END";
     public static final String PAH  ="%";
+    public static final String STATIC_FARE ="STATIC_FARE" ;
+    public static final String STATIC_FARE_TYPE ="STATIC_FARE_TYPE" ;
 
     public static String DB_NAME ="szfp.db";
     public static String INFO   ="info";

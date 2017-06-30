@@ -108,6 +108,8 @@ public class DbHelper {
         }
         return commuterAccountInfoBean;
     }
+
+
     public static CommuterAccountInfoBean getCommuterInfo(String fingerPrintId, String input, OnSaveListener listener) {
         CommuterAccountInfoBean commuterAccountInfoBean;
         try {
@@ -133,7 +135,94 @@ public class DbHelper {
                     reportBean.setFarePaid(Float.valueOf(input));
                     reportBean.setACNumber(commuterAccountInfoBean.getCommuterAccount());
                     reportBean.setFarePaidDate(TimeUtils.getCurTimeMills());
+                    insertAccountReport(reportBean);
+                    PrintUtils.printFarePaidReceipt(commuterAccountInfoBean,reportBean);
 
+                    listener.success();
+
+                }else {
+                    listener.error(getContext().getResources().getString(R.string.not_sufficient_funds));
+                }
+            }
+            }catch (Exception e){
+
+            listener.error(getContext().getResources().getString(R.string.no_find));
+
+            return null;
+        }
+        return commuterAccountInfoBean;
+    }
+
+    public static CommuterAccountInfoBean getCommuterInfo(String fingerPrintId, String input, OnSaveListener listener ,boolean isPrint) {
+        CommuterAccountInfoBean commuterAccountInfoBean;
+        try {
+
+            commuterAccountInfoBean = GreenDaoManager.getInstance().getSession().getCommuterAccountInfoBeanDao().queryBuilder()
+                                .where(CommuterAccountInfoBeanDao.Properties.FingerPrintFileUrl.like(PAH+FINGERPRINT+fingerPrintId+FINGERPRINT_END+PAH)).build().unique();
+            if (DataUtils.isEmpty(commuterAccountInfoBean)){
+                listener.error(getContext().getResources().getString(R.string.no_find));
+            }else{
+                if (commuterAccountInfoBean.getBalance()>Float.valueOf(input)){
+
+                    commuterAccountInfoBean.setFarePaid(commuterAccountInfoBean.getFarePaid()+Float.valueOf(input));
+                    commuterAccountInfoBean.setBalance(commuterAccountInfoBean.getBalance()-Float.valueOf(input));
+                    GreenDaoManager.getInstance().getSession().getCommuterAccountInfoBeanDao().update(commuterAccountInfoBean);
+
+                    //生成消费记录
+                    AccountReportBean reportBean = new AccountReportBean();
+
+                    reportBean.setDeposits(0);
+                    reportBean.setDepositsDate(0);
+
+                    reportBean.setBalance(commuterAccountInfoBean.getBalance());
+                    reportBean.setFarePaid(Float.valueOf(input));
+                    reportBean.setACNumber(commuterAccountInfoBean.getCommuterAccount());
+                    reportBean.setFarePaidDate(TimeUtils.getCurTimeMills());
+                    insertAccountReport(reportBean);
+                   if (isPrint)PrintUtils.printFarePaidReceipt(commuterAccountInfoBean,reportBean);
+
+                    listener.success();
+
+                }else {
+                    listener.error(getContext().getResources().getString(R.string.not_sufficient_funds));
+                }
+            }
+            }catch (Exception e){
+
+            listener.error(getContext().getResources().getString(R.string.no_find));
+
+            return null;
+        }
+        return commuterAccountInfoBean;
+    }
+
+    public static CommuterAccountInfoBean getCommuterInfo(String fingerPrintId, String input, OnSaveListener listener,String type) {
+        CommuterAccountInfoBean commuterAccountInfoBean;
+        try {
+
+            commuterAccountInfoBean = GreenDaoManager.getInstance().getSession().getCommuterAccountInfoBeanDao().queryBuilder()
+                                .where(CommuterAccountInfoBeanDao.Properties.FingerPrintFileUrl.like(PAH+FINGERPRINT+fingerPrintId+FINGERPRINT_END+PAH)).build().unique();
+            if (DataUtils.isEmpty(commuterAccountInfoBean)){
+                listener.error(getContext().getResources().getString(R.string.no_find));
+            }else{
+                if (commuterAccountInfoBean.getBalance()>Float.valueOf(input)){
+
+                    commuterAccountInfoBean.setFarePaid(commuterAccountInfoBean.getFarePaid()+Float.valueOf(input));
+                    commuterAccountInfoBean.setBalance(commuterAccountInfoBean.getBalance()-Float.valueOf(input));
+                    GreenDaoManager.getInstance().getSession().getCommuterAccountInfoBeanDao().update(commuterAccountInfoBean);
+
+                    //生成消费记录
+                    AccountReportBean reportBean = new AccountReportBean();
+
+                    reportBean.setDeposits(0);
+                    reportBean.setDepositsDate(0);
+
+                    reportBean.setBalance(commuterAccountInfoBean.getBalance());
+                    reportBean.setFarePaid(Float.valueOf(input));
+                    reportBean.setACNumber(commuterAccountInfoBean.getCommuterAccount());
+                    reportBean.setFarePaidDate(TimeUtils.getCurTimeMills());
+                    insertAccountReport(reportBean);
+                    PrintUtils.printFarePaidReceiptREVERSE(commuterAccountInfoBean,reportBean);
                     listener.success();
 
                 }else {

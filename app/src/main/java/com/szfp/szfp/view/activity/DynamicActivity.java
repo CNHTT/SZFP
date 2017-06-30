@@ -51,7 +51,7 @@ public class DynamicActivity extends BaseActivity {
                 SPUtils.putString(this, ConstantValue.MAX,max);
                 SPUtils.putString(this, ConstantValue.MIM,min);
                 edMaximum.setText("");edMinimum.setText("");
-
+                SPUtils.putBoolean(this,ConstantValue.STATIC_FARE_TYPE,false);
                 ToastUtils.success("SUCCESS");
 
                 break;

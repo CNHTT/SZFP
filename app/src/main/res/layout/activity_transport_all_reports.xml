@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.szfp.szfp.view.activity.FullReportActivity"
+    tools:context="com.szfp.szfp.view.activity.TransportAllReportsActivity"
     android:orientation="vertical">
-
 
     <com.szfp.szfplib.weight.StateButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/export"
+        android:id="@+id/all_export"
         android:text="@string/export_str"
         android:gravity="center"
         android:padding="@dimen/space_20"
@@ -96,16 +95,8 @@
             android:text="@string/balance" />
     </LinearLayout>
     <ListView
-        android:id="@+id/full_report_list"
+        android:id="@+id/full_all_report_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
     </ListView>
-
-
-
-
-
-
-
 </LinearLayout>

@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.szfp.szfp.view.activity.StaticFareActivity">
+    tools:context="com.szfp.szfp.view.activity.TransportStaticFareActivity"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/divbox"
         android:padding="@dimen/space_20"
-        android:text="@string/set_fixed_fare"
+        android:text="@string/static_fare"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_24" />
 
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/fare_ksh"
+            android:text="@string/fare"
             android:textColor="@color/black" />
 
         <EditText
@@ -41,15 +41,6 @@
             android:padding="@dimen/space_5" />
     </LinearLayout>
 
-    <CheckBox
-        android:layout_marginTop="@dimen/space_20"
-        android:textSize="@dimen/text_size_24"
-        android:layout_marginLeft="@dimen/space_50"
-        android:id="@+id/ck_staic_fare_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="@string/give_receipt"/>
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"
@@ -82,4 +73,5 @@
             app:pressedBackgroundColor="@color/login_pass"
             app:pressedTextColor="@color/white" />
     </LinearLayout>
+
 </LinearLayout>

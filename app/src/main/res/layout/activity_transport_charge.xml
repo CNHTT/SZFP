@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.szfp.szfp.view.activity.TransportChargeActivity">
+
+    <com.szfp.szfplib.weight.StateButton
+        android:id="@+id/sbt_charge"
+        android:padding="@dimen/space_5"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:layout_margin="@dimen/space_10"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/text_size_50"
+        android:text="@string/please_press_the_fingerprint"
+        app:normalBackgroundColor="@color/login_normal"
+        app:normalTextColor="@color/white"
+        app:radius="@dimen/space_2"
+        app:pressedBackgroundColor="@color/login_pass"
+        app:pressedTextColor="@color/white"
+        android:layout_weight="1" />
+
+
+    <com.szfp.szfplib.weight.StateButton
+        android:id="@+id/sbt_charge_print"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:padding="@dimen/space_5"
+        android:gravity="center"
+        android:layout_margin="@dimen/space_10"
+        app:normalBackgroundColor="@color/login_normal"
+        android:textSize="@dimen/text_size_50"
+        android:text="@string/please_press_the_fingerprint_receipt"
+        app:normalTextColor="@color/white"
+        app:pressedBackgroundColor="@color/login_pass"
+        app:pressedTextColor="@color/white"
+        app:radius="@dimen/space_2"
+        android:layout_weight="1" />
+</LinearLayout>

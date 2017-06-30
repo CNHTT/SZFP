@@ -120,7 +120,6 @@ public class PhotoUtils {
         // return-data为false时,不会返回bitmap,但需要指定一个MediaStore.EXTRA_OUTPUT保存图片uri
         intent.putExtra(MediaStore.EXTRA_OUTPUT, cropImageUri);
         intent.putExtra("return-data", true);
-
         activity.startActivityForResult(intent, CROP_IMAGE);
     }
     public static void cropImage(Activity activity, Uri srcUri) {

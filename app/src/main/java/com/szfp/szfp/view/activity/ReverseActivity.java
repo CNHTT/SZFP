@@ -8,13 +8,17 @@ import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
 import com.szfp.szfp.ConstantValue;
 import com.szfp.szfp.R;
 import com.szfp.szfp.asynctask.AsyncFingerprint;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
+import com.szfp.szfp.inter.OnSaveListener;
 import com.szfp.szfp.utils.DbHelper;
 import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.ToastUtils;
@@ -25,7 +29,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ReverseActivity extends BasePrintActivity {
+public class ReverseActivity extends BasePrintActivity implements OnSaveListener {
 
 
     @BindView(R.id.textView2)
@@ -40,7 +44,11 @@ public class ReverseActivity extends BasePrintActivity {
     StateButton btReverseSava;
     @BindView(R.id.bt_reverse_cancel)
     StateButton btReverseCancel;
+    @BindView(R.id.ck_reverse_checkbox)
+    CheckBox ckReverseCheckbox;
     private CommuterAccountInfoBean bean;
+
+    private boolean isPrint=false;
 
 
     private byte[] modelByte;
@@ -122,19 +130,8 @@ public class ReverseActivity extends BasePrintActivity {
 
     private void showValidateResult(Integer r) {
         String id = String.valueOf(r);
-        if (id.equals(bean.getFingerPrintFileUrl())){
-            bean.setDeposits(bean.getDeposits()-inputFloat);
-            if (DbHelper.isUpdateCommuterAccountInfoPhoto(bean)){
-                ToastUtils.success("SUCCESS");
+        DbHelper.getCommuterInfo(id,input,this,"sss");
 
-                bean = DbHelper.getCommuterInfo(bean.getCommuterAccount());
-                edReverseAmount.setText("");
-            }else {
-                ToastUtils.error("ERROR");
-            }
-        }else {
-            ToastUtils.error("Please try again");
-        }
     }
 
     private void showValidateResult(boolean matchResult) {
@@ -146,8 +143,10 @@ public class ReverseActivity extends BasePrintActivity {
                     R.string.verifying_fail);
         }
     }
+
     private ProgressDialog progressDialog;
     private AsyncFingerprint asyncFingerprint;
+
     private void showProgressDialog(int resId) {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getResources().getString(resId));
@@ -181,7 +180,7 @@ public class ReverseActivity extends BasePrintActivity {
     }
 
     private void initData() {
-        asyncFingerprint = new AsyncFingerprint(handlerThread.getLooper(),mHandler);
+        asyncFingerprint = new AsyncFingerprint(handlerThread.getLooper(), mHandler);
 
         asyncFingerprint.setOnEmptyListener(new AsyncFingerprint.OnEmptyListener() {
             @Override
@@ -243,6 +242,16 @@ public class ReverseActivity extends BasePrintActivity {
             btReverse.setEnabled(false);
         }
 
+        ckReverseCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    if (BluetoothPrintDriver.IsNoConnection())
+                        ckReverseCheckbox.setChecked(false);
+                    showDeviceList();
+                }else  isPrint =false;
+            }
+        });
     }
 
     @Override
@@ -252,37 +261,36 @@ public class ReverseActivity extends BasePrintActivity {
 
     @Override
     protected void showConnectedDeviceName(String mConnectedDeviceName) {
-
+        isPrint =true;
+        ckReverseCheckbox.setChecked(isPrint);
+        ToastUtils.success("Connect success" + "   "+mConnectedDeviceName);
     }
 
 
-    private String   input;
-    private float    inputFloat;
+    private String input;
+    private float inputFloat;
 
     private void save() {
 
-        if (DataUtils.isEmpty(bean)){
+        if (DataUtils.isEmpty(bean)) {
             ToastUtils.error("PLEASE FIND COMMUTER");
             return;
         }
 
         input = edReverseAmount.getText().toString();
-        if (DataUtils.isNullString(input)){
+        if (DataUtils.isNullString(input)) {
             ToastUtils.error("PLEASE INPUT");
             return;
         }
         inputFloat = Float.valueOf(input);
 
-        if (inputFloat>(bean.getDeposits()-bean.getFarePaid())){
+        if (inputFloat > (bean.getDeposits() - bean.getFarePaid())) {
             ToastUtils.error("The reverse recharging amount should not exceed the balance");
             return;
         }
 
 
-
         asyncFingerprint.validate2();
-
-
 
 
     }
@@ -292,12 +300,13 @@ public class ReverseActivity extends BasePrintActivity {
         switch (view.getId()) {
             case R.id.bt_reverse:
                 String s = edReverseCommuter.getText().toString();
-                if (DataUtils.isNullString(s)){
+                if (DataUtils.isNullString(s)) {
                     ToastUtils.error("PLEASE INPUT");
                     return;
                 }
                 bean = DbHelper.getCommuterInfo(s);
-                if (DataUtils.isEmpty(bean)) ToastUtils.error("ERROR"); else ToastUtils.success("SUCCESS");
+                if (DataUtils.isEmpty(bean)) ToastUtils.error("ERROR");
+                else ToastUtils.success("SUCCESS");
 
                 break;
             case R.id.bt_reverse_sava:
@@ -306,5 +315,17 @@ public class ReverseActivity extends BasePrintActivity {
             case R.id.bt_reverse_cancel:
                 break;
         }
+    }
+
+    @Override
+    public void success() {
+        ToastUtils.success("SUCCESS");
+        onBackPressed();
+    }
+
+    @Override
+    public void error(String str) {
+        ToastUtils.error(str);
+
     }
 }

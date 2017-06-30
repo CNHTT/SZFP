@@ -1,0 +1,392 @@
+<resources>
+    <string name="app_name" translatable="false">飞峰科技</string>
+    <string name="welcome" translatable="false">深圳市飞峰科技有限公司</string>
+    <string name="sing_in" translatable="false">SIGN IN</string>
+    <string name="enter_id" translatable="false">Login ID</string>
+    <string name="enter_pin" translatable="false">Login Passwords</string>
+    <string name="login" translatable="false">LOG IN</string>
+    <string name="main_menu" translatable="false">Main Menu</string>
+    <string name="main_service">Please select the service you need</string>
+
+    <string name="print_finger">请按指纹！</string>
+    <string name="print_finger_again">请再次按指纹！</string>
+    <string name="processing">指纹采集成功，正在上传处理...</string>
+    <string name="generate_char_fail">生成特征值失败！</string>
+    <string name="reg_model_success">合成模板成功！</string>
+    <string name="reg_model_fail">合成模板失败！</string>
+    <string name="register_success">注册成功！</string>
+    <string name="register_fail">注册失败！</string>
+    <string name="verifying_wait">正在验证，请稍后...</string>
+    <string name="down_char_fail">验证失败</string>
+    <string name="verifying_through">验证通过</string>
+    <string name="verifying_fail">验证失败</string>
+    <string name="up_image_success">上传指纹图像成功</string>
+    <string name="up_image_fail">上传指纹图像失败</string>
+
+
+    <!-- RFID -->
+    <string name="card_number">卡号</string>
+    <string name="read_card">读卡</string>
+    <string name="write_card">写卡</string>
+    <string name="write_password">密码：</string>
+    <string name="update_password">修改密码</string>
+    <string name="write_block_num">写入块号：</string>
+    <string name="write_data">写入数据：</string>
+    <string name="read_block_num">读入块号：</string>
+    <string name="read_data">读入数据：</string>
+    <string name="getcard_wait">正在获取卡号，请稍后...</string>
+    <string name="updatepwding_wait">正在修改密码，请稍后...</string>
+    <string name="writing_wait">正在写卡，请稍后...</string>
+    <string name="reading_wait">正在读卡，请稍后...</string>
+    <string name="writing_success">写卡成功</string>
+    <string name="writing_fail">写卡失败</string>
+    <string name="reading_success">读卡成功</string>
+    <string name="reading_fail">读卡失败</string>
+    <string name="card_to_area">请将卡放入读卡区</string>
+    <string name="first_card">请先读卡，再验证指纹！</string>
+    <string name="back">back</string>
+    <string name="register_fingerprint">注册指纹</string>
+    <string name="validate_fingerprint">验证指纹</string>
+    <string name="save_model">保存模板</string>
+    <string name="compares">比较</string>
+    <string name="match">匹配</string>
+    <string name="clear_flash">清空指纹库</string>
+    <string name="calibration">校准</string>
+    <string name="calibration_success">校准成功</string>
+    <string name="calibration_fail">校准失败</string>
+    <string name="clear_flash_success">清空指纹库成功</string>
+    <string name="clear_flash_fail">清空指纹库失败</string>
+    <string name="first_register">请先注册指纹！</string>
+    <string name="no_card_with_data">未寻到卡,有返回数据</string>
+    <string name="no_card_without_data">未寻到卡,无返回数据，超时！！</string>
+    <string name="find_card_exception">可能是串口打开失败或其他异常</string>
+    <string name="write_data_toast">写入数据和块号不能为空</string>
+    <string name="write_toast">写入时 块号、数据不能为空</string>
+    <string name="read_toast">读入 时块号不能为空</string>
+
+    <!-- barcode -->
+    <string name="open_success">open bar code success</string>
+    <string name="open_fail">open bar code fail</string>
+    <string name="close_success">close bar code success</string>
+    <string name="close_fail">close bar code fail</string>
+    <string name="scan">scan</string>
+    <string name="scan_parameter">Scan Configuration Parameter</string>
+    <string name="close_scan">close</string>
+    <string name="setting">设置</string>
+    <string name="singleScan">单次扫描</string>
+    <string name="not_init">Not initialized!</string>
+    <string name="not_open">Not open!</string>
+    <string name="open_sanner">Is opening the scanner</string>
+    <string name="setHost">setHost</string>
+    <string name="packetformat">packetformat</string>
+    <string name="startdecode">startdecode</string>
+    <string name="ack">ACK</string>
+    <string name="noID">请输入要比对的ID</string>
+    <string name="nak">NAK</string>
+    <string name="prepare_dialog">正在准备，请稍候...</string>
+    <string name="decode_fail">解码失败</string>
+    <string name="enable">enable</string>
+    <string name="disable">disable</string>
+    <string name="restore">Set Factory Defaults</string>
+    <string name="set_host">Set Host</string>
+    <string name="disable_all_symbologies">Disable All Symbologies</string>
+    <string name="one_d_symbologies">1D Symbologies</string>
+    <string name="upc_a_text">UPC-A</string>
+    <string name="upc_e_text">UPC-E</string>
+    <string name="upc_e1_text">UPC-E1</string>
+    <string name="ean_8_jan_8_text">EAN-8/JAN-8</string>
+    <string name="ean_13_jan_13_text">EAN-13/JAN-13</string>
+    <string name="bookland_ean_text">Bookland EAN</string>
+    <string name="bookland_isbn_format_text">Bookland ISBN Format</string>
+    <string name="enable_isbn_10">Bookland ISBN-10</string>
+    <string name="enable_isbn_13">Bookland ISBN-13</string>
+    <string name="ucc_coupon_extended_code_text">UCC COUPON EXTENDED CODE</string>
+    <string name="issn_ean_text">ISSN EAN</string>
+    <string name="code_128_text">Code 128</string>
+    <string name="gs1_128_text">GS1-128 (formerly UCC/EAN-128)</string>
+    <string name="isbt_128_text">ISBT 128</string>
+    <string name="code_39_text">Code 39</string>
+    <string name="trioptic_code_39_text">Trioptic Code 39</string>
+    <string name="code_93_text">Code 93</string>
+    <string name="code_11_text">Code 11</string>
+    <string name="itf_text">Interleaved 2 of 5</string>
+    <string name="dtf_text">Discrete 2 of 5</string>
+    <string name="codabar_text">Codabar</string>
+    <string name="msi_text">MSI</string>
+    <string name="ctf_text">Chinese 2 of 5</string>
+    <string name="mtf_text">Matrix 2 of 5</string>
+    <string name="ktf_text">Korean 3 of 5</string>
+    <string name="inverse_1d_text">Inverse 1D</string>
+    <string name="regular">Regular</string>
+    <string name="inverse_only">Inverse Only</string>
+    <string name="inverse_autodetect">Inverse Autodetect</string>
+    <string name="two_d_symbologies">2D Symbologies</string>
+    <string name="pdf417_text">PDF417</string>
+    <string name="micro_pdf417_text">MicroPDF417</string>
+    <string name="code_128_emulation_text">Code 128 Emulation</string>
+    <string name="data_matrix">Data Matrix</string>
+    <string name="data_matrix_inverse_text">Data Matrix Inverse</string>
+    <string name="decode_mirror_images_text">Decode Mirror Images (Data Matrix Only)</string>
+    <string name="never">Never</string>
+    <string name="always">Always</string>
+    <string name="auto">Auto</string>
+    <string name="maxicode_text">Maxicode</string>
+    <string name="qr_code_text">QR Code</string>
+    <string name="qr_inverse_text">QR Inverse</string>
+    <string name="micro_qr_text">MicroQR</string>
+    <string name="aztec_text">Aztec</string>
+    <string name="aztec_inverse_text">Aztec Inverse</string>
+    <string name="hanxin_text">Han Xin</string>
+    <string name="postal_codes">Postal Codes</string>
+    <string name="us_postnet_text">US Postnet</string>
+    <string name="us_planet_text">US Planet</string>
+    <string name="uk_postal_text">UK Postal</string>
+    <string name="japan_postal_text">Japan Postal</string>
+    <string name="australia_post_text">Australia Post</string>
+    <string name="netherlands_kix_code_text">Netherlands KIX Code</string>
+    <string name="usps_4cb_one_code_intelligent_mail_text">USPS 4CB/One Code/Intelligent Mail</string>
+    <string name="upu_fics_postal_text">UPU FICS Postal</string>
+    <string name="set_success">Set successfully</string>
+    <string name="set_fail">Failed to set</string>
+    <!-- 15693 -->
+    <string name="init">初始化</string>
+    <string name="find">寻卡</string>
+    <string name="read_15693">读卡</string>
+    <string name="stopread">停止读卡</string>
+    <string name="back_15693">返回</string>
+    <string name="write_15693">写卡</string>
+    <string name="no_null_toast">数据不能为空！</string>
+    <string name="init_success">初始化成功</string>
+    <string name="init_fail">初始化失败</string>
+    <string name="find_success">寻卡成功</string>
+    <string name="find_fail">寻卡失败</string>
+    <string name="read_15693_success">读卡成功</string>
+    <string name="read_15693_fail">读卡失败</string>
+    <string name="write_15693_success">写卡成功</string>
+    <string name="write_15693_fail">写卡失败</string>
+
+    <!-- PR9200 UHF -->
+    <string name="str_conn">连接设备</string>
+    <string name="str_do_conn">正在连接设备，请稍后...</string>
+    <string name="power">功率：</string>
+    <string name="update">修改</string>
+    <string name="tab_read">标签读取</string>
+    <string name="tab_write">标签写入</string>
+    <string name="txt_tag_tit">选中标签:</string>
+    <string name="txt_read_eare">读取区域:</string>
+    <string name="txt_write_eare">写入区域:</string>
+    <string name="txt_offset">偏移地址:</string>
+    <string name="txt_length">数据长度:</string>
+    <string name="txt_accesspwd">访问密码:</string>
+    <string name="txt_timeout">超时设置:</string>
+    <string name="txt_null">N/A</string>
+    <string name="txt_pwdzero">00000000</string>
+    <string name="txt_ok">确定</string>
+    <string name="txt_cancel">取消</string>
+    <string name="button_read">读取</string>
+    <string name="button_write">写入</string>
+    <string name="inventory_over">盘点结束</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_open">开启模块</string>
+    <string name="button_inv">搜索标签</string>
+    <string name="txt_count">0000</string>
+    <string name="info_connect_success">连接成功</string>
+    <string name="info_antenna_fail">天线参数设置失败</string>
+    <string name="info_connect_fail">连接失败</string>
+    <string name="info_disconnect_success">断开成功</string>
+    <string name="info_disconnect_fail">断开失败</string>
+    <string name="info_inv_success">开始搜索标签</string>
+    <string name="info_inv_fail">搜索标签启动失败</string>
+    <string name="info_stopinv_success">停止搜索标签</string>
+    <string name="info_stopinv_fail">搜索标签停止失败</string>
+    <string name="info_no_sel_tag">未选择要操作的标签</string>
+    <string name="info_readio_buzy">模块正在处理其他事务(如盘点),请稍后重试</string>
+    <string name="info_oper_fail">操作失败</string>
+    <string name="info_no_tags">未发现任何标签</string>
+    <string name="info_tag_read_error">标签读取出错</string>
+    <string name="info_write_length_zero">写入数据长度不允许为0</string>
+    <string name="info_write_length_error">数据长度与实际要写入的数据长度不符(字符数必须为数据长度的4倍)</string>
+    <string name="info_write_success">成功向标签写入数据</string>
+    <string name="info_tag_write_error">标签写入出错</string>
+    <string name="read_time">读取次数：</string>
+
+
+    <string-array name="meaus">
+        <item>Industry</item>
+        <item>Reports</item>
+        <item>Admin</item>
+    </string-array>
+
+
+    <string-array name="industrys">
+        <item>Transport</item>
+        <item>BanKing</item>
+        <item>Hum an Resource</item>
+        <item>WareHouse</item>
+        <item>Education</item>
+        <item>Elections</item>
+        <item>Agriculture</item>
+    </string-array>
+
+
+    <string-array name="transports">
+        <item>Vehicles Registration</item>
+        <item>Commuter Registration</item>
+        <item>Dynamic Fare</item>
+        <item>Static Fare</item>
+        <item>Reverse Fare</item>
+    </string-array>
+    <string name="industry_menu">Industry</string>
+    <string name="transport_menu">Transport Management Module</string>
+    <string name="transport_mian_title" translatable="false">Customer Service User Information</string>
+    <string name="transport_mian_naviga">Navigaction Menu</string>
+    <string name="search_commuter">Search Commuter</string>
+    <string name="search_vehicles">Search Vehicles</string>
+    <string name="top_up">Top up</string>
+    <string name="upload_data">Upload data</string>
+    <string name="reports">Reports</string>
+    <string name="vechicles_reg">Vehicles Registration</string>
+    <string name="name_of_owner">Name of Owner</string>
+    <string name="id_no">ID No</string>
+    <string name="contacts">Contacts:</string>
+    <string name="home_address">Home Address</string>
+    <string name="photo">photo</string>
+    <string name="finger_print">Finger print</string>
+    <string name="finger_print_hine">Please input fingerprint</string>
+    <string name="name_of_primary_driver">Name of Primary Driver</string>
+    <string name="driving_license_no">Driving License No</string>
+    <string name="driver_fingerprint">Driver Fingerprint</string>
+    <string name="make_of_vehicle">Make Of Vehicle</string>
+    <string name="reg_no">Reg no</string>
+    <string name="model">Model</string>
+    <string name="year_of_vehicle">Year of vehicle</string>
+    <string name="color">color</string>
+    <string name="psv_no">psv No</string>
+    <string name="designated_route">Desiginnated Route</string>
+    <string name="passenger_no">passenger No</string>
+    <string name="conductor">Conductor</string>
+    <string name="registration">Registration</string>
+    <string name="cancel">Cancel</string>
+    <string name="commuter_title">Please fill in the form below to crate a new user</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="email">Email:</string>
+    <string name="national_id">National ID</string>
+    <string name="register_fingerprints">Register Fingerprints</string>
+    <string name="set_fixed_fare">Set Fixed Fare</string>
+    <string name="fare_ksh">Fare Ksh:</string>
+    <string name="save">Save</string>
+    <string name="dynamic_fare">Dynamic Fare</string>
+    <string name="minimum">Minimum:</string>
+    <string name="maximum">Maximum</string>
+    <string name="resverse_fare">Reverse Fare</string>
+    <string name="search_commuter1">Search Commuter:</string>
+    <string name="search">Search</string>
+    <string name="amount">Amount:</string>
+    <string name="reverse">Reverse</string>
+    <string name="home"><u>Home:</u></string>
+    <string name="commuter_account_information">Commuter Account Information</string>
+    <string name="user">User:</string>
+    <string name="acc">ACC</string>
+    <string name="commuter_account">Commuter Account</string>
+    <string name="full_name">Fullname</string>
+    <string name="registration_date">Registration Date</string>
+    <string name="fingerprint_key_status">Fingerprint Key Status</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="edit_account">Edif Account</string>
+    <string name="top_up_fare">Top up Fare</string>
+    <string name="reverse_transaction">Reverse Transaction</string>
+    <string name="full_report">Full report</string>
+    <string name="account_report">Account Report</string>
+    <string name="a_c">A/C Number</string>
+    <string name="deposits">Deposits</string>
+    <string name="date_deposited">Date Deposited</string>
+    <string name="fare_paid">Fare paid</string>
+    <string name="date">Date</string>
+    <string name="balance">Balance</string>
+    <string name="bank_module">BANK MODULE</string>
+    <string name="account_opening">Account opening</string>
+    <string name="deposit">Deposit</string>
+    <string name="funds_transfer">Funds ransfer</string>
+    <string name="account_statement">Account statement</string>
+    <string name="shopping">Shopping</string>
+    <string name="bill_payment">Bill payment</string>
+    <string name="admin">Admin</string>
+    <string name="airtime_purchase">Airtime Purchase</string>
+    <string name="bank_register">Bank Registration</string>
+    <string name="bank_customer_registration">Bank customer registration</string>
+    <string name="bank_name">Bank Name:</string>
+    <string name="address">Address:</string>
+    <string name="branches">Branches:</string>
+    <string name="account_types">Account types:</string>
+    <string name="register">register</string>
+    <string name="bank_customer_register">Bank customer registration</string>
+    <string name="customer_Names">Customer Names</string>
+    <string name="gender">Gender</string>
+    <string name="choose_sex">Please select gender</string>
+    <string name="marital_status">Marital Status</string>
+    <string name="branch">Branch</string>
+    <string name="members_info">Members Info</string>
+    <string name="fosa_account">FOSA Account</string>
+    <string name="number">Number</string>
+    <string name="account_found">Account found</string>
+    <string name="edit_customer_details">Edit Customer Details</string>
+    <string name="account_code">Account Code</string>
+    <string name="account_type">Account Type</string>
+    <string name="account_status">Account Status</string>
+    <string name="total">Total</string>
+    <string name="student_gatas_pass">Student/Staff Gate Pass</string>
+    <string name="class_attendance">Class Attendance</string>
+    <string name="upload_student">Upload Student/Staff Data</string>
+    <string name="attendance_report">Attendance Report</string>
+    <string name="register_student_staff">Register Student/Staff</string>
+    <string name="fee_statement">Fee Statement</string>
+    <string name="extra_curriculums">Extra Curriculums</string>
+    <string name="register_student">Register student</string>
+    <string name="register_staff">Register Staff</string>
+    <string name="school_name">Hunan University of Science and Technology</string>
+    <string name="school_city">XiangTan</string>
+    <string name="c_b">Capture basic student information</string>
+    <string name="student_photo">Student Photo</string>
+    <string name="admission_number">Admission Number</string>
+    <string name="capture_fingerprints">Capture Fingerprints</string>
+    <string name="fingerprint_collection">Fingerprint collection</string>
+    <string name="admission_date">Admission Date</string>
+    <string name="Gender">Gender</string>
+    <string name="m">M</string>
+    <string name="f">F</string>
+    <string name="nationality">Nationality</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="department">Department</string>
+    <string name="zero">0</string>
+    <string name="boarding_type">Boarding type</string>
+    <string name="day">day</string>
+    <string name="hostel_part_time">Hostel part time</string>
+    <string name="call_photo">Cell phone</string>
+    <string name="next_o_kin">Next of kin/Guardhosian</string>
+    <string name="guardians_first">First guardian</string>
+    <string name="guardians_names">guardians names</string>
+    <string name="relationship">Relationship</string>
+    <string name="guardians_contacts">guardians contacts</string>
+    <string name="guardians_second">Second guardian</string>
+    <string name="permanent_home_address">Permanent Home Address</string>
+    <string name="present_home_address">Present Home Address</string>
+    <string name="finger_print_photo">Finger Print Photo</string>
+    <string name="vehicles_commuter_account">Commuter Account</string>
+    <string name="please_input">PLEASE INPUT</string>
+    <string name="no_find">No Find</string>
+    <string name="not_sufficient_funds">not sufficient funds</string>
+    <string name="please_input_fingerprint">Please enter your fingerprint</string>
+    <string name="give_receipt">give receipt</string>
+
+
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+    <string name="export_str">Export to PDF format</string>
+    <string name="no">NO</string>
+</resources>

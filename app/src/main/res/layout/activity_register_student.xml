@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.szfp.szfp.view.activity.RegisterStudentActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/student_school_img"
+                    android:layout_width="@dimen/space_60"
+                    android:layout_height="@dimen/space_60"
+                    android:layout_margin="@dimen/space_20"
+                    android:src="@mipmap/ic_launcher_round" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/student_school_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/school_name"
+                        android:textSize="@dimen/text_size_20" />
+
+                    <TextView
+                        android:id="@+id/student_school_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:padding="@dimen/space_10"
+                        android:text="@string/school_city"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_divbox"
+                android:padding="@dimen/space_5"
+                android:text="@string/c_b"
+                android:textColor="@color/black" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_20">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/first_name" />
+
+                    <EditText
+                        android:id="@+id/student_first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/last_name" />
+
+                    <EditText
+                        android:id="@+id/student_last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/admission_number" />
+
+                    <EditText
+                        android:id="@+id/student_admission_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:inputType="textCapWords"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_5">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_5"
+                                android:text="@string/capture_fingerprints" />
+
+                            <com.szfp.szfplib.weight.StateButton
+                                android:id="@+id/bt_student_fingerprints"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_5"
+                                android:text="@string/fingerprint_collection"
+                                android:textSize="@dimen/space_12"
+                                app:normalBackgroundColor="@color/lime"
+                                app:normalTextColor="@color/black"
+                                app:pressedBackgroundColor="@color/limegreen"
+                                app:radius="@dimen/space_2" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_student_fingerprints_photo"
+                            android:layout_width="@dimen/space_60"
+                            android:layout_height="80dp"
+                            android:layout_marginLeft="@dimen/space_20"
+                            android:layout_marginTop="@dimen/space_15"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:background="@mipmap/addphoto" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_10"
+                        android:text="@string/Gender" />
+
+                    <RadioGroup
+                        android:id="@+id/rgSex"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:checkedButton="@+id/male"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_5">
+
+                        <RadioButton
+                            android:id="@+id/male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/m" />
+
+                        <RadioButton
+                            android:id="@+id/female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/space_30"
+                            android:text="@string/f" />
+                    </RadioGroup>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/nationality" />
+
+                    <EditText
+                        android:id="@+id/student_nationality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_10"
+                        android:text="@string/boarding_type" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_board_type"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:checkedButton="@+id/male"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_5">
+
+                        <RadioButton
+                            android:id="@+id/type_day"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/day" />
+
+                        <RadioButton
+                            android:id="@+id/type_hostel_part_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/space_30"
+                            android:text="@string/hostel_part_time" />
+                    </RadioGroup>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/email" />
+
+                    <EditText
+                        android:id="@+id/et_student_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/shadow"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_10"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/student_photo" />
+
+                        <ImageView
+                            android:id="@+id/iv_student_capture_photo"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_marginTop="@dimen/space_15"
+                            android:scaleType="fitXY"
+                            android:background="@mipmap/addphoto" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:text="@string/admission_date" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space_1">
+
+                        <EditText
+
+                            android:id="@+id/et_student_admission_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_5"
+                            android:background="@drawable/text_divbox"
+                            android:inputType="date"
+                            android:maxLines="1"
+                            android:minEms="10"
+                            android:maxLength="10"
+                            android:padding="@dimen/space_5" />
+
+                        <Button
+                            android:id="@+id/bt_student_admission_date"
+                            android:layout_width="@dimen/space_24"
+                            android:layout_height="@dimen/space_24"
+                            android:layout_margin="@dimen/space_5"
+                            android:background="@drawable/ic_date_range_black_24dp" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:text="@string/date_of_birth" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <EditText
+
+                            android:id="@+id/et_student_date_of_birth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_5"
+                            android:background="@drawable/text_divbox"
+                            android:inputType="date"
+                            android:maxLines="1"
+                            android:minEms="10"
+                            android:maxLength="10"
+                            android:padding="@dimen/space_5" />
+
+                        <Button
+                            android:id="@+id/bt_student_date_of_birth"
+                            android:layout_width="@dimen/space_24"
+                            android:layout_height="@dimen/space_24"
+                            android:layout_margin="@dimen/space_5"
+                            android:background="@drawable/ic_date_range_black_24dp" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_15"
+                        android:text="@string/department" />
+
+                    <TextView
+                        android:id="@+id/tv_student_department"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:hint="@string/zero"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/call_photo" />
+
+                    <EditText
+                        android:id="@+id/et_student_call_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_divbox"
+                android:padding="@dimen/space_5"
+                android:text="@string/next_o_kin"
+                android:textColor="@color/black" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/space_20">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/divbox"
+                        android:padding="@dimen/space_5"
+                        android:text="@string/guardians_first"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/guardians_names" />
+
+                    <EditText
+                        android:id="@+id/ed_student_first_guardians_names"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/relationship" />
+
+                    <EditText
+                        android:id="@+id/ed_student_first_relationship"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/guardians_contacts" />
+
+                    <EditText
+                        android:id="@+id/ed_student_first_guardians_contacts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_20"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/divbox"
+                        android:padding="@dimen/space_5"
+                        android:text="@string/guardians_second"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/guardians_names" />
+
+                    <EditText
+                        android:id="@+id/ed_student_second_guardians_names"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/relationship" />
+
+                    <EditText
+                        android:id="@+id/ed_student_second_relationship"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:text="@string/guardians_contacts" />
+
+                    <EditText
+                        android:id="@+id/ed_student_second_guardians_contacts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_5"
+                        android:background="@drawable/text_divbox"
+                        android:maxLines="1"
+                        android:padding="@dimen/space_5" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_divbox"
+                    android:padding="@dimen/space_5"
+                    android:text="@string/home_address"
+                    android:textColor="@color/black" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_20">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_5"
+                            android:text="@string/permanent_home_address" />
+
+                        <EditText
+                            android:id="@+id/ed_student_permanent_home_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_5"
+                            android:background="@drawable/text_divbox"
+                            android:maxLines="1"
+                            android:padding="@dimen/space_5" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_20">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_5"
+                            android:text="@string/present_home_address" />
+
+                        <EditText
+                            android:id="@+id/ed_student_present_home_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_5"
+                            android:background="@drawable/text_divbox"
+                            android:maxLines="1"
+                            android:padding="@dimen/space_5" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/space_40">
+
+                    <com.szfp.szfplib.weight.StateButton
+                        android:id="@+id/bt_student_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/space_5"
+                        android:text="@string/register"
+                        app:normalBackgroundColor="@color/login_normal"
+                        app:normalTextColor="@color/white"
+                        app:pressedBackgroundColor="@color/login_pass"
+                        app:pressedTextColor="@color/white" />
+
+                    <View
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"></View>
+
+                    <com.szfp.szfplib.weight.StateButton
+                        android:id="@+id/bt_student_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/space_5"
+                        android:text="@string/cancel"
+                        app:normalBackgroundColor="@color/login_normal"
+                        app:normalTextColor="@color/white"
+                        app:pressedBackgroundColor="@color/login_pass"
+                        app:pressedTextColor="@color/white" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

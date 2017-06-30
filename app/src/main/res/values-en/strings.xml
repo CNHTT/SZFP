@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SZFPTECH</string>
+    <string name="welcome" translatable="false">SZFPTECH</string>
+    <string name="sing_in" translatable="false">SIGN IN</string>
+    <string name="enter_id" translatable="false">Enter ID</string>
+    <string name="enter_pin" translatable="false">Enter PIN</string>
+    <string name="login" translatable="false">LOG IN</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="transport_mian_title">Customer Service User Information</string>
+    <string name="year_of_vehicle">Year of vehicle</string>
+    <string-array name="features">
+        <item>IDCard</item>
+        <item>BDSystem</item>
+        <item>ReadCycle</item>
+        <item>Fingerprint</item>
+        <item>M1Card</item>
+        <item>15693Tag</item>
+        <item>HX_UHF</item>
+        <item>CFon640ICCard</item>
+        <item>CPUCard</item>
+        <item>4GA370/CFon640SoftCoding</item>
+        <item>PsamCard</item>
+        <item>ContactedBankCard</item>
+        <item>FBIFingerprint</item>
+        <item>NFC</item>
+    </string-array>
+    <string-array name="ic_cmd_value">
+        <item>Please select the IC card operation instruction</item>
+        <item>Delete files</item>
+        <item>The establishment of MF</item>
+        <item>The end of the establishment of MF</item>
+        <item>The establishment of DF</item>
+        <item>The end of the establishment of DF</item>
+        <item>The establishment of binary</item>
+        <item>Choose a binary file</item>
+        <item>Read binary files</item>
+        <item>Write a binary file</item>
+        <item>Select the PBOC home directory</item>
+        <item>Get a random number</item>
+    </string-array>
+    <!-- main activity -->
+    <string name="feature_settings">Settings</string>
+    <string name="baudrate">Baudrate:</string>
+    <string name="version">Version</string>
+    <string name="stop_connect">Disconnect</string>
+    <string name="pin">ID</string>
+    <string name="beidou">BeiDou</string>
+    <string name="fingerprint">Fingerprint</string>
+    <string name="loop_read">Loop Read</string>
+    <string name="barcode">Bar Code</string>
+    <string name="rfid">RFID</string>
+    <string name="exit_toast">Press again to exit the program</string>
+    <!-- sfz activity -->
+    <string name="read_sfz">Reader</string>
+    <string name="sequential_sfz">Continuous reader</string>
+    <string name="stop">Stop</string>
+    <string name="clear_sfz">Clear</string>
+    <string name="read_card_fail">Did not find a card</string>
+    <string name="read_card_success">Successful reader</string>
+    <!-- 北斗 -->
+    <string name="start_control_command">Start control command</string>
+    <string name="mode_switch_command">Mode switching command</string>
+    <string name="statement_frequency_command">Statement and frequency control command</string>
+    <!-- FingerprintActivity -->
+    <string name="print_finger">Please click fingerprints!</string>
+    <string name="print_finger_again">Press again fingerprint!</string>
+    <string name="processing">Processing ...</string>
+    <string name="generate_char_fail">Generate the feature value failed!</string>
+    <string name="reg_model_success">Template synthesis success!</string>
+    <string name="reg_model_fail">Synthetic template failed!</string>
+    <string name="register_success">Registered successfully!</string>
+    <string name="register_fail">Registration failed!</string>
+    <string name="verifying_wait">Validating, please wait ...</string>
+    <string name="down_char_fail">Download a template fails</string>
+    <string name="verifying_through">Verified through</string>
+    <string name="verifying_fail">Authentication failed</string>
+    <string name="up_image_success">up image success</string>
+    <string name="up_image_fail">up image fail</string>
+    <string name="clear_model">Clear Model</string>
+    <string name="id_model">ID:</string>
+    <string name="clear_model_success">clear model success</string>
+    <string name="clear_model_fail">clear model fail</string>
+    <string name="register3">register</string>
+    <string name="down_store">down and store</string>
+    <string name="validate3">verification</string>
+    <string name="down_store_success">down and store success</string>
+    <string name="down_store_fail">down and store fail</string>
+    <string name="search_success">search success</string>
+    <string name="search_fail">search fail</string>
+    <string name="down_store_null">model can not be null</string>
+
+    <string-array name="fingerprint_size">
+        <item>small fingerprint</item>
+        <item>big fingerprint</item>
+    </string-array>
+
+    <!-- RFID -->
+    <string name="card_number">Card</string>
+    <string name="read_card">Reader</string>
+    <string name="write_card">Write cards</string>
+    <string name="write_password">Password:</string>
+    <string name="update_password">Change Password</string>
+    <string name="write_block_num">Write block number:</string>
+    <string name="write_data">Write Data:</string>
+    <string name="read_block_num">Read block number:</string>
+    <string name="read_data">Read data:</string>
+    <string name="getcard_wait">reading card number, please wait...</string>
+    <string name="updatepwding_wait">changing password, please wait...</string>
+    <string name="writing_wait">Writing cards, please wait ...</string>
+    <string name="reading_wait">Being reader, please wait ...</string>
+    <string name="writing_success">Successful write cards</string>
+    <string name="writing_fail">Failed to write cards</string>
+    <string name="reading_success">Successful reader</string>
+    <string name="reading_fail">Reader fails</string>
+    <string name="card_to_area">Keep the card into a reader</string>
+    <string name="first_card">Please reader, and then verify the fingerprint!</string>
+    <string name="back">Back</string>
+    <string name="register_fingerprint">Registering</string>
+    <string name="save_model">SaveModel</string>
+    <string name="compares">Compares</string>
+    <string name="match">Match</string>
+    <string name="validate_fingerprint">Verification</string>
+    <string name="clear_flash">Clear Flash</string>
+    <string name="calibration">calibration</string>
+    <string name="calibration_success">Successful calibration</string>
+    <string name="calibration_fail">Calibration failure</string>
+    <string name="clear_flash_success">Empty the fingerprint flash success</string>
+    <string name="clear_flash_fail">Empty the fingerprint flash fail</string>
+    <string name="first_register">Please register fingerprints!</string>
+    <string name="no_card_with_data">Did not find a card with return data</string>
+    <string name="no_card_without_data">Did not find a card with no return data, timeout! </string>
+    <string name="find_card_exception">May be other exceptions</string>
+    <string name="bluetooth_no_connect">Bluetooth is not connected!</string>
+    <string name="write_data_toast">Write data can not be empty</string>
+    <string name="write_toast">Write block number, the data can not be empty</string>
+    <string name="read_toast">When read in block number can not be empty</string>
+
+    <!-- barcode -->
+    <string name="open_success">open bar code success</string>
+    <string name="open_fail">open bar code fail</string>
+    <string name="close_success">close bar code success</string>
+    <string name="close_fail">close bar code fail</string>
+    <string name="scan">scan</string>
+    <string name="scan_parameter">Scan Configuration Parameter</string>
+    <string name="close_scan">close</string>
+    <string name="setting">Setting</string>
+    <string name="singleScan">singleScan</string>
+    <string name="not_init">Not initialized!</string>
+    <string name="not_open">Not open!</string>
+    <string name="open_sanner">Is opening the scanner</string>
+    <string name="setHost">setHost</string>
+    <string name="packetformat">packetformat</string>
+    <string name="startdecode">startdecode</string>
+    <string name="ack">ACK</string>
+    <string name="noID">Please enter the ID you want to match</string>
+    <string name="nak">NAK</string>
+    <string name="prepare_dialog">please wait...</string>
+    <string name="decode_fail">decode fail</string>
+    <string name="enable">enable</string>
+    <string name="disable">disable</string>
+    <string name="restore">Set Factory Defaults</string>
+    <string name="set_host">Set Host</string>
+    <string name="disable_all_symbologies">Disable All Symbologies</string>
+    <string name="one_d_symbologies">1D Symbologies</string>
+    <string name="upc_a_text">UPC-A</string>
+    <string name="upc_e_text">UPC-E</string>
+    <string name="upc_e1_text">UPC-E1</string>
+    <string name="ean_8_jan_8_text">EAN-8/JAN-8</string>
+    <string name="ean_13_jan_13_text">EAN-13/JAN-13</string>
+    <string name="bookland_ean_text">Bookland EAN</string>
+    <string name="bookland_isbn_format_text">Bookland ISBN Format</string>
+    <string name="enable_isbn_10">Bookland ISBN-10</string>
+    <string name="enable_isbn_13">Bookland ISBN-13</string>
+    <string name="ucc_coupon_extended_code_text">UCC COUPON EXTENDED CODE</string>
+    <string name="issn_ean_text">ISSN EAN</string>
+    <string name="code_128_text">Code 128</string>
+    <string name="gs1_128_text">GS1-128 (formerly UCC/EAN-128)</string>
+    <string name="isbt_128_text">ISBT 128</string>
+    <string name="code_39_text">Code 39</string>
+    <string name="trioptic_code_39_text">Trioptic Code 39</string>
+    <string name="code_93_text">Code 93</string>
+    <string name="code_11_text">Code 11</string>
+    <string name="itf_text">Interleaved 2 of 5</string>
+    <string name="dtf_text">Discrete 2 of 5</string>
+    <string name="codabar_text">Codabar</string>
+    <string name="msi_text">MSI</string>
+    <string name="ctf_text">Chinese 2 of 5</string>
+    <string name="mtf_text">Matrix 2 of 5</string>
+    <string name="ktf_text">Korean 3 of 5</string>
+    <string name="inverse_1d_text">Inverse 1D</string>
+    <string name="regular">Regular</string>
+    <string name="inverse_only">Inverse Only</string>
+    <string name="inverse_autodetect">Inverse Autodetect</string>
+    <string name="two_d_symbologies">2D Symbologies</string>
+    <string name="pdf417_text">PDF417</string>
+    <string name="micro_pdf417_text">MicroPDF417</string>
+    <string name="code_128_emulation_text">Code 128 Emulation</string>
+    <string name="data_matrix">Data Matrix</string>
+    <string name="data_matrix_inverse_text">Data Matrix Inverse</string>
+    <string name="decode_mirror_images_text">Decode Mirror Images (Data Matrix Only)</string>
+    <string name="never">Never</string>
+    <string name="always">Always</string>
+    <string name="auto">Auto</string>
+    <string name="maxicode_text">Maxicode</string>
+    <string name="qr_code_text">QR Code</string>
+    <string name="qr_inverse_text">QR Inverse</string>
+    <string name="micro_qr_text">MicroQR</string>
+    <string name="aztec_text">Aztec</string>
+    <string name="aztec_inverse_text">Aztec Inverse</string>
+    <string name="hanxin_text">Han Xin</string>
+    <string name="postal_codes">Postal Codes</string>
+    <string name="us_postnet_text">US Postnet</string>
+    <string name="us_planet_text">US Planet</string>
+    <string name="uk_postal_text">UK Postal</string>
+    <string name="japan_postal_text">Japan Postal</string>
+    <string name="australia_post_text">Australia Post</string>
+    <string name="netherlands_kix_code_text">Netherlands KIX Code</string>
+    <string name="usps_4cb_one_code_intelligent_mail_text">USPS 4CB/One Code/Intelligent Mail</string>
+    <string name="upu_fics_postal_text">UPU FICS Postal</string>
+    <string name="set_success">Set successfully</string>
+    <string name="set_fail">Failed to set</string>
+    <!-- 15693 -->
+    <string name="init">init</string>
+    <string name="find">find</string>
+    <string name="read_15693">Read</string>
+    <string name="stopread">Stop</string>
+    <string name="back_15693">Back</string>
+    <string name="write_15693">Write</string>
+    <string name="no_null_toast">Data cannot be empty!</string>
+    <string name="init_success">Initial success</string>
+    <string name="init_fail">Failed to initialize</string>
+    <string name="find_success">Success</string>
+    <string name="find_fail">Fail</string>
+    <string name="read_15693_success">Read Success</string>
+    <string name="read_15693_fail">Read Fail</string>
+    <string name="write_15693_success">Write Success</string>
+    <string name="write_15693_fail">Write Fail</string>
+
+    <!-- PR9200 UHF -->
+    <string name="str_conn">Connect device</string>
+    <string name="str_do_conn">Connecting device,please wait...</string>
+    <string name="power">Power:</string>
+    <string name="update">Update</string>
+    <string name="tab_read">Tag read</string>
+    <string name="tab_write">Tag write</string>
+    <string name="txt_tag_tit">Selected tag:</string>
+    <string name="txt_read_eare">Reading area:</string>
+    <string name="txt_write_eare">Writing area:</string>
+    <string name="txt_offset">Offset:</string>
+    <string name="txt_length">Length:</string>
+    <string name="txt_accesspwd">Password:</string>
+    <string name="txt_timeout">timeout:</string>
+    <string name="txt_null">N/A</string>
+    <string name="txt_pwdzero">00000000</string>
+    <string name="txt_ok">OK</string>
+    <string name="txt_cancel">Cancle</string>
+    <string name="button_read">Read</string>
+    <string name="button_write">Write</string>
+    <string name="inventory_over">Inventory over</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_open">Open</string>
+    <string name="button_inv">Inventory</string>
+    <string name="txt_count">0000</string>
+    <string name="info_connect_success">The connection is successful</string>
+    <string name="info_antenna_fail">Antenna parameters settings failed</string>
+    <string name="info_connect_fail">Connection failed</string>
+    <string name="info_disconnect_success">Disconnect the success</string>
+    <string name="info_disconnect_fail">Disconnect the failed</string>
+    <string name="info_inv_success">To start the search tag</string>
+    <string name="info_inv_fail">Search tag failed to start</string>
+    <string name="info_stopinv_success">Stop the search tag</string>
+    <string name="info_stopinv_fail">Failed to stop the search tag</string>
+    <string name="info_no_sel_tag">Not to the operation of label selection</string>
+    <string name="info_readio_buzy">The module is to deal with other affairs (such as inventory), please try again later</string>
+    <string name="info_oper_fail">The operation failed</string>
+    <string name="info_no_tags">Not found any label</string>
+    <string name="info_tag_read_error">Tag reading error</string>
+    <string name="info_write_length_zero">Write data length does not allow for 0</string>
+    <string name="info_write_length_error">The length of the data and the actual data to be written is the length (number of characters must be inconsistent data length of 4 times)</string>
+    <string name="info_write_success">Successful writing data to the tag</string>
+    <string name="info_tag_write_error">Tag writing error</string>
+    <string name="read_time">Reading times:</string>
+
+    <string-array name="dbm">
+        <item>18.0</item>
+        <item>18.5</item>
+        <item>19.0</item>
+        <item>19.5</item>
+        <item>20.0</item>
+        <item>20.5</item>
+        <item>21.0</item>
+        <item>21.5</item>
+        <item>22.0</item>
+        <item>22.5</item>
+        <item>23.0</item>
+        <item>23.5</item>
+        <item>24.0</item>
+        <item>24.5</item>
+        <item>25.0</item>
+    </string-array>
+
+    <!-- SmartCardActivity -->
+    <string name="send">Write</string>
+    <string name="recv">Read</string>
+    <string name="button_deletefile">Delete file</string>
+    <string name="button_printer">Print</string>
+    <string name="not_connected">Not connect a device</string>
+    <string name="bt_not_enabled_leaving">Bluetooth not launch,exit</string>
+    <string name="title_connecting">Connecting...</string>
+    <string name="title_connected_to">Connected: </string>
+    <string name="title_not_connected">Unconnected</string>
+    <string name="button_getrandom">Get random number</string>
+    <string name="button_clean">Clear</string>
+    <string name="button_break">Connect</string>
+    <string name="button_initcard">Initialize the card</string>
+    <string name="button_createfile">Create file</string>
+    <string name="TextView_name">Name</string>
+    <string name="TextView_ID">ID</string>
+    <string name="TextView_number">Number</string>
+    <string name="TextView_contact">Contact</string>
+    <string name="TextView_records">Record</string>
+    <string name="TextView_credits">Integral</string>
+    <string name="TextView_amount">Amount</string>
+    <string name="TextView_time">Time</string>
+    <string name="checkBox_sixteen">hexadecimal display</string>
+    <string name="radioMale">hexadecimal output</string>
+    <string name="checkBox_line_feed">Line output</string>
+    <string name="button_cleantwo">Clear</string>
+    <string name="duankai">Disconnect</string>
+    <string name="prompt_message">No data is available for viewing</string>
+    <string name="button_ReadIBAN">Read the card number</string>
+
+    <!-- SoftDecodingActivity -->
+    <string name="scanner_status">Status:</string>
+    <string name="scanner_loop">Scan cycle:</string>
+    <string name="clear_scanner_time">Clear</string>
+    <string name="scanner_total">Total:</string>
+    <string name="success_time">Success:</string>
+    <string name="open_scan">scan</string>
+    <string name="start_scan">scanning</string>
+    <string name="end_scan">End</string>
+    <string name="scan_settings">Settings</string>
+    <string name="output_mode">Output mode:</string>
+    <string name="terminal_char">Terminating character:</string>
+    <string name="prefix">Prefix:</string>
+    <string name="suffix">Suffix:</string>
+    <string name="volume">Volume:</string>
+    <string name="playone_mode">Sound and vibration:</string>
+
+    <string-array name="output_mode_array">
+        <item>Copy and paste model</item>
+        <item>Simulated keyboard mode</item>
+        <item>Don\'t display mode (copy paste board)</item>
+    </string-array>
+    <string-array name="terminal_char_array">
+        <item>Enter</item>
+        <item>Space</item>
+        <item>Tab</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="playone_mode">
+        <item>Sound</item>
+        <item>Vibration</item>
+        <item>Sound and vibration</item>
+        <item>None</item>
+    </string-array>
+
+    <!-- CPU卡 -->
+    <string name="cpu_init_title">CPU card initialization process</string>
+    <string name="cpu_switch_init">Single step initialization operation</string>
+    <string name="cpu_read_switch">Read the switch</string>
+    <string name="cpu_conf_reader">Configure the reader mode</string>
+    <string name="cpu_conf_prof">The configuration read card protocol mode</string>
+    <string name="cpu_setting">Set the check code reader</string>
+    <string name="cpu_search_card">Find cards</string>
+    <string name="cpu_coll_card">Collision card selection</string>
+    <string name="cpu_choose_card">Pick a card</string>
+    <string name="cpu_reset">Reset</string>
+    <string name="cpu_show_data">Test results show</string>
+    <string name="cpu_btn_init">Initialization</string>
+    <string name="cpu_btn_getrandom">For a random number</string>
+    <string name="cpu_success">The success of the operation</string>
+    <string name="cpu_failure">The operation failed</string>
+    <string name="cpu_init_progress">Initialization operation...</string>
+    <string name="cpu_getrandom_progress">Get random number...</string>
+    <string name="app_exit">Press again the program will exit</string>
+
+    <!-- SDL strings. -->
+    <string name="decode">Decode</string>
+    <string name="snap">Snapshot</string>
+    <string name="beep">beep</string>
+    <string name="getparam">Get</string>
+    <string name="setparam">Set</string>
+    <string name="dflparam">Defaults</string>
+    <string name="decoding">decoding</string>
+    <string name="snapping">taking snapshot</string>
+    <string name="pnum">Number</string>
+    <string name="pval">Value</string>
+    <string name="sdl">SDLtestApp</string>
+    <string name="reading">Reading Pane</string>
+    <string name="preview">Preview</string>
+    <string name="DecImage">GetDecodedImage</string>
+    <string name="stat">status</string>
+    <string name="handsfree">Hands Free</string>
+    <string name="blank"></string>
+    <string name="data">data</string>
+    <string name="prop">Properties</string>
+    <string name="video">Video</string>
+    <string name="Params">Parameters</string>
+
+    <!-- IC卡 -->
+    <string name="ic_show_count">Get a random number statistics :</string>
+    <string name="ic_not_empty">The input cannot be empty!</string>
+    <string name="ic_not_valid">The input is not legitimate!</string>
+    <string name="ic_switch_cmd">Switching instruction:</string>
+    <string name="ic_success">procedural success</string>
+    <string name="ic_failure">procedural failure</string>
+    <string name="ic_start_thread">Monitor card reset thread has been started</string>
+    <string name="ic_init_success">The card has not been initialized successfully or personal success lock</string>
+    <string name="ic_init_failure">The abnormal card initialization</string>
+    <string name="ic_switch_success">Switching instruction sent successfully</string>
+    <string name="ic_get_random_success">Get a random number of success</string>
+    <string name="ic_ll_show_data">Display data</string>
+    <string name="ic_ll_default_hex">The default fill in sixteen hexadecimal data</string>
+    <string name="ic_ll_clear">Clear</string>
+    <string name="ic_ll_send">Send</string>
+    <string name="ic_ll_clear_show">Clear display</string>
+    <string name="ic_ll_clear_count">Clear statistics</string>
+    <string name="ic_ll_switch_cmd">Switching instruction</string>
+    <string name="ic_ll_get_random">Get a random number</string>
+    <string name="ic_ll_cycle_get">Cyclic acquisition</string>
+    <string name="ic_ll_cycle_close">Closed cycle</string>
+    <string name="ic_ll_tips">During the test, the first implementation of the switching command, after waiting for 20s to return success around the time to see if there is an IC card, IC card detected, finally acquiring the random number \r\n implementation to establish MF or DF must manually perform the corresponding end command</string>
+    <!-- M1卡 -->
+    <string name="m1_title">M1 card Demo demonstration</string>
+    <string name="m1_card_type">Card type:</string>
+    <string name="m1_pwd_type">Password Type:</string>
+    <string name="m1_card_name">Card number:</string>
+    <string name="m1_show_card">Display card</string>
+    <string name="m1_pwda">Password A:</string>
+    <string name="m1_hint_tips12">Please write 12 characters 0-9, A-F, A-F between the characters</string>
+    <string name="m1_pwdb">Password B:</string>
+    <string name="m1_block_num">Block number:</string>
+    <string name="m1_write_block">Write a piece of data:</string>
+    <string name="m1_hint_tips32">Please write 32 characters 0-9, A-F, A-F between the characters</string>
+    <string name="m1_new_pwd">The new password:</string>
+    <string name="m1_read_block">Read data block:</string>
+    <string name="m1_necessary_done">The necessary operation function</string>
+    <string name="m1_get_card">Read card number</string>
+    <string name="m1_send_pwd">Send the password</string>
+    <string name="m1_valid_pwd">Password authentication</string>
+    <string name="m1_io">I/O operation function</string>
+    <string name="m1_write_numblock">Write the block data</string>
+    <string name="m1_update_numblock">Modify the specified block cipher</string>
+    <string name="m1_get_numblock">Read the block data</string>
+    <string name="m1_str_get_success">Get the number of success</string>
+    <string name="m1_str_update_pwd_success">Modify the password successfully</string>
+    <string name="m1_str_update_pwd_failure">Failed to modify the password</string>
+    <string name="m1_str_block_not_empty">The block number can not be empty</string>
+    <string name="m1_str_all_not_empty">PasswordA, PasswordB or write data cannot be empty</string>
+    <string name="m1_str_all_not_validate">PasswordA, PasswordB or write data is not legitimate</string>
+    <string name="m1_str_not_empty">PasswordA, PasswordB can not be empty</string>
+    <string name="txt_singleScanSetting">single scan setting</string>
+    <string name="title_activity_psam">PsamActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_hxuhfactivity640">HXUHFActivity640</string>
+    <string name="title_activity_soft_decodings">SoftDecodingsActivity</string>
+    <string name="title_activity_assss">AssssActivity</string>
+    <!--     接触式银行卡 -->
+    <string name="login_only_can_input">1234567890qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM</string>
+    <string name="card_being_dealt_with">Being dealt with ...</string>
+    <string name="card_insert_contact_card">Please insert or contact card</string>
+    <string name="card_read_success">Read success!</string>
+    <string name="card_read_fail">Read fail!</string>
+    <string name="card_card_number">Number : </string>
+    <string name="card_second_track">Sencond track: </string>
+    <string name="card_user_name">Name : </string>
+    <string name="card_no_configuration_info">No configuration info</string>
+    <string name="card_not_right">Not right</string>
+    <string name="card_not_support_nfc">Device not support NFC</string>
+    <string name="card_not_open_nfc">Did not open NFC device</string>
+    <string name="card_success">Success</string>
+    <string name="card_reset_nfc">NFC device exception,Please reset</string>
+    <string name="card_read">Read card</string>
+    <string name="card_confirm">Read</string>
+    <string name="card_clear">Clear</string>
+    <string name="card_is_transaction_processing">Is transaction processing</string>
+
+    <!-- 外接打印机 -->
+    <string name="connect_device">Connect device</string>
+    <string name="print_status">Printer status</string>
+    <string name="print_text">Print text</string>
+    <string name="print_bitmap">Print bitmap</string>
+    <string name="print_barcode">Print barcode</string>
+    <string name="print_qrcode">Print QR code</string>
+    <string name="disconnect_device">Disconnect device</string>
+    <string name="connect_success">Connect success</string>
+    <string name="connect_failed">Connect fail</string>
+    <string name="disconnect_success">Disconnect success</string>
+    <string name="disconnect_failed">Disconnect fail</string>
+    <string name="func_success">Operate success</string>
+    <string name="func_failed">Operate success</string>
+    <string name="def_text">1234567890</string>
+    <string name="image_faild">None</string>
+    <string name="title_activity_print">PrintActivity</string>
+
+    <!-- fbi -->
+    <string name="left_thumb">Left Thumb</string>
+    <string name="left_index">Left Index</string>
+    <string name="left_middle">Left Middle</string>
+    <string name="left_ring">Left Ring</string>
+    <string name="left_little">Left Little</string>
+    <string name="right_thumb">Right Thumb</string>
+    <string name="right_index">Right Index</string>
+    <string name="right_middle">Right Middle</string>
+    <string name="right_ring">Right Ring</string>
+    <string name="right_little">Right Little</string>
+    <string name="delete_all">Delete All</string>
+    <string name="identify">Identify</string>
+    <string name="grab">Grab Image</string>
+    <string name="navigate_raw">raw mode</string>
+    <string name="navigate_mouse">mouse mode</string>
+    <string name="navigate_discrete">discrete mode</string>
+    <string name="quit">Quit</string>
+    <string name="OK">OK</string>
+    <string name="fbi_regist">Regist</string>
+    <string name="fbi_save">Save</string>
+    <string name="fbi_verify">Verify</string>
+    <string name="fbi_clear">Clear</string>
+    <!-- nfc -->
+    <!-- nfc -->
+    <string name="info">NFC Testing。。。</string>
+    <string name="error">Error</string>
+    <string name="no_nfc">No NFC found on this device</string>
+    <string name="nfc_disabled">NFC is not enabled. Please go to the wireless settings to enable it.</string>
+</resources>

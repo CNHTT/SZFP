@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.szfp.szfp.view.activity.BankCustomerRegisterActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_20"
+            android:background="@drawable/shadow"
+            android:padding="@dimen/space_20"
+            android:text="@string/bank_customer_register"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_24"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/space_50"
+                android:layout_marginRight="@dimen/space_50"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_10">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/fosa_account"
+                                android:textColor="@color/black" />
+
+                            <EditText
+                                android:id="@+id/ed_fosa_account"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/space_20"
+                                android:layout_marginTop="@dimen/space_10"
+                                android:layout_weight="1"
+                                android:background="@drawable/text_divbox"
+                                android:inputType="number"
+                                android:padding="@dimen/space_5" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/customer_Names"
+                                android:textColor="@color/black" />
+
+                            <EditText
+                                android:id="@+id/ed_customer_names"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/space_20"
+                                android:layout_marginTop="@dimen/space_10"
+                                android:layout_weight="1"
+                                android:background="@drawable/text_divbox"
+                                android:padding="@dimen/space_5" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_10">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/gender"
+                                android:textColor="@color/black" />
+
+                            <RadioGroup
+                                android:id="@+id/b_c_Sex"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:checkedButton="@+id/male"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/space_5">
+
+                                <RadioButton
+                                    android:id="@+id/b_c_male"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/m" />
+
+                                <RadioButton
+                                    android:id="@+id/b_c_female"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/space_30"
+                                    android:text="@string/f" />
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/finger_print"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/bank_customer_fingerphoto"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:layout_margin="@dimen/space_5"
+                            android:layout_weight="1"
+                            android:background="@mipmap/addphoto"
+                            android:padding="@dimen/space_5" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/space_10">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/marital_status"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/tv_Marital_Status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/text_divbox"
+                        android:padding="@dimen/space_5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/space_10">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/contacts"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/ed_bank_customer_contacts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/text_divbox"
+                        android:padding="@dimen/space_5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/space_10">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/branch"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/ed_bank_branch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/text_divbox"
+                        android:padding="@dimen/space_5" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/space_40">
+
+                    <com.szfp.szfplib.weight.StateButton
+                        android:id="@+id/bt_bank_customer_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/space_5"
+                        android:text="@string/register"
+                        app:normalBackgroundColor="@color/login_normal"
+                        app:normalTextColor="@color/white"
+                        app:pressedBackgroundColor="@color/login_pass"
+                        app:pressedTextColor="@color/white" />
+
+                    <View
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"></View>
+
+                    <com.szfp.szfplib.weight.StateButton
+                        android:id="@+id/bt_bank_customer_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/space_5"
+                        android:text="@string/cancel"
+                        app:normalBackgroundColor="@color/login_normal"
+                        app:normalTextColor="@color/white"
+                        app:pressedBackgroundColor="@color/login_pass"
+                        app:pressedTextColor="@color/white" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

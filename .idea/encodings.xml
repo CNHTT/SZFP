@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/app" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/libs/DecodeWlt.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/libs/RT_Android_Bluetooth_SDK_20150204.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/libs/guava-14.0.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/libs/idcardapi.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/libs/litepal-1.3.2-src.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/libs/microlog4android-1.0.0.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/litepal.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/assets/microlog.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/BarCodeAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/BeidouAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/CPUAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/FingerprintAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/ICCardAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/LooperBuffer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/M1CardAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/ParseSFZAPI.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/PsamAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/RFID.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/RFID15693API.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/RFIDAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/SerialPort.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/SerialPortManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/SerialPortManager.java.bak" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/SmartCard.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/SmartCardAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/SoftDecodingAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/TypeBCardAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/android_serialport_api/UHFHXAPI.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/hiklife/rfidapi" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/szfp/szfp/asynctask" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/szfp/szfp/inter/OnSaveListener.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/szfp/szfp/utils/PrintUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/szfp/szfp/view/activity/BasePrintActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/jniLibs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/device_name.xml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/build" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/build.gradle" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/gradle" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

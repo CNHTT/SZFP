@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="commuters_list">
+        <item>ID Number</item>
+        <item>Name</item>
+        <item>Registration number</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="@dimen/space_20"
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:background="@drawable/shadow"
+
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:padding="@dimen/space_20"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/search_commuter_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/commuters_list"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ed_search_commuter"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_40">
+
+            <com.szfp.szfplib.weight.StateButton
+                android:padding="@dimen/space_5"
+                android:id="@+id/bt_search_c_s"
+                android:layout_width="@dimen/space_80"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/search"
+                app:normalBackgroundColor="@color/login_normal"
+                app:normalTextColor="@color/white"
+                app:pressedBackgroundColor="@color/login_pass"
+                app:pressedTextColor="@color/white" />
+
+            <View
+                android:layout_width="@dimen/space_50"
+                android:layout_height="1dp"></View>
+
+            <com.szfp.szfplib.weight.StateButton
+                android:id="@+id/bt_cancel_c_s"
+                android:padding="@dimen/space_5"
+                android:layout_width="@dimen/space_80"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                app:normalBackgroundColor="@color/login_normal"
+                app:normalTextColor="@color/white"
+                app:pressedBackgroundColor="@color/login_pass"
+                app:pressedTextColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

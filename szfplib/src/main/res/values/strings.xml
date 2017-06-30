@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">szfplib</string>
+    <string name="confirm">Yes</string>
+    <string name="cancel">No</string>
+    <string name="print_finger">请按指纹！</string>
+    <string name="print_finger_again">请再次按指纹！</string>
+    <string name="processing">指纹采集成功，正在上传处理...</string>
+    <string name="generate_char_fail">生成特征值失败！</string>
+    <string name="reg_model_success">合成模板成功！</string>
+    <string name="reg_model_fail">合成模板失败！</string>
+    <string name="register_success">注册成功！</string>
+    <string name="register_fail">注册失败！</string>
+    <string name="verifying_wait">正在验证，请稍后...</string>
+    <string name="down_char_fail">验证失败</string>
+    <string name="verifying_through">验证通过</string>
+    <string name="verifying_fail">验证失败</string>
+    <string name="up_image_success">上传指纹图像成功</string>
+    <string name="up_image_fail">上传指纹图像失败</string>
+</resources>

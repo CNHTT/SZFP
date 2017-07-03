@@ -1,10 +1,11 @@
 package com.szfp.szfp.view.activity;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
@@ -17,6 +18,8 @@ import com.szfp.szfp.utils.DbHelper;
 import com.szfp.szfplib.utils.SPUtils;
 import com.szfp.szfplib.utils.ToastUtils;
 import com.szfp.szfplib.weight.StateButton;
+
+import org.reactivestreams.Subscription;
 
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +38,9 @@ public class TransportChargeActivity extends BasePrintActivity implements OnSave
     StateButton sbtCharge;
     @BindView(R.id.sbt_charge_print)
     StateButton sbtChargePrint;
+    @BindView(R.id.sbt_charge_back)
+    StateButton sbtChargeBack;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +49,23 @@ public class TransportChargeActivity extends BasePrintActivity implements OnSave
         ButterKnife.bind(this);
     }
 
+    private Subscription subscription;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initData();
+        isStop=true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        cancleProgressDialog();
+    }
 
 
-    private  boolean isPrint =false;
+    private boolean isPrint = false;
     private ProgressDialog progressDialog;
     private AsyncFingerprint asyncFingerprint;
 
@@ -68,8 +88,6 @@ public class TransportChargeActivity extends BasePrintActivity implements OnSave
                 case AsyncFingerprint.SHOW_FINGER_MODEL:
 
                     if ((byte[]) msg.obj != null) {
-                        Log.i("whw", "#################model.length="
-                                + ((byte[]) msg.obj).length);
                     }
                     cancleProgressDialog();
                     // ToastUtil.showToast(FingerprintActivity.this,
@@ -96,10 +114,8 @@ public class TransportChargeActivity extends BasePrintActivity implements OnSave
                 case AsyncFingerprint.VALIDATE_RESULT2:
                     cancleProgressDialog();
                     Integer r = (Integer) msg.obj;
+                    asyncFingerprint.setStop(true);
                     if (r != -1) {
-                        ToastUtils.success(
-                                getString(R.string.verifying_through) + "  pageId="
-                                        + r);
                         showValidateResult(r);
                     } else {
                         showValidateResult(false);
@@ -123,92 +139,15 @@ public class TransportChargeActivity extends BasePrintActivity implements OnSave
 
     private CommuterAccountInfoBean bean;
     private String input;
+
     private void showValidateResult(Integer r) {
         String id = String.valueOf(r);
         input = SPUtils.getString(this, ConstantValue.STATIC_FARE);
-        bean = DbHelper.getCommuterInfo(id, input, this,isPrint);
+        bean = DbHelper.getCommuterInfo(id, input, this, isPrint);
     }
 
     private void showValidateResult(boolean obj) {
         ToastUtils.error(getResources().getString(R.string.verifying_fail));
-        asyncFingerprint.validate2();
-    }
-
-    private void showProgressDialog(int resId) {
-        if (resId==R.string.print_finger){
-            ToastUtils.success("Please click fingerprints!");
-            return;
-        }
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage(getResources().getString(resId));
-        progressDialog.setCanceledOnTouchOutside(true);
-//        progressDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-//
-//            @Override
-//            public boolean onKey(DialogInterface dialog, int keyCode,
-//                                 KeyEvent event) {
-//                if (KeyEvent.KEYCODE_BACK == keyCode) {
-//                    asyncFingerprint.setStop(true);
-//                }
-//                return false;
-//            }
-//        });
-        progressDialog.show();
-    }
-
-
-    private void cancleProgressDialog() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.cancel();
-            progressDialog = null;
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        initData();
-        asyncFingerprint.validate2();
-    }
-
-    private void initData() {
-        asyncFingerprint = new AsyncFingerprint(handlerThread.getLooper(), mHandler);
-        asyncFingerprint.setFingerprintType(FingerprintAPI.BIG_FINGERPRINT_SIZE);
-    }
-
-
-    @Override
-    protected void showConnecting() {
-
-    }
-
-    @Override
-    protected void showConnectedDeviceName(String mConnectedDeviceName) {
-        if (asyncFingerprint.isStop){
-            asyncFingerprint.validate2();
-        }
-        isPrint=true;
-
-
-    }
-
-    @OnClick({R.id.sbt_charge, R.id.sbt_charge_print})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.sbt_charge:
-                if (asyncFingerprint.isStop){
-                    asyncFingerprint.validate2();
-                }
-                isPrint=false;
-                break;
-            case R.id.sbt_charge_print:
-                if (BluetoothPrintDriver.IsNoConnection())
-                showDeviceList();
-                break;
-        }
-    }
-    @Override
-    public void success() {
         Observable.timer(3, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Long>() {
@@ -228,20 +167,186 @@ public class TransportChargeActivity extends BasePrintActivity implements OnSave
 
                     @Override
                     public void onComplete() {
-                        asyncFingerprint.validate2();
+                        if (isStop) initData();
+                    }
+                });
+    }
+
+    private void showProgressDialog(int resId) {
+        if (resId == R.string.print_finger) {
+            return;
+        }
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(getResources().getString(resId));
+        progressDialog.setCanceledOnTouchOutside(true);
+        progressDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode,
+                                 KeyEvent event) {
+                if (KeyEvent.KEYCODE_BACK == keyCode) {
+                    asyncFingerprint.setStop(true);
+                }
+                return false;
+            }
+        });
+        if(!TransportChargeActivity.this.isFinishing()){
+          progressDialog.show();
+        }
+
+    }
+
+
+    private void cancleProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.cancel();
+            progressDialog = null;
+        }
+    }
+
+    private void initData() {
+        asyncFingerprint = new AsyncFingerprint(handlerThread.getLooper(), mHandler);
+        asyncFingerprint.setFingerprintType(FingerprintAPI.BIG_FINGERPRINT_SIZE);
+        asyncFingerprint.validate2();
+    }
+
+
+    @Override
+    protected void showConnecting() {
+
+    }
+
+    @Override
+    protected void showConnectedDeviceName(String mConnectedDeviceName) {
+        if (asyncFingerprint.isStop) {
+            asyncFingerprint.validate2();
+        }
+        isPrint = true;
+
+
+    }
+
+    @OnClick({R.id.sbt_charge, R.id.sbt_charge_print,R.id.sbt_charge_back})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.sbt_charge:
+                if (asyncFingerprint.isStop) {
+                    asyncFingerprint.validate2();
+                }
+                isPrint = false;
+                break;
+            case R.id.sbt_charge_print:
+                if (BluetoothPrintDriver.IsNoConnection())
+                    showDeviceList();
+                break;
+            case R.id.sbt_charge_back:
+                finish();
+                break;
+        }
+    }
+
+    @Override
+    public void success() {
+        ToastUtils.success("OK OK OK OK");
+        Observable.timer(3, TimeUnit.SECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Long>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(Long value) {
+                        //正常接收数据调用
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        if (isStop)initData();
                     }
                 });
     }
 
     @Override
     public void error(String str) {
+        ToastUtils.error(str);
+        Observable.timer(3, TimeUnit.SECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Long>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
 
+                    @Override
+                    public void onNext(Long value) {
+                        //正常接收数据调用
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        if (isStop)initData();
+                    }
+                });
+    }
+
+    private boolean isShow = true;
+
+    @Override
+    public void onBackPressed() {
+        if (isShow) {
+            isShow = false;
+            sbtChargeBack.setVisibility(View.VISIBLE);
+
+            Observable.timer(3, TimeUnit.SECONDS)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<Long>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
+                        }
+
+                        @Override
+                        public void onNext(Long value) {
+                            //正常接收数据调用
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            isShow =true;
+                            if (isStop)sbtChargeBack.setVisibility(View.GONE);
+                        }
+                    });
+        }
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        cancleProgressDialog();
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (KeyEvent.KEYCODE_HOME == keyCode) { //判断是否为home键
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
+    private boolean isStop =true;
+    @Override
+    protected void onPause() {
+        super.onPause();
+        stopAsy(asyncFingerprint);
+        isStop = false;
+
+    }
 }

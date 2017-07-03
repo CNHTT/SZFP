@@ -31,6 +31,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.szfp.szfp.ConstantValue.FINGERPRINT;
+import static com.szfp.szfp.ConstantValue.FINGERPRINT_END;
+
 public class BankCustomerRegisterActivity extends BaseActivity {
 
 
@@ -90,7 +93,14 @@ public class BankCustomerRegisterActivity extends BaseActivity {
                     cancleProgressDialog();
                     if (msg.obj != null) {
                         Integer id = (Integer) msg.obj;
-                        fingerPrintFileUrl = String.valueOf(id);
+
+                        if (DataUtils.isNullString(fingerPrintFileUrl))
+                            fingerPrintFileUrl=FINGERPRINT+ String.valueOf(id)+FINGERPRINT_END;
+
+                        else {
+                            //please user StringBuffer
+                            fingerPrintFileUrl= fingerPrintFileUrl+"_"+FINGERPRINT+ String.valueOf(id)+FINGERPRINT_END;
+                        }
 
                         ToastUtils.showToast(
                                 getString(R.string.register_success) + "  pageId="

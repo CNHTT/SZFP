@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.szfp.szfp.R;
 import com.szfp.szfplib.utils.ContextUtils;
+import com.szfp.szfplib.utils.ToastUtils;
 import com.szfp.szfplib.weight.StateButton;
 
 import butterknife.BindView;
@@ -46,6 +47,7 @@ public class StudentManagementActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_student_gate_pass:
+                startActivity(new Intent(StudentManagementActivity.this,StudentGatePassActivity.class));
                 break;
             case R.id.bt_student_class_attendance:
                 break;
@@ -89,7 +91,7 @@ public class StudentManagementActivity extends BaseActivity {
                     break;
                 case R.id.bt_register_staff:
                     dialogSelect.dismiss();
-                    startActivity(new Intent(StudentManagementActivity.this,BankCustomerRegisterActivity.class));
+                    ToastUtils.error("The need is not clear");
                     break;
             }
         }

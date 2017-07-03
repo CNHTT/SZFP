@@ -82,4 +82,35 @@ public class PrintUtils {
         BluetoothPrintDriver.BT_Write("_"+"\r");
         BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
     }
+
+    public static void printFareCash(String input) {
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte) 1);
+        BluetoothPrintDriver.SetLineSpacing((byte)40);
+        BluetoothPrintDriver.SetFontEnlarge((byte) 0x01);
+        BluetoothPrintDriver.BT_Write("ACCOUNT REPORT_CASH FARE");
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write("CASH FARE"+"\r");
+        BluetoothPrintDriver.BT_Write("NAME:  CASH FARE "+"\r");
+        BluetoothPrintDriver.BT_Write("NationalID: 000000000"+"\r");
+        BluetoothPrintDriver.BT_Write("TIME:" + TimeUtils.getCurTimeString());
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+        BluetoothPrintDriver.BT_Write("FAREPAID:" +input+"\r");
+        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+        AccountReportBean bean = new AccountReportBean();
+        bean.setBalance(0);
+        bean.setDepositsDate(0);
+        bean.setACNumber("CASH PARE");
+        bean.setFarePaid(Float.valueOf(input));
+        bean.setDepositsDate(0);
+        bean.setFarePaidDate(TimeUtils.getCurTimeMills());
+        DbHelper.insertAccountReport(bean);
+    }
 }

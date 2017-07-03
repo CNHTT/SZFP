@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.szfp.szfp.SzfpApplication;
+import com.szfp.szfp.asynctask.AsyncFingerprint;
 import com.szfp.szfplib.utils.ToastUtils;
 import com.szfp.szfplib.weight.LoadingAlertDialog;
 
@@ -73,4 +74,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void dismissLoadingDialog(){
         if (loadingAlertDialog!=null)loadingAlertDialog.dismiss();
     }
+    public void stopAsy(AsyncFingerprint asyncFingerprint){
+        asyncFingerprint.setStop(true);
+    };
 }

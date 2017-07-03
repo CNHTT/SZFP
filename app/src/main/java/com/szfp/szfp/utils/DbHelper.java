@@ -7,11 +7,17 @@ import com.szfp.szfp.bean.AccountReportBean;
 import com.szfp.szfp.bean.BankCustomerBean;
 import com.szfp.szfp.bean.BankRegistrationBean;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
+import com.szfp.szfp.bean.StudentBean;
+import com.szfp.szfp.bean.StudentStaffBean;
 import com.szfp.szfp.bean.VehicleInfoBean;
 import com.szfp.szfp.greendao.AccountReportBeanDao;
 import com.szfp.szfp.greendao.BankCustomerBeanDao;
 import com.szfp.szfp.greendao.CommuterAccountInfoBeanDao;
+import com.szfp.szfp.greendao.StudentBeanDao;
+import com.szfp.szfp.greendao.StudentStaffBeanDao;
 import com.szfp.szfp.inter.OnSaveListener;
+import com.szfp.szfp.inter.OnStaffGatePassVerify;
+import com.szfp.szfp.inter.OnStudentGatePassVerify;
 import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.TimeUtils;
 
@@ -32,6 +38,9 @@ import static com.szfp.szfplib.utils.Utils.getContext;
 public class DbHelper {
 
     long result;
+
+
+
     public boolean insertVehicleInfo(VehicleInfoBean vehicleInfoBean, Context context) {
 
 
@@ -307,9 +316,59 @@ public class DbHelper {
         }catch (Exception e){
             return null;
         }
+    }
+
+    public static ArrayList<AccountReportBean> getAllListAccountReport() {
+        try {
+
+            Query<AccountReportBean> query = null;
+            ArrayList count = null;
+            query = GreenDaoManager.getInstance().getSession().getAccountReportBeanDao().queryBuilder()
+                    .orderAsc(AccountReportBeanDao.Properties.ACNumber).build();
+
+            if (query == null) {
+                return null;
+            } else {
+                count = (ArrayList) query.list();
+                return count;
+            }
+        }catch (Exception e){
+            return null;
+        }
+    }
+
+    public static void getStudentInfo(String id, OnStudentGatePassVerify listener) {
+        StudentBean bean;
+        try {
+            bean = GreenDaoManager.getInstance().getSession().getStudentBeanDao().queryBuilder()
+                    .where(StudentBeanDao.Properties.CaptureFingerprintFileURl.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
+
+            if (DataUtils.isEmpty(bean))
+                listener.studentGatePassError("No Admission");
+            else listener.studentGatePassSuccess(bean);
+
+        }catch (Exception e){
+            listener.studentGatePassError("please try again");
+
+        }
+    }
+
+    public static void getStaffInfo(String id, OnStaffGatePassVerify listener) {
+        StudentStaffBean bean ;
+        try {
+            bean = GreenDaoManager.getInstance().getSession().getStudentStaffBeanDao().queryBuilder()
+                    .where(StudentStaffBeanDao.Properties.FingerPrintId.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
+            if (DataUtils.isEmpty(bean))
+                listener.staffGatePassError("No Admission");
+            else listener.staffGatePassSuccess(bean);
 
 
+        }catch (Exception e){
+            listener.staffGatePassError("please try again");
+        }
+    }
 
-
+    public static void insertStudentBean(StudentBean bean) {
+            GreenDaoManager.getInstance().getSession().getStudentBeanDao().insert(bean);
     }
 }

@@ -91,7 +91,6 @@ public class MemberInfoActivity extends BaseActivity {
         tvMemberRegistrationDate.setText(bean.getRegisterTimeStr());
 
         if (DataUtils.isNullString(bean.getFingerPrintFileUrl()))tvMemberFingerprintKeyStatus.setText("NO REGISTERED");else tvMemberFingerprintKeyStatus.setText("REGISTERED");
-
         tvMemberAccCode.setText("1");
         tvMemberAccType.setText(bean.getFosaAccount()+"Ordinary Savings");
         tvMemberAccStatus.setText("ACTIVE");

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.szfp.szfp.view.activity.StudentStaffWillActivity">
+
+    <com.szfp.szfplib.weight.StateButton
+        android:layout_margin="@dimen/space_40"
+        android:padding="@dimen/space_20"
+        android:layout_width="@dimen/space_300"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/clocking_time"
+        android:textSize="@dimen/text_size_24"
+        app:normalBackgroundColor="@color/lime"
+        android:id="@+id/bt_student_will_clocking"
+        app:normalTextColor="@color/black"
+        app:pressedBackgroundColor="@color/limegreen"
+        app:radius="@dimen/space_2"
+        tools:layout_editor_absoluteY="197dp"
+        tools:layout_editor_absoluteX="362dp"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>

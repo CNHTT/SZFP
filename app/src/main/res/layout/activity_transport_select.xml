@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.szfp.szfp.view.activity.TransportSelectActivity">
+
+    <com.szfp.szfplib.weight.StateButton
+        android:id="@+id/bt_select_static"
+        android:padding="@dimen/space_5"
+        android:layout_margin="@dimen/space_20"
+        android:textSize="@dimen/text_size_60"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="@string/type_static"
+        app:normalBackgroundColor="@color/login_normal"
+        app:normalTextColor="@color/white"
+        app:pressedBackgroundColor="@color/login_pass"
+        app:pressedTextColor="@color/white"
+        android:layout_weight="1" />
+
+    <com.szfp.szfplib.weight.StateButton
+        android:id="@+id/bt_select_dynamic"
+        android:layout_width="0dp"
+        android:layout_margin="@dimen/space_20"
+        android:textSize="@dimen/text_size_60"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:padding="@dimen/space_5"
+        android:text="@string/type_dynamic"
+        app:normalBackgroundColor="@color/login_normal"
+        app:normalTextColor="@color/white"
+        app:pressedBackgroundColor="@color/login_pass"
+        app:pressedTextColor="@color/white"
+        android:layout_weight="1" />
+
+    <com.szfp.szfplib.weight.StateButton
+        android:id="@+id/bt_select_cash"
+        android:padding="@dimen/space_5"
+        android:layout_margin="@dimen/space_20"
+        android:textSize="@dimen/text_size_60"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="@string/type_cash"
+        app:normalBackgroundColor="@color/login_normal"
+        app:normalTextColor="@color/white"
+        app:pressedBackgroundColor="@color/login_pass"
+        app:pressedTextColor="@color/white"
+        android:layout_weight="1" />
+
+
+</LinearLayout>

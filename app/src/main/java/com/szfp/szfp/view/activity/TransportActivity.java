@@ -18,7 +18,6 @@ import com.szfp.szfp.bean.CommuterAccountInfoBean;
 import com.szfp.szfp.utils.DbHelper;
 import com.szfp.szfplib.utils.ContextUtils;
 import com.szfp.szfplib.utils.DataUtils;
-import com.szfp.szfplib.utils.SPUtils;
 import com.szfp.szfplib.utils.ToastUtils;
 import com.szfp.szfplib.weight.StateButton;
 
@@ -151,15 +150,16 @@ public class TransportActivity extends BaseActivity {
                 ToastUtils.success("UPLOAD DATA");
                 break;
             case R.id.trans_reports:
+                startActivity(new Intent(TransportActivity.this,TransportAllReportsActivity.class));
                 break;
             case R.id.sbt_charge:
-
-                if (SPUtils.getBoolean(this,ConstantValue.STATIC_FARE_TYPE))
-                {
-                    startActivity(new Intent(TransportActivity.this,TransportChargeActivity.class));
-                }else {
-                    startActivity(new Intent(TransportActivity.this,StaticFareActivity.class));
-                }
+//
+//                if (SPUtils.getBoolean(this,ConstantValue.STATIC_FARE_TYPE))
+//                {
+//                    startActivity(new Intent(TransportActivity.this,TransportChargeActivity.class));
+//                }else {
+                    startActivity(new Intent(TransportActivity.this,TransportSelectActivity.class));
+//                }
                 break;
         }
     }

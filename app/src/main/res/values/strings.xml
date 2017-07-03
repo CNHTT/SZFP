@@ -393,4 +393,22 @@
     <string name="fare">FARE</string>
     <string name="please_press_the_fingerprint">Please press the fingerprint</string>
     <string name="please_press_the_fingerprint_receipt">Please press the fingerprint \n Need a receipt</string>
+    <string name="pdf_error">Please install PDF reader</string>
+    <string name="type_static">static</string>
+    <string name="type_dynamic">dynamic</string>
+    <string name="type_cash">cash</string>
+    <string name="money">money:</string>
+    <string name="type_cash_A">CASH</string>
+    <string name="fare_cash">fare cash</string>
+    <string name="please_conn">Please connect the printer</string>
+    <string name="cash_deposit">Cash Deposit</string>
+    <string name="ac_number">A/c Number</string>
+    <string name="deposits_by">Deposiyed by</string>
+    <string name="ac_name">A/c Name</string>
+    <string name="enter">Enter</string>
+    <string name="student_gate_pass">Student Gate Pass</string>
+    <string name="staff_gate_pass">Staff Gate Pass</string>
+    <string name="fee_payments">Fee payments</string>
+    <string name="clocking_time">Clocking time</string>
+    <string name="student_info">student information</string>
 </resources>

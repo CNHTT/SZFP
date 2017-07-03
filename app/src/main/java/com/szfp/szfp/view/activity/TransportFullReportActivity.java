@@ -51,9 +51,9 @@ import io.reactivex.disposables.Disposable;
 
 import static com.szfp.szfp.utils.PdfUtils.addMetaData;
 
-public class FullReportActivity extends BaseActivity {
+public class TransportFullReportActivity extends BaseActivity {
 
-    private static final String TAG = "FullReportActivity";
+    private static final String TAG = "TransportFullReportActivity";
     @BindView(R.id.export)
     StateButton export;
     @BindView(R.id.full_report_list)
@@ -96,6 +96,9 @@ public class FullReportActivity extends BaseActivity {
             document = new Document(PageSize.A4);
             //Call Pdf RendererAsynTask to write into a document
 
+            progressDialog = new ProgressDialog(TransportFullReportActivity.this);
+            progressDialog.setMessage("Rendering the File...!! \n Please wait....");
+            progressDialog.show();
 
             Observable.create(new ObservableOnSubscribe<Integer>() {
                 @Override
@@ -106,10 +109,6 @@ public class FullReportActivity extends BaseActivity {
             }).subscribe(new Observer<Integer>() {
                 @Override
                 public void onSubscribe(Disposable d) {
-                    Log.d(TAG, "subscribe");
-                    progressDialog = new ProgressDialog(FullReportActivity.this);
-                    progressDialog.setMessage("Rendering the File...!! \n Please wait....");
-                    progressDialog.show();
                 }
 
                 @Override
@@ -155,6 +154,8 @@ public class FullReportActivity extends BaseActivity {
                         startActivity(intent);
                     } catch (ActivityNotFoundException e) {
                         e.printStackTrace();
+                        ToastUtils.error(getResources().getString(R.string.pdf_error));
+
                     }
                     ToastUtils.success("Successfully generated");
                     Log.d(TAG, "complete");

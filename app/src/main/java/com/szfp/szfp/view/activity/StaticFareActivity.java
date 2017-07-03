@@ -130,7 +130,6 @@ public class StaticFareActivity extends BasePrintActivity implements OnSaveListe
 
     private ProgressDialog progressDialog;
     private AsyncFingerprint asyncFingerprint;
-
     private void showProgressDialog(int resId) {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getResources().getString(resId));
@@ -173,6 +172,7 @@ public class StaticFareActivity extends BasePrintActivity implements OnSaveListe
         super.onPause();
         cancleProgressDialog();
         asyncFingerprint.setStop(true);
+
     }
 
     @Override

@@ -177,7 +177,7 @@ public class CommuterAccountActivity extends BasePrintActivity {
                 break;
             case R.id.bt_full_report:
 
-                Intent intent2 =  new Intent(CommuterAccountActivity.this,FullReportActivity.class);
+                Intent intent2 =  new Intent(CommuterAccountActivity.this,TransportFullReportActivity.class);
                 Bundle bundle2 = new Bundle();
                 bundle2.putSerializable(ConstantValue.INFO,bean);
                 intent2.putExtras(bundle2);

@@ -26,10 +26,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.szfp.szfp.ConstantValue;
 import com.szfp.szfp.R;
 import com.szfp.szfp.SzfpApplication;
 import com.szfp.szfp.asynctask.AsyncFingerprint;
 import com.szfp.szfp.bean.StudentBean;
+import com.szfp.szfp.utils.DbHelper;
 import com.szfp.szfplib.inter.onRequestPermissionsListener;
 import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.PermissionsUtils;
@@ -47,6 +49,9 @@ import android_serialport_api.FingerprintAPI;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.szfp.szfp.ConstantValue.FINGERPRINT;
+import static com.szfp.szfp.ConstantValue.FINGERPRINT_END;
 
 public class RegisterStudentActivity extends BaseActivity {
 
@@ -129,7 +134,7 @@ public class RegisterStudentActivity extends BaseActivity {
     private ProgressDialog progressDialog;
     private byte[] modelByte;
 
-    private int page  =-1;
+    private String fingerPrintFileUrl;
     private Handler mHandler = new Handler() {
 
         @Override
@@ -160,11 +165,14 @@ public class RegisterStudentActivity extends BaseActivity {
                     cancleProgressDialog();
                     if (msg.obj != null) {
                         Integer id = (Integer) msg.obj;
-                        if (page!=-1){
-                            asyncFingerprint.PS_DeleteChar(page,1);
+                        if (DataUtils.isNullString(fingerPrintFileUrl))
+                            fingerPrintFileUrl=FINGERPRINT+ String.valueOf(id)+FINGERPRINT_END;
+
+                        else {
+                            //please user StringBuffer
+                            fingerPrintFileUrl= fingerPrintFileUrl+"_"+FINGERPRINT+ String.valueOf(id)+FINGERPRINT_END;
                         }
 
-                        page = id;
 
                         ToastUtils.showToast(getString(R.string.register_success) + "  pageId=" + id);
                     } else {
@@ -366,6 +374,10 @@ public class RegisterStudentActivity extends BaseActivity {
         setContentView(R.layout.activity_register_student);
         ButterKnife.bind(this);
 
+        bean = (StudentBean) getIntent().getCharSequenceExtra(ConstantValue.INFO);
+
+        if (!DataUtils.isEmpty(bean))initBeanView();
+        else
 
         bean = new StudentBean();
         cal=Calendar.getInstance();
@@ -377,6 +389,28 @@ public class RegisterStudentActivity extends BaseActivity {
 
         initEvent();
 
+    }
+
+    private void initBeanView() {
+        if (!DataUtils.isNullString(bean.getFirstName()))studentFirstName.setText(bean.getFirstName());
+        if (!DataUtils.isNullString(bean.getLastName()))studentLastName.setText(bean.getLastName());
+        if (!DataUtils.isNullString(bean.getAdmissionNumber()))studentAdmissionNumber.setText(bean.getAdmissionNumber());
+        if (!DataUtils.isNullString(bean.getNationality())) studentNationality.setText(bean.getNationality());
+        if (!DataUtils.isNullString(bean.getEmail()))etStudentEmail.setText(bean.getEmail());
+        if (!DataUtils.isNullString(bean.getDataOfBirthStr())) etStudentDateOfBirth.setText(bean.getDataOfBirthStr());
+        if (!DataUtils.isNullString(bean.getAdmissionDateStr()))etStudentAdmissionDate.setText(bean.getAdmissionDateStr());
+        if (!DataUtils.isNullString(String.valueOf(bean.getDepartment())))  tvStudentDepartment.setText(String.valueOf(bean.getDepartment()));
+        if (!DataUtils.isNullString(bean.getCellPhone()))etStudentCallPhoto.setText(bean.getCellPhone());
+        if (!DataUtils.isNullString(bean.getPermanentHomeAddress()))edStudentPresentHomeAddress.setText(bean.getPermanentHomeAddress());
+        if (!DataUtils.isNullString(bean.getPresentHomeAddress()))edStudentPresentHomeAddress.setText(bean.getPresentHomeAddress());
+        if (!DataUtils.isNullString(bean.getFirstGuardianName())) edStudentFirstGuardiansNames.setText(bean.getFirstGuardianName());
+        if (!DataUtils.isNullString(bean.getFirstGuardianContacts())) edStudentFirstGuardiansContacts.setText(bean.getFirstGuardianContacts());
+        if (!DataUtils.isNullString(bean.getFirstGuardianRelationship())) edStudentFirstRelationship.setText(bean.getFirstGuardianRelationship());
+        if (!DataUtils.isNullString(bean.getSecondGuardianName())) edStudentSecondGuardiansNames.setText(bean.getSecondGuardianName());
+        if (!DataUtils.isNullString(bean.getSecondGuardianContacts())) edStudentSecondGuardiansContacts.setText(bean.getSecondGuardianContacts());
+        if (!DataUtils.isNullString(bean.getSecondGuardianRelationship())) edStudentSecondRelationship.setText(bean.getSecondGuardianRelationship());
+
+        if (bean.getGender())rgSex.check(R.id.male); else rgSex.check(R.id.female);
     }
 
     private void initEvent() {
@@ -628,7 +662,7 @@ public class RegisterStudentActivity extends BaseActivity {
         if (DataUtils.isNullString(studentPhotoFileURl)){ToastUtils.error(getResources().getString(R.string.please_input));return;} bean.setStudentPhotoFileURl(studentPhotoFileURl);
 
 
-        if (page == -1){ToastUtils.error(getString(R.string.please_input_fingerprint));return;}   bean.setStudentPhotoFileURl(String.valueOf(page));
+        if (DataUtils.isNullString(fingerPrintFileUrl)){ToastUtils.error(getString(R.string.please_input_fingerprint));return;}   bean.setCaptureFingerprintFileURl(fingerPrintFileUrl);
 
 
         bean.setDataOfBirthStr(dataOfBirthStr);
@@ -636,6 +670,15 @@ public class RegisterStudentActivity extends BaseActivity {
         bean.setDepartment(department);
         bean.setAdmissionDateStr(admissionDateStr);
         bean.setAdmissionDateLong(admissionDateLong);
+
+
+        try {
+            DbHelper.insertStudentBean(bean);
+            ToastUtils.success("OK");
+            onBackPressed();
+        }catch (Exception e){
+            ToastUtils.error("please try again");
+        }
 
 
 

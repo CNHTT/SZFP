@@ -21,24 +21,28 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
-        VehicleInfoBeanDao.createTable(db, ifNotExists);
-        CommuterAccountInfoBeanDao.createTable(db, ifNotExists);
-        BankRegistrationBeanDao.createTable(db, ifNotExists);
-        BankCustomerBeanDao.createTable(db, ifNotExists);
-        StudentBeanDao.createTable(db, ifNotExists);
         AccountReportBeanDao.createTable(db, ifNotExists);
+        AgricultureEmployeeBeanDao.createTable(db, ifNotExists);
+        AgricultureFarmerBeanDao.createTable(db, ifNotExists);
+        BankCustomerBeanDao.createTable(db, ifNotExists);
+        BankRegistrationBeanDao.createTable(db, ifNotExists);
+        CommuterAccountInfoBeanDao.createTable(db, ifNotExists);
+        StudentBeanDao.createTable(db, ifNotExists);
         StudentStaffBeanDao.createTable(db, ifNotExists);
+        VehicleInfoBeanDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
-        VehicleInfoBeanDao.dropTable(db, ifExists);
-        CommuterAccountInfoBeanDao.dropTable(db, ifExists);
-        BankRegistrationBeanDao.dropTable(db, ifExists);
-        BankCustomerBeanDao.dropTable(db, ifExists);
-        StudentBeanDao.dropTable(db, ifExists);
         AccountReportBeanDao.dropTable(db, ifExists);
+        AgricultureEmployeeBeanDao.dropTable(db, ifExists);
+        AgricultureFarmerBeanDao.dropTable(db, ifExists);
+        BankCustomerBeanDao.dropTable(db, ifExists);
+        BankRegistrationBeanDao.dropTable(db, ifExists);
+        CommuterAccountInfoBeanDao.dropTable(db, ifExists);
+        StudentBeanDao.dropTable(db, ifExists);
         StudentStaffBeanDao.dropTable(db, ifExists);
+        VehicleInfoBeanDao.dropTable(db, ifExists);
     }
 
     /**
@@ -57,13 +61,15 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
-        registerDaoClass(VehicleInfoBeanDao.class);
-        registerDaoClass(CommuterAccountInfoBeanDao.class);
-        registerDaoClass(BankRegistrationBeanDao.class);
-        registerDaoClass(BankCustomerBeanDao.class);
-        registerDaoClass(StudentBeanDao.class);
         registerDaoClass(AccountReportBeanDao.class);
+        registerDaoClass(AgricultureEmployeeBeanDao.class);
+        registerDaoClass(AgricultureFarmerBeanDao.class);
+        registerDaoClass(BankCustomerBeanDao.class);
+        registerDaoClass(BankRegistrationBeanDao.class);
+        registerDaoClass(CommuterAccountInfoBeanDao.class);
+        registerDaoClass(StudentBeanDao.class);
         registerDaoClass(StudentStaffBeanDao.class);
+        registerDaoClass(VehicleInfoBeanDao.class);
     }
 
     public DaoSession newSession() {

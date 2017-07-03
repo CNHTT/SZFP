@@ -8,7 +8,6 @@
     tools:context="com.szfp.szfp.view.activity.TransportActivity">
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/accent"
@@ -200,5 +199,4 @@
         app:pressedBackgroundColor="@color/login_pass"
         app:pressedTextColor="@color/white"
         android:layout_weight="1" />
-
 </LinearLayout>

@@ -411,4 +411,29 @@
     <string name="fee_payments">Fee payments</string>
     <string name="clocking_time">Clocking time</string>
     <string name="student_info">student information</string>
+
+    <string name="agri_business">Agri-Business and Afro Industry Module</string>
+    <string name="human_resource">Human Resource</string>
+    <string name="daily_company">Daily Company</string>
+    <string name="payments">Payments</string>
+    <string name="register_farmer">Register Farmer</string>
+    <string name="daily_collection">Daily Collection</string>
+    <string name="human_resource_mana">Human Resource Management</string>
+    <string name="register_employee">Register Employee</string>
+    <string name="human_resource_reports">Human Resource Reports</string>
+    <string name="farmers_registration">Farmers registration</string>
+    <string name="employee_report">Employee report</string>
+    <string name="farmers_report">Farmers report:</string>
+    <string name="name">Name</string>
+    <string name="id_number">ID number</string>
+    <string name="register_number">Registration Number</string>
+    <string name="contact">Contact</string>
+    <string name="job_title">Job Title/Group</string>
+    <string name="salary">Salary</string>
+    <string name="date_employed">Date Employed</string>
+    <string name="home_town">Home Town</string>
+    <string name="collection_route">collection Route</string>
+    <string name="nature_of_employment">Nature of Employment</string>
+    <string name="number_animals">Number of Animals</string>
+
 </resources>

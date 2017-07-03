@@ -162,8 +162,8 @@
                             android:layout_marginLeft="@dimen/space_20"
                             android:layout_marginTop="@dimen/space_15"
                             android:layout_weight="1"
-                            android:scaleType="fitXY"
-                            android:background="@mipmap/addphoto" />
+                            android:background="@mipmap/addphoto"
+                            android:scaleType="fitXY" />
                     </LinearLayout>
 
                     <TextView
@@ -282,8 +282,8 @@
                             android:layout_width="100dp"
                             android:layout_height="150dp"
                             android:layout_marginTop="@dimen/space_15"
-                            android:scaleType="fitXY"
-                            android:background="@mipmap/addphoto" />
+                            android:background="@mipmap/addphoto"
+                            android:scaleType="fitXY" />
 
                     </LinearLayout>
 
@@ -310,9 +310,9 @@
                             android:layout_marginTop="@dimen/space_5"
                             android:background="@drawable/text_divbox"
                             android:inputType="date"
+                            android:maxLength="10"
                             android:maxLines="1"
                             android:minEms="10"
-                            android:maxLength="10"
                             android:padding="@dimen/space_5" />
 
                         <Button
@@ -345,9 +345,9 @@
                             android:layout_marginTop="@dimen/space_5"
                             android:background="@drawable/text_divbox"
                             android:inputType="date"
+                            android:maxLength="10"
                             android:maxLines="1"
                             android:minEms="10"
-                            android:maxLength="10"
                             android:padding="@dimen/space_5" />
 
                         <Button

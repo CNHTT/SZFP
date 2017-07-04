@@ -15,7 +15,6 @@ import java.io.Serializable;
 public class AccountReportBean implements Serializable {
 
     static final long serialVersionUID = 42L;
-
     @Id(autoincrement = true)
     private Long id;
     private String ACNumber;

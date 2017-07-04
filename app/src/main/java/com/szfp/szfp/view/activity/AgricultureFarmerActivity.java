@@ -1,5 +1,6 @@
 package com.szfp.szfp.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -28,6 +29,7 @@ public class AgricultureFarmerActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_farmer_register:
+                startActivity(new Intent(AgricultureFarmerActivity.this,AgricultureRegisterFarmerActivity.class));
                 break;
             case R.id.bt_farmer_reports:
                 break;

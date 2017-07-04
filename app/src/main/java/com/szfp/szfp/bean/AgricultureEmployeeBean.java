@@ -1,10 +1,10 @@
 package com.szfp.szfp.bean;
 
 import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
 
 import java.io.Serializable;
-import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * 项目名称：SZFP.
@@ -18,7 +18,7 @@ public class AgricultureEmployeeBean implements Serializable {
     static final long serialVersionUID = 42L;
 
     @Id(autoincrement = true)
-    private long id;
+    private Long id;
 
     private String name;
     private String  fingerPrintId;
@@ -36,8 +36,8 @@ public class AgricultureEmployeeBean implements Serializable {
      * Permanent, contractor, day laborer
      */
     private String  natureOfEmployment;
-    @Generated(hash = 1391100777)
-    public AgricultureEmployeeBean(long id, String name, String fingerPrintId,
+    @Generated(hash = 13205761)
+    public AgricultureEmployeeBean(Long id, String name, String fingerPrintId,
             String iDNumber, boolean gender, String registrationNumber,
             String contact, String jobTitle, String salary, String dataOfBirth,
             String employedDate, String homeTown, String collectionRoute,
@@ -60,12 +60,7 @@ public class AgricultureEmployeeBean implements Serializable {
     @Generated(hash = 1256953803)
     public AgricultureEmployeeBean() {
     }
-    public long getId() {
-        return this.id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
+    
     public String getName() {
         return this.name;
     }
@@ -143,5 +138,11 @@ public class AgricultureEmployeeBean implements Serializable {
     }
     public void setNatureOfEmployment(String natureOfEmployment) {
         this.natureOfEmployment = natureOfEmployment;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Long getId() {
+        return this.id;
     }
 }

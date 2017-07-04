@@ -24,7 +24,7 @@ public class AgricultureEmployeeBeanDao extends AbstractDao<AgricultureEmployeeB
      * Can be used for QueryBuilder and for referencing column names.
      */
     public static class Properties {
-        public final static Property Id = new Property(0, long.class, "id", true, "_id");
+        public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Name = new Property(1, String.class, "name", false, "NAME");
         public final static Property FingerPrintId = new Property(2, String.class, "fingerPrintId", false, "FINGER_PRINT_ID");
         public final static Property IDNumber = new Property(3, String.class, "iDNumber", false, "I_DNUMBER");
@@ -53,7 +53,7 @@ public class AgricultureEmployeeBeanDao extends AbstractDao<AgricultureEmployeeB
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"AGRICULTURE_EMPLOYEE_BEAN\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ," + // 0: id
+                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"NAME\" TEXT," + // 1: name
                 "\"FINGER_PRINT_ID\" TEXT," + // 2: fingerPrintId
                 "\"I_DNUMBER\" TEXT," + // 3: iDNumber
@@ -78,7 +78,11 @@ public class AgricultureEmployeeBeanDao extends AbstractDao<AgricultureEmployeeB
     @Override
     protected final void bindValues(DatabaseStatement stmt, AgricultureEmployeeBean entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
  
         String name = entity.getName();
         if (name != null) {
@@ -145,7 +149,11 @@ public class AgricultureEmployeeBeanDao extends AbstractDao<AgricultureEmployeeB
     @Override
     protected final void bindValues(SQLiteStatement stmt, AgricultureEmployeeBean entity) {
         stmt.clearBindings();
-        stmt.bindLong(1, entity.getId());
+ 
+        Long id = entity.getId();
+        if (id != null) {
+            stmt.bindLong(1, id);
+        }
  
         String name = entity.getName();
         if (name != null) {
@@ -211,13 +219,13 @@ public class AgricultureEmployeeBeanDao extends AbstractDao<AgricultureEmployeeB
 
     @Override
     public Long readKey(Cursor cursor, int offset) {
-        return cursor.getLong(offset + 0);
+        return cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0);
     }    
 
     @Override
     public AgricultureEmployeeBean readEntity(Cursor cursor, int offset) {
         AgricultureEmployeeBean entity = new AgricultureEmployeeBean( //
-            cursor.getLong(offset + 0), // id
+            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // name
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // fingerPrintId
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // iDNumber
@@ -237,7 +245,7 @@ public class AgricultureEmployeeBeanDao extends AbstractDao<AgricultureEmployeeB
      
     @Override
     public void readEntity(Cursor cursor, AgricultureEmployeeBean entity, int offset) {
-        entity.setId(cursor.getLong(offset + 0));
+        entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setFingerPrintId(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setIDNumber(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
@@ -270,7 +278,7 @@ public class AgricultureEmployeeBeanDao extends AbstractDao<AgricultureEmployeeB
 
     @Override
     public boolean hasKey(AgricultureEmployeeBean entity) {
-        throw new UnsupportedOperationException("Unsupported for entities with a non-null key");
+        return entity.getId() != null;
     }
 
     @Override

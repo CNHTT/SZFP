@@ -236,30 +236,57 @@
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.AgricultureHumanActivity"
+        <activity
+            android:name=".view.activity.AgricultureHumanActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.AgricultureFarmerActivity"
+        <activity
+            android:name=".view.activity.AgricultureFarmerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.AgricultureDailyCompanyActivity"
+        <activity
+            android:name=".view.activity.AgricultureDailyCompanyActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.AgricultureDailyCollectionActivity"
+        <activity
+            android:name=".view.activity.AgricultureDailyCollectionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.AgriculturePaymentActivity" />
-        <activity android:name=".view.activity.AgricultureReportActivity" />
-        <activity android:name=".view.activity.AgricultureRegisterEmployeeActivity" />
-        <activity android:name=".view.activity.AgricultureRegisterFarmerActivity"></activity>
+        <activity
+            android:name=".view.activity.AgriculturePaymentActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity
+            android:name=".view.activity.AgricultureReportActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity
+            android:name=".view.activity.AgricultureRegisterEmployeeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity
+            android:name=".view.activity.AgricultureRegisterFarmerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".view.activity.AgricultureReportEmployeeActivity" />
+        <activity android:name=".view.activity.AgricultureReportFramerActivity" />
+        <activity android:name=".view.activity.ParkingActivity"></activity>
     </application>
 
 </manifest>

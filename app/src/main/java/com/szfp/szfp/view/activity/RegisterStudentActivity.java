@@ -374,11 +374,10 @@ public class RegisterStudentActivity extends BaseActivity {
         setContentView(R.layout.activity_register_student);
         ButterKnife.bind(this);
 
-        bean = (StudentBean) getIntent().getCharSequenceExtra(ConstantValue.INFO);
+        bean = (StudentBean) getIntent().getSerializableExtra(ConstantValue.INFO);
 
         if (!DataUtils.isEmpty(bean))initBeanView();
         else
-
         bean = new StudentBean();
         cal=Calendar.getInstance();
         year=cal.get(Calendar.YEAR);       //获取年月日时分秒

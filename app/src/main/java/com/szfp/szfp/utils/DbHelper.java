@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.szfp.szfp.R;
 import com.szfp.szfp.bean.AccountReportBean;
+import com.szfp.szfp.bean.AgricultureEmployeeBean;
+import com.szfp.szfp.bean.AgricultureFarmerBean;
+import com.szfp.szfp.bean.AgricultureFarmerCollection;
 import com.szfp.szfp.bean.BankCustomerBean;
 import com.szfp.szfp.bean.BankRegistrationBean;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
@@ -11,6 +14,8 @@ import com.szfp.szfp.bean.StudentBean;
 import com.szfp.szfp.bean.StudentStaffBean;
 import com.szfp.szfp.bean.VehicleInfoBean;
 import com.szfp.szfp.greendao.AccountReportBeanDao;
+import com.szfp.szfp.greendao.AgricultureFarmerBeanDao;
+import com.szfp.szfp.greendao.AgricultureFarmerCollectionDao;
 import com.szfp.szfp.greendao.BankCustomerBeanDao;
 import com.szfp.szfp.greendao.CommuterAccountInfoBeanDao;
 import com.szfp.szfp.greendao.StudentBeanDao;
@@ -18,6 +23,8 @@ import com.szfp.szfp.greendao.StudentStaffBeanDao;
 import com.szfp.szfp.inter.OnSaveListener;
 import com.szfp.szfp.inter.OnStaffGatePassVerify;
 import com.szfp.szfp.inter.OnStudentGatePassVerify;
+import com.szfp.szfp.inter.OnVerifyDailyCollectionListener;
+import com.szfp.szfp.inter.OnVerifyPaymentListener;
 import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.TimeUtils;
 
@@ -370,5 +377,82 @@ public class DbHelper {
 
     public static void insertStudentBean(StudentBean bean) {
             GreenDaoManager.getInstance().getSession().getStudentBeanDao().insert(bean);
+    }
+
+    public static void insertAgricultureEmployee(AgricultureEmployeeBean bean, OnSaveListener listener) {
+
+        try {
+            GreenDaoManager.getInstance().getSession().getAgricultureEmployeeBeanDao().insert(bean);
+            listener.success();
+
+        }catch (Exception e){
+            listener.error(e.toString());
+        }
+    }
+
+    public static void insertAgricultureFramer(AgricultureFarmerBean bean, OnSaveListener listener) {
+        try {
+            GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().insert(bean);
+            listener.success();
+
+        }catch (Exception e){
+            listener.error(e.toString());
+        }
+    }
+
+    public static void checkAgricultureFramer(String id, String num, OnVerifyDailyCollectionListener onVerifyDailyCollectionListener) {
+        AgricultureFarmerBean bean ;
+        try {
+            bean = GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().queryBuilder()
+                    .where(AgricultureFarmerBeanDao.Properties.FingerPrintId.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
+            if (DataUtils.isEmpty(bean)){
+                onVerifyDailyCollectionListener.error("No Admin");
+            }else {
+
+            AgricultureFarmerCollection result = new AgricultureFarmerCollection();
+            result .setTime(TimeUtils.getCurTimeMills());
+            result.setIdNumber(bean.getIDNumber());
+            result.setAmountCollected(Integer.valueOf(num));
+            bean.setNumberOfAnimals(bean.getNumberOfAnimals()+Integer.valueOf(num));
+
+                GreenDaoManager.getInstance().getSession().getAgricultureFarmerCollectionDao().insert(result);
+                GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().update(bean);
+                onVerifyDailyCollectionListener.success(bean,result);
+            }
+
+        }catch (Exception e){
+            onVerifyDailyCollectionListener.error("please try again");
+        }
+    }
+
+    public static void verifyAgricultureFramer(String id, OnVerifyPaymentListener listener) {
+
+        AgricultureFarmerBean bean ;
+        try {
+            bean = GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().queryBuilder()
+                    .where(AgricultureFarmerBeanDao.Properties.FingerPrintId.like(PAH + FINGERPRINT + id + FINGERPRINT_END + PAH)).build().unique();
+
+            if (DataUtils.isEmpty(bean)){
+                listener.error("No Admin");
+            }else {
+
+             if (bean.getNumberOfAnimals()==0){
+                 listener.error("There is no collection");
+             }else {
+                 Query<AgricultureFarmerCollection> query = null;
+                 ArrayList count = null;
+                 query = GreenDaoManager.getInstance().getSession().getAgricultureFarmerCollectionDao().queryBuilder()
+                         .where(AgricultureFarmerCollectionDao.Properties.IdNumber.eq(bean.getIDNumber()),AgricultureFarmerCollectionDao.Properties.IsPay.eq(false)).build();
+                 if (query ==null){
+                     listener.error("There is no collection");
+                 }else {
+                     count = (ArrayList) query.list();
+                     listener.success(bean,count);
+                 }
+             }
+            }
+        }catch (Exception e){
+            listener.error("please try again");
+        }
     }
 }

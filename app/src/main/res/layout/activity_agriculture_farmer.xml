@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.szfp.szfp.view.activity.AgricultureFarmerActivity">
     <ScrollView
-        android:layout_width="946dp"
-        android:layout_height="481dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:ignore="MissingConstraints">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
@@ -29,7 +26,7 @@
                 android:paddingTop="@dimen/space_15"
                 android:paddingRight="@dimen/space_30"
                 android:paddingLeft="@dimen/space_30"
-                android:text="@string/human_resource_mana"/>
+                android:text="@string/farmer_resource_mana"/>
 
 
             <LinearLayout
@@ -89,4 +86,4 @@
         </LinearLayout>
 
     </ScrollView>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -113,6 +113,7 @@
                     android:padding="@dimen/space_10"
                     android:layout_width="@dimen/space_300"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:textColor="@color/black"
                     android:singleLine="true"/>
             </LinearLayout>
@@ -176,6 +177,7 @@
                 <EditText
                     android:id="@+id/et_employee_salary"
                     android:background="@drawable/text_divbox"
+                    android:inputType="numberDecimal"
                     android:padding="@dimen/space_10"
                     android:layout_width="@dimen/space_300"
                     android:layout_height="wrap_content"

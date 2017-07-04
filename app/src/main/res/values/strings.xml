@@ -226,6 +226,7 @@
         <item>Education</item>
         <item>Elections</item>
         <item>Agriculture</item>
+        <item>PARKING/TICKETING</item>
     </string-array>
 
 
@@ -419,6 +420,7 @@
     <string name="register_farmer">Register Farmer</string>
     <string name="daily_collection">Daily Collection</string>
     <string name="human_resource_mana">Human Resource Management</string>
+    <string name="farmer_resource_mana">Farmer Resource Management</string>
     <string name="register_employee">Register Employee</string>
     <string name="human_resource_reports">Human Resource Reports</string>
     <string name="farmers_registration">Farmers registration</string>
@@ -435,5 +437,8 @@
     <string name="collection_route">collection Route</string>
     <string name="nature_of_employment">Nature of Employment</string>
     <string name="number_animals">Number of Animals</string>
+    <string name="need_to_print">Do you need to print</string>
+    <string name="paid_amount">AMOUNT PAID PER LITTER</string>
+    <string name="expend">expend</string>
 
 </resources>

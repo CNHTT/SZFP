@@ -1,7 +1,7 @@
 package com.szfp.szfp.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.szfp.szfp.R;
@@ -11,7 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AgricultureHumanActivity extends AppCompatActivity {
+public class AgricultureHumanActivity extends BaseActivity {
 
     @BindView(R.id.bt_human_register)
     StateButton btHumanRegister;
@@ -29,6 +29,7 @@ public class AgricultureHumanActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_human_register:
+                startActivity(new Intent(AgricultureHumanActivity.this,AgricultureRegisterEmployeeActivity.class));
                 break;
             case R.id.bt_human_reports:
                 break;

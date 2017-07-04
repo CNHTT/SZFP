@@ -52,7 +52,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
         SerialPortManager.getInstance().closeSerialPort();
         handlerThread = null;
     }
@@ -61,7 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ToastUtils.error(this,str).show();
     }
     void  showToastError(){
-        ToastUtils.error(this,"please input").show();
+        showErrorToast("Please Input");
     }
 
 
@@ -77,4 +76,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void stopAsy(AsyncFingerprint asyncFingerprint){
         asyncFingerprint.setStop(true);
     };
+    void showErrorToast(String s){
+        ToastUtils.error(s);
+    }
 }

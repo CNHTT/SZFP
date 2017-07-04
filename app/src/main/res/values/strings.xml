@@ -440,5 +440,7 @@
     <string name="need_to_print">Do you need to print</string>
     <string name="paid_amount">AMOUNT PAID PER LITTER</string>
     <string name="expend">expend</string>
+    <string name="pay_parking">Pay parking</string>
+    <string name="vehicle_status">Vehicle status</string>
 
 </resources>

@@ -284,9 +284,25 @@
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.AgricultureReportEmployeeActivity" />
-        <activity android:name=".view.activity.AgricultureReportFramerActivity" />
-        <activity android:name=".view.activity.ParkingActivity"></activity>
+        <activity
+            android:name=".view.activity.AgricultureReportEmployeeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity
+            android:name=".view.activity.AgricultureReportFramerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity
+            android:name=".view.activity.ParkingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".view.activity.ParkingPayActivity"></activity>
     </application>
 
 </manifest>

@@ -56,6 +56,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         handlerThread = null;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     void  showToastError(String str){
         ToastUtils.error(this,str).show();
     }

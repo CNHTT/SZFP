@@ -116,7 +116,7 @@
     <string name="card_to_area">Keep the card into a reader</string>
     <string name="first_card">Please reader, and then verify the fingerprint!</string>
     <string name="back">Back</string>
-    <string name="register_fingerprint">Registering</string>
+    <string name="register_fingerprint">Registered fingerprints</string>
     <string name="save_model">SaveModel</string>
     <string name="compares">Compares</string>
     <string name="match">Match</string>

@@ -442,5 +442,10 @@
     <string name="expend">expend</string>
     <string name="pay_parking">Pay parking</string>
     <string name="vehicle_status">Vehicle status</string>
+    <string name="check_register">Check Register</string>
+    <string name="vehicle_number">Vehicle Reg Number</string>
+    <string name="add_fingerprint">Add the fingerprint</string>
+    <string name="information">INFORMATION</string>
+    <string name="affirm">affirm</string>
 
 </resources>

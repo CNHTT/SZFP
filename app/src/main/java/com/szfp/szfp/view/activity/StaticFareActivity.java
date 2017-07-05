@@ -39,6 +39,7 @@ public class StaticFareActivity extends BasePrintActivity implements OnSaveListe
     CheckBox ckStaicFareCheckbox;
 
 
+
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

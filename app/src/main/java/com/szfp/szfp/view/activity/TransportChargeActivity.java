@@ -31,6 +31,7 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.disposables.Disposables;
 
 public class TransportChargeActivity extends BasePrintActivity implements OnSaveListener {
 
@@ -40,6 +41,7 @@ public class TransportChargeActivity extends BasePrintActivity implements OnSave
     StateButton sbtChargePrint;
     @BindView(R.id.sbt_charge_back)
     StateButton sbtChargeBack;
+
 
 
     @Override
@@ -146,9 +148,12 @@ public class TransportChargeActivity extends BasePrintActivity implements OnSave
         bean = DbHelper.getCommuterInfo(id, input, this, isPrint);
     }
 
+
+    Disposables disposable;
     private void showValidateResult(boolean obj) {
         ToastUtils.error(getResources().getString(R.string.verifying_fail));
-        Observable.timer(3, TimeUnit.SECONDS)
+
+       Observable.timer(3, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Long>() {
                     @Override
@@ -240,6 +245,28 @@ public class TransportChargeActivity extends BasePrintActivity implements OnSave
                     showDeviceList();
                 break;
             case R.id.sbt_charge_back:
+                Observable.timer(3, TimeUnit.SECONDS)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Observer<Long>() {
+                            @Override
+                            public void onSubscribe(Disposable d) {
+                            }
+
+                            @Override
+                            public void onNext(Long value) {
+                                //正常接收数据调用
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+
+                            }
+
+                            @Override
+                            public void onComplete() {
+                                stopAsy(asyncFingerprint);
+                            }
+                        });
                 finish();
                 break;
         }

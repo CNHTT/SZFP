@@ -10,6 +10,7 @@ import com.szfp.szfp.bean.AgricultureFarmerCollection;
 import com.szfp.szfp.bean.BankCustomerBean;
 import com.szfp.szfp.bean.BankRegistrationBean;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
+import com.szfp.szfp.bean.ParkingInfoBean;
 import com.szfp.szfp.bean.StudentBean;
 import com.szfp.szfp.bean.StudentStaffBean;
 import com.szfp.szfp.bean.VehicleInfoBean;
@@ -18,12 +19,14 @@ import com.szfp.szfp.greendao.AgricultureFarmerBeanDao;
 import com.szfp.szfp.greendao.AgricultureFarmerCollectionDao;
 import com.szfp.szfp.greendao.BankCustomerBeanDao;
 import com.szfp.szfp.greendao.CommuterAccountInfoBeanDao;
+import com.szfp.szfp.greendao.ParkingInfoBeanDao;
 import com.szfp.szfp.greendao.StudentBeanDao;
 import com.szfp.szfp.greendao.StudentStaffBeanDao;
 import com.szfp.szfp.inter.OnSaveListener;
 import com.szfp.szfp.inter.OnStaffGatePassVerify;
 import com.szfp.szfp.inter.OnStudentGatePassVerify;
 import com.szfp.szfp.inter.OnVerifyDailyCollectionListener;
+import com.szfp.szfp.inter.OnVerifyParkingListener;
 import com.szfp.szfp.inter.OnVerifyPaymentListener;
 import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.TimeUtils;
@@ -453,6 +456,30 @@ public class DbHelper {
             }
         }catch (Exception e){
             listener.error("please try again");
+        }
+    }
+
+    public static void insertParking(ParkingInfoBean bean, OnSaveListener listener) {
+        try {
+            GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().insert(bean);
+            listener.success();
+        }catch (Exception e){
+            listener.error(e.toString());
+        }
+    }
+
+    public static void getParkingBean(String id, OnVerifyParkingListener onVerifyParkingListener) {
+        try{
+            ParkingInfoBean bean ;
+             bean = GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().queryBuilder()
+                     .where(ParkingInfoBeanDao.Properties.FingerID.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
+
+            if (DataUtils.isEmpty(bean)){
+                onVerifyParkingListener.error("No Admin");
+            } else onVerifyParkingListener.success(bean);
+
+        }catch (Exception e){
+            onVerifyParkingListener.error(e.toString());
         }
     }
 }

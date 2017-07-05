@@ -302,7 +302,33 @@
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.ParkingPayActivity"></activity>
+        <activity
+            android:name=".view.activity.ParkingPayActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity
+            android:name=".view.activity.ParkingRegisterActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".view.activity.ParkingTopUpActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".view.activity.ParkingVehicleStatusActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".view.activity.ParkingSettingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
     </application>
 
 </manifest>

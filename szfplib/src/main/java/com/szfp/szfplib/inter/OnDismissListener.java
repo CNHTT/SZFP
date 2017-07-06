@@ -5,5 +5,6 @@ package com.szfp.szfplib.inter;
  * email：cnhttt@163.com
  */
 
-public class OnDismissListener {
+public interface OnDismissListener {
+    public void onDismiss(Object o);
 }

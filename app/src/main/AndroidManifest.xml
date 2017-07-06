@@ -314,17 +314,25 @@
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.ParkingTopUpActivity"
+        <activity
+            android:name=".view.activity.ParkingTopUpActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.ParkingVehicleStatusActivity"
+        <activity
+            android:name=".view.activity.ParkingVehicleStatusActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.ParkingSettingActivity"
+        <activity
+            android:name=".view.activity.ParkingSettingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme"
+            android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".view.activity.ParkingParkActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"

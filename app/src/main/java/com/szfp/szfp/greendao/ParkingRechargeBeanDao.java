@@ -27,7 +27,7 @@ public class ParkingRechargeBeanDao extends AbstractDao<ParkingRechargeBean, Lon
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property IdNumber = new Property(1, String.class, "idNumber", false, "ID_NUMBER");
         public final static Property Amount = new Property(2, float.class, "amount", false, "AMOUNT");
-        public final static Property Time = new Property(3, int.class, "time", false, "TIME");
+        public final static Property Time = new Property(3, long.class, "time", false, "TIME");
     }
 
 
@@ -100,7 +100,7 @@ public class ParkingRechargeBeanDao extends AbstractDao<ParkingRechargeBean, Lon
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // idNumber
             cursor.getFloat(offset + 2), // amount
-            cursor.getInt(offset + 3) // time
+            cursor.getLong(offset + 3) // time
         );
         return entity;
     }
@@ -110,7 +110,7 @@ public class ParkingRechargeBeanDao extends AbstractDao<ParkingRechargeBean, Lon
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setIdNumber(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setAmount(cursor.getFloat(offset + 2));
-        entity.setTime(cursor.getInt(offset + 3));
+        entity.setTime(cursor.getLong(offset + 3));
      }
     
     @Override

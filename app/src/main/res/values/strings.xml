@@ -447,5 +447,15 @@
     <string name="add_fingerprint">Add the fingerprint</string>
     <string name="information">INFORMATION</string>
     <string name="affirm">affirm</string>
+    <string name="key_in_amount">Key in amount</string>
+    <string name="please_to_print">Please connect the printer</string>
+    <string name="set_parameters">Set Parking Fee</string>
+    <string name="parking_fee_hour">Parking Fee Per Hour</string>
+    <string name="parking_fee_day">Parking Fee Per Day</string>
+    <string name="parking_fee_month">Parking Fee Per Month</string>
+    <string name="special_discounts">Special Discounts</string>
+    <string name="park">Park</string>
+    <string name="leave">Leave</string>
+
 
 </resources>

@@ -11,6 +11,7 @@ import com.szfp.szfp.bean.BankCustomerBean;
 import com.szfp.szfp.bean.BankRegistrationBean;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
 import com.szfp.szfp.bean.ParkingInfoBean;
+import com.szfp.szfp.bean.ParkingRechargeBean;
 import com.szfp.szfp.bean.StudentBean;
 import com.szfp.szfp.bean.StudentStaffBean;
 import com.szfp.szfp.bean.VehicleInfoBean;
@@ -480,6 +481,35 @@ public class DbHelper {
 
         }catch (Exception e){
             onVerifyParkingListener.error(e.toString());
+        }
+    }
+
+    /***
+     * @param id
+     * @param input
+     * @param listener
+     */
+    public static void verifyParkingTopUp(String id, String input, OnVerifyParkingListener listener) {
+        try{
+            ParkingInfoBean bean ;
+            bean = GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().queryBuilder()
+                    .where(ParkingInfoBeanDao.Properties.FingerID.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
+
+            if (DataUtils.isEmpty(bean))
+                listener.error("No Admin");
+             else{
+                bean.setBalance(bean.getBalance()+Float.valueOf(input));
+                GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().update(bean);
+                listener.success(bean);
+                ParkingRechargeBean rbean = new ParkingRechargeBean();
+                rbean.setIdNumber(bean.getIdNumber());
+                rbean.setAmount(Float.valueOf(input));
+                rbean.setTime(TimeUtils.getCurTimeMills());
+                GreenDaoManager.getInstance().getSession().getParkingRechargeBeanDao().insert(rbean);
+            }
+
+        }catch (Exception e){
+            listener.error(e.toString());
         }
     }
 }

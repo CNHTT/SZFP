@@ -138,8 +138,10 @@ public abstract class BasePrintActivity extends BaseActivity {
                             showConnecting();
                             break;
                         case BluetoothPrintDriver.STATE_LISTEN:
-
+                            Log.d("Blue","STATE_LISTEN");
+                            break;
                         case BluetoothPrintDriver.STATE_NONE:
+                            Log.d("Blue","STATE_NONE");
                             break;
                     }
                     break;

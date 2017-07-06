@@ -22,6 +22,7 @@ import com.szfp.szfplib.utils.ToastUtils;
 import com.szfp.szfplib.weight.StateButton;
 
 import android_serialport_api.FingerprintAPI;
+import android_serialport_api.SerialPortManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -146,11 +147,11 @@ public class ParkingPayActivity extends BasePrintActivity {
                     dialog.dismiss();
                 }
             });
-            textView.setText("NAME: "+bean.getName());
-            textView.append("ID NUMBER: "+bean.getIdNumber());
-            textView.append("VEHICLE REG NUMBER: "+bean.getVehicleRegNumber());
-            textView.append("BALANCE:   "+bean.getBalance());
-            textView.append("OTHER");
+            textView.setText("NAME: "+bean.getName()+"\n");
+            textView.append("ID NUMBER: "+bean.getIdNumber()+"\n");
+            textView.append("VEHICLE REG NUMBER: "+bean.getVehicleRegNumber()+"\n");
+            textView.append("BALANCE:   "+bean.getBalance()+"\n");
+            textView.append("OTHER"+"\n");
             switch (bean.getParameters_type()){
                 case 0:textView.append("no have");break;
                 case 1:textView.append("");break;
@@ -188,6 +189,7 @@ public class ParkingPayActivity extends BasePrintActivity {
     protected void onPause() {
         super.onPause();
         asyncFingerprint.setStop(true);
+        SerialPortManager.getInstance().closeSerialPort();
     }
 
     private void showProgressDialog(int resId) {

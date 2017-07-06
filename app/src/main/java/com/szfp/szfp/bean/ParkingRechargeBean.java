@@ -20,9 +20,9 @@ public class ParkingRechargeBean implements Serializable {
 
     private String idNumber;
     private float amount;
-    private int time;
-    @Generated(hash = 1894742948)
-    public ParkingRechargeBean(Long id, String idNumber, float amount, int time) {
+    private long time;
+    @Generated(hash = 1007305974)
+    public ParkingRechargeBean(Long id, String idNumber, float amount, long time) {
         this.id = id;
         this.idNumber = idNumber;
         this.amount = amount;
@@ -49,10 +49,10 @@ public class ParkingRechargeBean implements Serializable {
     public void setAmount(float amount) {
         this.amount = amount;
     }
-    public int getTime() {
+    public long getTime() {
         return this.time;
     }
-    public void setTime(int time) {
+    public void setTime(long time) {
         this.time = time;
     }
 }

@@ -5,6 +5,7 @@ import com.szfp.szfp.bean.AccountReportBean;
 import com.szfp.szfp.bean.AgricultureFarmerBean;
 import com.szfp.szfp.bean.AgricultureFarmerCollection;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
+import com.szfp.szfp.bean.ParkingInfoBean;
 import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.TimeUtils;
 
@@ -170,5 +171,27 @@ public class PrintUtils {
         BluetoothPrintDriver.BT_Write("_"+"\r");
         BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
 
+    }
+
+
+    public static void printParkingTopUp(ParkingInfoBean bean, String input) {
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte) 1);
+        BluetoothPrintDriver.SetLineSpacing((byte)40);
+        BluetoothPrintDriver.SetFontEnlarge((byte) 0x01);
+        BluetoothPrintDriver.BT_Write("TOU UP");
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write("TIME:" + TimeUtils.getCurTimeString());
+        BluetoothPrintDriver.BT_Write("NAME:  "+bean.getName()+"\r");
+        BluetoothPrintDriver.BT_Write("ID NUMBER:"+bean.getIdNumber()+"\r");
+        BluetoothPrintDriver.BT_Write("Amount paid: " +DataUtils.getAmountValue(input)+"\r" );
+        BluetoothPrintDriver.BT_Write("BALANCE " +DataUtils.getAmountValue(bean.getBalance())+"\r");
+        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
     }
 }

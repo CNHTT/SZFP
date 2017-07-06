@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:gravity="center"
     android:layout_height="match_parent"
     tools:context="com.szfp.szfp.view.activity.ParkingVehicleStatusActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.szfp.szfplib.weight.StateButton
+            android:id="@+id/bt_parking_park"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="12"
+            android:padding="@dimen/space_15"
+            android:layout_marginTop="@dimen/space_50"
+            android:text="@string/park"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold"
+            app:normalBackgroundColor="@color/palegreen"
+            app:normalTextColor="@color/black"
+            app:pressedBackgroundColor="@color/result_points"
+            app:radius="@dimen/space_2" />
+
+
+        <com.szfp.szfplib.weight.StateButton
+            android:id="@+id/bt_parking_leave"
+            android:layout_marginTop="@dimen/space_50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="12"
+            android:padding="@dimen/space_15"
+            android:text= "@string/leave"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold"
+            app:normalBackgroundColor="@color/palegreen"
+            app:normalTextColor="@color/black"
+            app:pressedBackgroundColor="@color/result_points"
+            app:radius="@dimen/space_2" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

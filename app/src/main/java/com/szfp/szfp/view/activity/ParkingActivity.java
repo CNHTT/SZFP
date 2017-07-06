@@ -11,7 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ParkingActivity extends BaseActivity {
+public class ParkingActivity extends BaseNoActivity {
 
     @BindView(R.id.bt_parking_pay_parking)
     StateButton btParkingPayParking;

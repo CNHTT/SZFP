@@ -651,7 +651,7 @@ public class AsyncFingerprint extends Handler {
 			return false;
 		}
 		byte[] model = fingerprint.PSUpChar(2);
-		Log.i("whw", "model length=" + model.length);
+//		Log.i("whw", "model length=" + model.length);
 		mHandler.obtainMessage(SHOW_FINGER_MODEL, model).sendToTarget();
 		if (model == null) {
 			return false;

@@ -15,6 +15,7 @@ import butterknife.OnClick;
 
 import static com.szfp.szfplib.utils.DataUtils.isNullString;
 import static com.szfp.szfplib.utils.ToastUtils.error;
+import static com.szfp.szfplib.utils.ToastUtils.success;
 
 public class ParkingSettingActivity extends BaseActivity {
 
@@ -50,6 +51,7 @@ public class ParkingSettingActivity extends BaseActivity {
                 save();
                 break;
             case R.id.bt_paring_cancel:
+                onBackPressed();
                 break;
         }
     }
@@ -68,5 +70,6 @@ public class ParkingSettingActivity extends BaseActivity {
         SPUtils.putString(this, ConstantValue.PARING_FEE_HOUR,hour);
         SPUtils.putString(this, ConstantValue.PARING_FEE_MONTH,month);
         SPUtils.putString(this, ConstantValue.PARING_FEE_DIS,dis);
+        success("Save successful");
     }
 }

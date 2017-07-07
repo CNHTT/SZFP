@@ -456,6 +456,9 @@
     <string name="special_discounts">Special Discounts</string>
     <string name="park">Park</string>
     <string name="leave">Leave</string>
+    <string name="check">Check</string>
+    <string name="cash">CASH</string>
+    <string name="month">Month</string>
 
 
 </resources>

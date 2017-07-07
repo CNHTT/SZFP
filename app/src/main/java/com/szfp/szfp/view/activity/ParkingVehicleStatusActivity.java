@@ -23,6 +23,7 @@ public class ParkingVehicleStatusActivity extends BaseNoActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parking_vehicle_status);
         ButterKnife.bind(this);
+
     }
 
     @OnClick({R.id.bt_parking_park, R.id.bt_parking_leave})
@@ -32,6 +33,7 @@ public class ParkingVehicleStatusActivity extends BaseNoActivity {
                 startActivity(new Intent(ParkingVehicleStatusActivity.this,ParkingParkActivity.class));
                 break;
             case R.id.bt_parking_leave:
+                startActivity(new Intent(ParkingVehicleStatusActivity.this,ParkingLeaveActivity.class));
                 break;
         }
     }

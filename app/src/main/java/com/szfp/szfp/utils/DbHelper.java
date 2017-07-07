@@ -15,6 +15,7 @@ import com.szfp.szfp.bean.ParkingRechargeBean;
 import com.szfp.szfp.bean.StudentBean;
 import com.szfp.szfp.bean.StudentStaffBean;
 import com.szfp.szfp.bean.VehicleInfoBean;
+import com.szfp.szfp.bean.VehicleParkingBean;
 import com.szfp.szfp.greendao.AccountReportBeanDao;
 import com.szfp.szfp.greendao.AgricultureFarmerBeanDao;
 import com.szfp.szfp.greendao.AgricultureFarmerCollectionDao;
@@ -23,13 +24,16 @@ import com.szfp.szfp.greendao.CommuterAccountInfoBeanDao;
 import com.szfp.szfp.greendao.ParkingInfoBeanDao;
 import com.szfp.szfp.greendao.StudentBeanDao;
 import com.szfp.szfp.greendao.StudentStaffBeanDao;
+import com.szfp.szfp.greendao.VehicleParkingBeanDao;
+import com.szfp.szfp.inter.OnSaveByParkingListener;
 import com.szfp.szfp.inter.OnSaveListener;
+import com.szfp.szfp.inter.OnSaveVehicleLeaveListener;
+import com.szfp.szfp.inter.OnSaveVehicleParking;
 import com.szfp.szfp.inter.OnStaffGatePassVerify;
 import com.szfp.szfp.inter.OnStudentGatePassVerify;
 import com.szfp.szfp.inter.OnVerifyDailyCollectionListener;
 import com.szfp.szfp.inter.OnVerifyParkingListener;
 import com.szfp.szfp.inter.OnVerifyPaymentListener;
-import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.TimeUtils;
 
 import org.greenrobot.greendao.query.Query;
@@ -39,6 +43,7 @@ import java.util.ArrayList;
 import static com.szfp.szfp.ConstantValue.FINGERPRINT;
 import static com.szfp.szfp.ConstantValue.FINGERPRINT_END;
 import static com.szfp.szfp.ConstantValue.PAH;
+import static com.szfp.szfplib.utils.DataUtils.isEmpty;
 import static com.szfp.szfplib.utils.Utils.getContext;
 
 /**
@@ -136,7 +141,7 @@ public class DbHelper {
 
             commuterAccountInfoBean = GreenDaoManager.getInstance().getSession().getCommuterAccountInfoBeanDao().queryBuilder()
                                 .where(CommuterAccountInfoBeanDao.Properties.FingerPrintFileUrl.like(PAH+FINGERPRINT+fingerPrintId+FINGERPRINT_END+PAH)).build().unique();
-            if (DataUtils.isEmpty(commuterAccountInfoBean)){
+            if (isEmpty(commuterAccountInfoBean)){
                 listener.error(getContext().getResources().getString(R.string.no_find));
             }else{
                 if (commuterAccountInfoBean.getBalance()>Float.valueOf(input)){
@@ -179,7 +184,7 @@ public class DbHelper {
 
             commuterAccountInfoBean = GreenDaoManager.getInstance().getSession().getCommuterAccountInfoBeanDao().queryBuilder()
                                 .where(CommuterAccountInfoBeanDao.Properties.FingerPrintFileUrl.like(PAH+FINGERPRINT+fingerPrintId+FINGERPRINT_END+PAH)).build().unique();
-            if (DataUtils.isEmpty(commuterAccountInfoBean)){
+            if (isEmpty(commuterAccountInfoBean)){
                 listener.error(getContext().getResources().getString(R.string.no_find));
             }else{
                 if (commuterAccountInfoBean.getBalance()>Float.valueOf(input)){
@@ -222,7 +227,7 @@ public class DbHelper {
 
             commuterAccountInfoBean = GreenDaoManager.getInstance().getSession().getCommuterAccountInfoBeanDao().queryBuilder()
                                 .where(CommuterAccountInfoBeanDao.Properties.FingerPrintFileUrl.like(PAH+FINGERPRINT+fingerPrintId+FINGERPRINT_END+PAH)).build().unique();
-            if (DataUtils.isEmpty(commuterAccountInfoBean)){
+            if (isEmpty(commuterAccountInfoBean)){
                 listener.error(getContext().getResources().getString(R.string.no_find));
             }else{
                 if (commuterAccountInfoBean.getBalance()>Float.valueOf(input)){
@@ -354,7 +359,7 @@ public class DbHelper {
             bean = GreenDaoManager.getInstance().getSession().getStudentBeanDao().queryBuilder()
                     .where(StudentBeanDao.Properties.CaptureFingerprintFileURl.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
 
-            if (DataUtils.isEmpty(bean))
+            if (isEmpty(bean))
                 listener.studentGatePassError("No Admission");
             else listener.studentGatePassSuccess(bean);
 
@@ -369,7 +374,7 @@ public class DbHelper {
         try {
             bean = GreenDaoManager.getInstance().getSession().getStudentStaffBeanDao().queryBuilder()
                     .where(StudentStaffBeanDao.Properties.FingerPrintId.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
-            if (DataUtils.isEmpty(bean))
+            if (isEmpty(bean))
                 listener.staffGatePassError("No Admission");
             else listener.staffGatePassSuccess(bean);
 
@@ -409,7 +414,7 @@ public class DbHelper {
         try {
             bean = GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().queryBuilder()
                     .where(AgricultureFarmerBeanDao.Properties.FingerPrintId.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
-            if (DataUtils.isEmpty(bean)){
+            if (isEmpty(bean)){
                 onVerifyDailyCollectionListener.error("No Admin");
             }else {
 
@@ -436,7 +441,7 @@ public class DbHelper {
             bean = GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().queryBuilder()
                     .where(AgricultureFarmerBeanDao.Properties.FingerPrintId.like(PAH + FINGERPRINT + id + FINGERPRINT_END + PAH)).build().unique();
 
-            if (DataUtils.isEmpty(bean)){
+            if (isEmpty(bean)){
                 listener.error("No Admin");
             }else {
 
@@ -475,7 +480,7 @@ public class DbHelper {
              bean = GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().queryBuilder()
                      .where(ParkingInfoBeanDao.Properties.FingerID.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
 
-            if (DataUtils.isEmpty(bean)){
+            if (isEmpty(bean)){
                 onVerifyParkingListener.error("No Admin");
             } else onVerifyParkingListener.success(bean);
 
@@ -495,7 +500,7 @@ public class DbHelper {
             bean = GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().queryBuilder()
                     .where(ParkingInfoBeanDao.Properties.FingerID.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
 
-            if (DataUtils.isEmpty(bean))
+            if (isEmpty(bean))
                 listener.error("No Admin");
              else{
                 bean.setBalance(bean.getBalance()+Float.valueOf(input));
@@ -511,5 +516,129 @@ public class DbHelper {
         }catch (Exception e){
             listener.error(e.toString());
         }
+    }
+
+    public static void insetVehicleParking(String input, OnSaveVehicleParking listener) {
+
+        VehicleParkingBean bean = new VehicleParkingBean();
+        bean.setNumberID(TimeUtils.generateSequenceNo());
+        bean.setVehicleNumber(input);
+        bean.setStartTime(TimeUtils.getCurTimeMills());
+        try {
+            GreenDaoManager.getInstance().getSession().getVehicleParkingBeanDao().insert(bean);
+            listener.success(bean);
+        }catch (Exception e){
+            listener.error(e.toString());
+        }
+
+
+    }
+
+    public static void getParkingLeave(String input, OnSaveVehicleParking listener) {
+        VehicleParkingBean bean;
+        try {
+            bean = GreenDaoManager.getInstance().getSession().getVehicleParkingBeanDao().queryBuilder()
+                    .where(VehicleParkingBeanDao.Properties.VehicleNumber.eq(input),VehicleParkingBeanDao.Properties.IsPay.eq(false)).build().unique();
+            if (isEmpty(bean)) listener.error("NO RECORD");else listener.success(bean);
+        }catch (Exception e){
+            listener.error(e.toString());
+        }
+
+
+    }
+
+    public static void updateParkingLeave(VehicleParkingBean bean, OnSaveVehicleParking onSaveVehicleParking) {
+        try {
+            bean.setIsPay(true);
+            GreenDaoManager.getInstance().getSession().getVehicleParkingBeanDao().update(bean);
+            onSaveVehicleParking.success(bean);
+        }catch (Exception e){
+            onSaveVehicleParking.error(e.toString());
+
+        }
+    }
+
+    public static void checkParkingLeave(String input, OnSaveVehicleParking onSaveVehicleParking) {
+        try {
+
+            Query<VehicleParkingBean> query = null;
+            ArrayList count = null;
+            query = GreenDaoManager.getInstance().getSession().getVehicleParkingBeanDao().queryBuilder()
+                    .where(VehicleParkingBeanDao.Properties.VehicleNumber.eq(input))
+                    .orderDesc(VehicleParkingBeanDao.Properties.NumberID).build();
+
+            if (query == null) {
+                onSaveVehicleParking.error("NO RECORD");
+            } else {
+                count = (ArrayList) query.list();
+                onSaveVehicleParking.success((VehicleParkingBean) count.get(0));
+            }
+        }catch (Exception e){
+            onSaveVehicleParking.error(e.toString());
+        }
+    }
+
+    public static void updateParkingLeave(VehicleParkingBean vehicleParkingBean, ParkingInfoBean bean, OnSaveVehicleLeaveListener onSaveVehicleParking) {
+        try {
+            vehicleParkingBean.setIsPay(true);
+            GreenDaoManager.getInstance().getSession().getVehicleParkingBeanDao().update(vehicleParkingBean);
+            bean.setBalance(bean.getBalance()-Float.valueOf(vehicleParkingBean.getPayNum()));
+            GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().update(bean);
+            onSaveVehicleParking.success(vehicleParkingBean,bean);
+        }catch (Exception e){
+            onSaveVehicleParking.error(e.toString());
+
+        }
+
+    }
+
+    public static void updateParkingInfo(String id, int num, boolean isDay, String dayFee, String monthFee, OnSaveByParkingListener listener) {
+
+        try{
+            ParkingInfoBean bean ;
+            bean = GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().queryBuilder()
+                    .where(ParkingInfoBeanDao.Properties.FingerID.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
+
+            if (isEmpty(bean))
+                listener.error("No Admin");
+            else{
+
+                float allPayNum;
+
+                if (isDay){
+                    allPayNum = num*Float.valueOf(dayFee);
+                    if (allPayNum>bean.getBalance()){
+                        listener.error("not sufficient funds");
+                    }else {
+                        bean.setParameters_type(2);
+                        bean.setBalance(bean.getBalance()-allPayNum);
+                        bean.setStartTime(TimeUtils.getCurTimeMills());
+                        bean.setEndTime(TimeUtils.getCurTimeMills()+num*86400000L);
+                        GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().update(bean);
+                        listener.success(bean,String.valueOf(allPayNum));
+                    }
+
+                }else {
+                    allPayNum = num*Float.valueOf(monthFee);
+                    if (allPayNum>bean.getBalance()){
+                        listener.error("not sufficient funds");
+                    }else {
+                        bean.setParameters_type(3);
+                        bean.setBalance(bean.getBalance()-allPayNum);
+                        bean.setStartTime(TimeUtils.getCurTimeMills());
+                        bean.setEndTime(TimeUtils.getCurTimeMills()+num*2505600000L);
+                        GreenDaoManager.getInstance().getSession().getParkingInfoBeanDao().update(bean);
+                        listener.success(bean,String.valueOf(allPayNum));
+                    }
+
+                }
+            }
+
+        }catch (Exception e){
+            listener.error(e.toString());
+        }
+
+
+
     }
 }

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.szfp.szfp.view.activity.ParkingBuyParkingActivity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/leave"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_24"
+        android:padding="@dimen/space_12"
+        android:background="@drawable/divbox"/>
+
+    <ScrollView
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_50"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.szfp.szfplib.weight.StateButton
+                    android:id="@+id/bt_show_day"
+                    android:layout_width="@dimen/space_100"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/space_5"
+                    android:text="@string/day"
+                    app:normalBackgroundColor="@color/login_normal"
+                    app:normalTextColor="@color/white"
+                    app:pressedBackgroundColor="@color/login_pass"
+                    app:pressedTextColor="@color/white" />
+
+                <com.szfp.szfplib.weight.StateButton
+                    android:id="@+id/bt_show_month"
+                    android:layout_marginLeft="@dimen/space_50"
+                    android:layout_width="@dimen/space_100"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5"
+                    android:text="@string/month"
+                    app:normalBackgroundColor="@color/login_normal"
+                    app:normalTextColor="@color/white"
+                    app:pressedBackgroundColor="@color/login_pass"
+                    app:pressedTextColor="@color/white" />
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_day"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="@dimen/space_150"
+                    android:layout_margin="@dimen/space_20"
+                    android:background="@drawable/shadow"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/space_10"
+                        android:text="@string/parking_fee_day"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_24"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/day_pay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textColor="@color/actionsheet_blue"
+                        android:textSize="@dimen/text_size_24"
+                        android:textStyle="italic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/space_20"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:gravity="right|center_vertical">
+
+                        <ImageView
+                            android:id="@+id/day_remove"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_remove_circle_outline_black_24dp"
+                            android:padding="@dimen/space_14" />
+
+
+                        <TextView
+                            android:id="@+id/day_number"
+                            android:gravity="center"
+                            android:layout_width="@dimen/space_30"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:text="0" />
+
+                        <ImageView
+                            android:id="@+id/day_add"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_add_circle_outline_black_24dp"
+                            android:padding="@dimen/space_14" />
+                    </LinearLayout>
+
+                </LinearLayout> <LinearLayout
+                    android:id="@+id/ll_month"
+                android:visibility="gone"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="@dimen/space_150"
+                    android:layout_margin="@dimen/space_20"
+                    android:background="@drawable/shadow"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/space_10"
+                        android:text="@string/parking_fee_month"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_24"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/month_pay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="00"
+                        android:textColor="@color/actionsheet_blue"
+                        android:textSize="@dimen/text_size_24"
+                        android:textStyle="italic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/space_20"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:gravity="right|center_vertical">
+
+                        <ImageView
+                            android:id="@+id/month_remove"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_remove_circle_outline_black_24dp"
+                            android:padding="@dimen/space_14" />
+
+
+                        <TextView
+                            android:id="@+id/month_number"
+                            android:gravity="center"
+                            android:layout_width="@dimen/space_30"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:text="0" />
+
+                        <ImageView
+                            android:id="@+id/month_add"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_add_circle_outline_black_24dp"
+                            android:padding="@dimen/space_14" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </FrameLayout>
+
+
+
+
+
+
+            <CheckBox
+                android:id="@+id/ck_parking_conn_print"
+                android:layout_marginTop="@dimen/space_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/please_to_print"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/space_40">
+                <com.szfp.szfplib.weight.StateButton
+                    android:id="@+id/bt_parking_cash"
+                    android:layout_width="@dimen/space_100"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5"
+                    android:text="@string/cash"
+                    app:normalBackgroundColor="@color/login_normal"
+                    app:normalTextColor="@color/white"
+                    app:pressedBackgroundColor="@color/login_pass"
+                    app:pressedTextColor="@color/white" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+                <com.szfp.szfplib.weight.StateButton
+                    android:id="@+id/bt_parking_confirm"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5"
+                    android:layout_width="@dimen/space_100"
+                    android:gravity="center"
+                    android:text="@string/confirm"
+                    app:normalBackgroundColor="@color/login_normal"
+                    app:normalTextColor="@color/white"
+                    app:pressedBackgroundColor="@color/login_pass"
+                    app:pressedTextColor="@color/white" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"></View>
+                <com.szfp.szfplib.weight.StateButton
+                    android:id="@+id/bt_parking_cancel"
+                    android:layout_width="@dimen/space_100"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5"
+                    android:text="@string/cancel"
+                    app:normalBackgroundColor="@color/login_normal"
+                    app:normalTextColor="@color/white"
+                    app:pressedBackgroundColor="@color/login_pass"
+                    app:pressedTextColor="@color/white" />
+                />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

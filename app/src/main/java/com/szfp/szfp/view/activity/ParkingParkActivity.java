@@ -8,7 +8,12 @@ import android.widget.EditText;
 
 import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
 import com.szfp.szfp.R;
+import com.szfp.szfp.bean.VehicleParkingBean;
+import com.szfp.szfp.inter.OnSaveVehicleParking;
+import com.szfp.szfp.utils.DbHelper;
+import com.szfp.szfp.utils.PrintUtils;
 import com.szfp.szfplib.inter.OnItemClickListener;
+import com.szfp.szfplib.utils.ToastUtils;
 import com.szfp.szfplib.weight.AlertView;
 import com.szfp.szfplib.weight.StateButton;
 
@@ -46,7 +51,8 @@ public class ParkingParkActivity extends BasePrintActivity implements OnItemClic
                 if (isChecked) {
 
                     if (BluetoothPrintDriver.IsNoConnection()) ckParkingConnPrint.setChecked(false);
-                    else showDeviceList();
+
+                    showDeviceList();
 
                 } else {
                     isPrint = false;
@@ -66,6 +72,7 @@ public class ParkingParkActivity extends BasePrintActivity implements OnItemClic
     @Override
     protected void showConnectedDeviceName(String mConnectedDeviceName) {
         ckParkingConnPrint.setText("conn to " + mConnectedDeviceName);
+        ckParkingConnPrint.setChecked(true);
         isPrint = true;
     }
 
@@ -89,7 +96,7 @@ public class ParkingParkActivity extends BasePrintActivity implements OnItemClic
             error("PLEASE INPUT NUMBER");return;
         }
 
-        alertView = new AlertView("Vehicle Reg Number",input ,null, new String[]{"确定","取消"},null, ParkingParkActivity.this, AlertView.Style.Alert, this);
+        alertView = new AlertView("Vehicle Reg Number",input ,null, new String[]{"OK","NO"},null, ParkingParkActivity.this, AlertView.Style.Alert, this);
 
 
         alertView.show();
@@ -103,6 +110,19 @@ public class ParkingParkActivity extends BasePrintActivity implements OnItemClic
         if (position==0){
 
             //Vehicle parking
+            DbHelper.insetVehicleParking(input, new OnSaveVehicleParking() {
+                @Override
+                public void success(VehicleParkingBean bean) {
+                    if (isPrint) PrintUtils.printParkParking(bean);
+                    ToastUtils.success("save successfully");
+                    etParkingTopUp.setText("");
+                }
+
+                @Override
+                public void error(String str) {
+                    ToastUtils.error(str);
+                }
+            });
 
         }
     }

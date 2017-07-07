@@ -33,6 +33,7 @@ public class DaoMaster extends AbstractDaoMaster {
         AgricultureFarmerCollectionDao.createTable(db, ifNotExists);
         ParkingInfoBeanDao.createTable(db, ifNotExists);
         ParkingRechargeBeanDao.createTable(db, ifNotExists);
+        VehicleParkingBeanDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
@@ -49,6 +50,7 @@ public class DaoMaster extends AbstractDaoMaster {
         AgricultureFarmerCollectionDao.dropTable(db, ifExists);
         ParkingInfoBeanDao.dropTable(db, ifExists);
         ParkingRechargeBeanDao.dropTable(db, ifExists);
+        VehicleParkingBeanDao.dropTable(db, ifExists);
     }
 
     /**
@@ -79,6 +81,7 @@ public class DaoMaster extends AbstractDaoMaster {
         registerDaoClass(AgricultureFarmerCollectionDao.class);
         registerDaoClass(ParkingInfoBeanDao.class);
         registerDaoClass(ParkingRechargeBeanDao.class);
+        registerDaoClass(VehicleParkingBeanDao.class);
     }
 
     public DaoSession newSession() {

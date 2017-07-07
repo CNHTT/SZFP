@@ -6,6 +6,7 @@ import com.szfp.szfp.bean.AgricultureFarmerBean;
 import com.szfp.szfp.bean.AgricultureFarmerCollection;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
 import com.szfp.szfp.bean.ParkingInfoBean;
+import com.szfp.szfp.bean.VehicleParkingBean;
 import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.TimeUtils;
 
@@ -184,7 +185,7 @@ public class PrintUtils {
         BluetoothPrintDriver.LF();
         BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
         BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
-        BluetoothPrintDriver.BT_Write("TIME:" + TimeUtils.getCurTimeString());
+        BluetoothPrintDriver.BT_Write("TIME:" + TimeUtils.getCurTimeString()+"\r");
         BluetoothPrintDriver.BT_Write("NAME:  "+bean.getName()+"\r");
         BluetoothPrintDriver.BT_Write("ID NUMBER:"+bean.getIdNumber()+"\r");
         BluetoothPrintDriver.BT_Write("Amount paid: " +DataUtils.getAmountValue(input)+"\r" );
@@ -192,6 +193,96 @@ public class PrintUtils {
         BluetoothPrintDriver.BT_Write("_"+"\r");
         BluetoothPrintDriver.BT_Write("_"+"\r");
         BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+    }
+
+    public static void printParkParking(VehicleParkingBean bean) {
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte) 1);
+        BluetoothPrintDriver.SetLineSpacing((byte)40);
+        BluetoothPrintDriver.SetFontEnlarge((byte) 0x01);
+        BluetoothPrintDriver.BT_Write("PARKING");
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write("ID NUMBER:"+bean.getNumberID()+"\r");
+        BluetoothPrintDriver.BT_Write("PARK TIME:" + TimeUtils.milliseconds2String(bean.getStartTime())+"\r");
+        BluetoothPrintDriver.BT_Write("VEHICLE NUMBER:  "+bean.getVehicleNumber()+"\r");
+        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+    }
+
+    public static void printLeaveParking(VehicleParkingBean bean) {
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte) 1);
+        BluetoothPrintDriver.SetLineSpacing((byte)40);
+        BluetoothPrintDriver.SetFontEnlarge((byte) 0x01);
+        BluetoothPrintDriver.BT_Write("PARKING");
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write("ID NUMBER:"+bean.getNumberID()+"\r");
+        BluetoothPrintDriver.BT_Write("PARK TIME:" + TimeUtils.milliseconds2String(bean.getStartTime())+"\r");
+        BluetoothPrintDriver.BT_Write("VEHICLE NUMBER:  "+bean.getVehicleNumber()+"\r");
+        BluetoothPrintDriver.BT_Write("LEAVE TIME:" + TimeUtils.milliseconds2String(bean.getStartTime())+"\r");
+        BluetoothPrintDriver.BT_Write("TIME:" +bean.getTime()+"\r");
+        BluetoothPrintDriver.BT_Write("PAY NUM:" +bean.getPayNum()+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+
+    }
+
+    public static void printLeaveParking(ParkingInfoBean abean, VehicleParkingBean bean) {
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte) 1);
+        BluetoothPrintDriver.SetLineSpacing((byte)40);
+        BluetoothPrintDriver.SetFontEnlarge((byte) 0x01);
+        BluetoothPrintDriver.BT_Write("PARKING");
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write("ID NUMBER:"+bean.getNumberID()+"\r");
+        BluetoothPrintDriver.BT_Write("NAME:"+abean.getName()+"\r");
+        BluetoothPrintDriver.BT_Write("PARK TIME:" + TimeUtils.milliseconds2String(bean.getStartTime())+"\r");
+        BluetoothPrintDriver.BT_Write("VEHICLE NUMBER:  "+bean.getVehicleNumber()+"\r");
+        BluetoothPrintDriver.BT_Write("LEAVE TIME:" + TimeUtils.milliseconds2String(bean.getEndTime())+"\r");
+        BluetoothPrintDriver.BT_Write("TIME:" +bean.getTime()+"\r");
+        BluetoothPrintDriver.BT_Write("PAY NUM:" +0+"\r");
+        BluetoothPrintDriver.BT_Write("BALANCE " +DataUtils.getAmountValue(abean.getBalance())+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+    }
+
+    public static void printLeaveParkingFinger0(VehicleParkingBean bean, ParkingInfoBean abean) {
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte) 1);
+        BluetoothPrintDriver.SetLineSpacing((byte)40);
+        BluetoothPrintDriver.SetFontEnlarge((byte) 0x01);
+        BluetoothPrintDriver.BT_Write("PARKING");
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write("ID NUMBER:"+bean.getNumberID()+"\r");
+        BluetoothPrintDriver.BT_Write("NAME:"+abean.getName()+"\r");
+        BluetoothPrintDriver.BT_Write("PARK TIME:" + TimeUtils.milliseconds2String(bean.getStartTime())+"\r");
+        BluetoothPrintDriver.BT_Write("VEHICLE NUMBER:  "+bean.getVehicleNumber()+"\r");
+        BluetoothPrintDriver.BT_Write("LEAVE TIME:" + TimeUtils.milliseconds2String(bean.getEndTime())+"\r");
+        BluetoothPrintDriver.BT_Write("TIME:" +bean.getTime()+"\r");
+        BluetoothPrintDriver.BT_Write("PAY NUM:" +bean.getPayNum()+"\r");
+        BluetoothPrintDriver.BT_Write("BALANCE " +DataUtils.getAmountValue(abean.getBalance())+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
         BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
     }
 }

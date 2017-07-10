@@ -448,9 +448,10 @@ public class DbHelper {
             }else {
 
             AgricultureFarmerCollection result = new AgricultureFarmerCollection();
+                result.setName(bean.getName());
                 result.setRegistrationNumber(bean.getRegistrationNumber());
             result .setTime(TimeUtils.getCurTimeMills());
-            result.setIdNumber(bean.getIDNumber());
+            result.setIdNumber(TimeUtils.generateSequenceNo());
             result.setAmountCollected(Integer.valueOf(num));
                 result.setAmount(Float.valueOf(num)*Float.valueOf(amount));
             bean.setNumberOfAnimals(bean.getNumberOfAnimals()*Integer.valueOf(num));
@@ -761,6 +762,14 @@ public class DbHelper {
 
         }catch (Exception e){
             listener.error(e.toString());
+        }
+    }
+
+    public static List<AgricultureFarmerBean> getAllListAgricultureFramer() {
+        try {
+            return GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().loadAll();
+        }catch (Exception e){
+            return null;
         }
     }
 }

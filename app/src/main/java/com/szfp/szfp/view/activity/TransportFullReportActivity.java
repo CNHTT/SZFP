@@ -103,7 +103,7 @@ public class TransportFullReportActivity extends BaseActivity {
             Observable.create(new ObservableOnSubscribe<Integer>() {
                 @Override
                 public void subscribe(ObservableEmitter<Integer> e) throws Exception {
-                    e.onNext(list.size());
+                    e.onNext(1);
                     e.onComplete();
                 }
             }).subscribe(new Observer<Integer>() {

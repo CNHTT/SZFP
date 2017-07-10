@@ -18,6 +18,7 @@ public class AgricultureFarmerCollection implements Serializable {
     static final long serialVersionUID = 42L;
     @Id(autoincrement = true)
     private Long id;
+    private String name;
 
     private String  registrationNumber;
 
@@ -29,11 +30,12 @@ public class AgricultureFarmerCollection implements Serializable {
      */
     private int amountCollected;
     private float amount;
-    @Generated(hash = 1824050594)
-    public AgricultureFarmerCollection(Long id, String registrationNumber,
-            boolean isPay, String idNumber, long time, int amountCollected,
-            float amount) {
+    @Generated(hash = 1304956200)
+    public AgricultureFarmerCollection(Long id, String name,
+            String registrationNumber, boolean isPay, String idNumber, long time,
+            int amountCollected, float amount) {
         this.id = id;
+        this.name = name;
         this.registrationNumber = registrationNumber;
         this.isPay = isPay;
         this.idNumber = idNumber;
@@ -94,5 +96,11 @@ public class AgricultureFarmerCollection implements Serializable {
     }
     public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
+    }
+    public String getName() {
+        return this.name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 }

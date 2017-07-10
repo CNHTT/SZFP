@@ -464,6 +464,7 @@
     <string name="please_select_bank">Please Select Bank</string>
     <string name="litres">Amount collected (liters)</string>
     <string name="amount_li">The amount per liter</string>
+    <string name="amount_ksh">Amount(Ksh)</string>
 
 
 </resources>

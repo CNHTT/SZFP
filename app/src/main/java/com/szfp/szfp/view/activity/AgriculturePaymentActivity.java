@@ -200,7 +200,7 @@ public class AgriculturePaymentActivity extends BasePrintActivity {
                 tvResult.append("ID NUMBER: " +bean.getIDNumber()+"\n");
                 tvResult.append("Amount paid: " +input+"\n");
                 tvResult.append("NumberOfAnimals " +bean.getNumberOfAnimals()+"\n");
-                tvResult.append("Should be paid: " +DataUtils.getAmountValue(bean.getNumberOfAnimals()*Integer.valueOf(input))+"\n\n");
+                tvResult.append("Should be paid: " +DataUtils.getAmountValue(bean.getAmount())+"\n\n");
                 tvResult.append("provide basic reports \n");
 
                 tvResult.append("Time           AmountCollected" +"\n");
@@ -229,11 +229,11 @@ public class AgriculturePaymentActivity extends BasePrintActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_payment_save:
-                input =etAmountPayment.getText().toString();
-                if (DataUtils.isEmpty(input)){
-                    showErrorToast("Please input Amount");
-                    return;
-                }
+//                input =etAmountPayment.getText().toString();
+//                if (DataUtils.isEmpty(input)){
+//                    showErrorToast("Please input Amount");
+//                    return;
+//                }
                 asyncFingerprint.validate2();
                 break;
             case R.id.bt_payment_cancel:

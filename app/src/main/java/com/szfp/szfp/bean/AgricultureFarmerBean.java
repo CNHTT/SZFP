@@ -30,11 +30,12 @@ public class AgricultureFarmerBean implements Serializable {
     private String  dataOfBirth;
     private String  homeTown;
     private String  collectionRoute;
-    @Generated(hash = 2135611882)
+    private float   amount;
+    @Generated(hash = 301223603)
     public AgricultureFarmerBean(Long id, String name, String fingerPrintId,
             String iDNumber, boolean gender, String registrationNumber,
             String contact, int numberOfAnimals, String dataOfBirth,
-            String homeTown, String collectionRoute) {
+            String homeTown, String collectionRoute, float amount) {
         this.id = id;
         this.name = name;
         this.fingerPrintId = fingerPrintId;
@@ -46,6 +47,7 @@ public class AgricultureFarmerBean implements Serializable {
         this.dataOfBirth = dataOfBirth;
         this.homeTown = homeTown;
         this.collectionRoute = collectionRoute;
+        this.amount = amount;
     }
     @Generated(hash = 852173373)
     public AgricultureFarmerBean() {
@@ -125,12 +127,19 @@ public class AgricultureFarmerBean implements Serializable {
                 "\nnumberOfAnimals=" + numberOfAnimals +
                 "\ndataOfBirth='" + dataOfBirth + '\'' +
                 "\nhomeTown='" + homeTown + '\'' +
-                "\ncollectionRoute='" + collectionRoute + '\'';
+                "\ncollectionRoute='" + collectionRoute + '\''+
+                "Amount = " +amount;
     }
     public void setId(Long id) {
         this.id = id;
     }
     public Long getId() {
         return this.id;
+    }
+    public float getAmount() {
+        return this.amount;
+    }
+    public void setAmount(float amount) {
+        this.amount = amount;
     }
 }

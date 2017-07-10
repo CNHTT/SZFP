@@ -163,7 +163,7 @@ public class TransportAllReportsActivity extends BaseActivity {
         //Define Fonts
         Font font_title = new Font(Font.FontFamily.TIMES_ROMAN, 24, Font.BOLD | Font.UNDERLINE, BaseColor.GRAY);
         Font font_cat = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
-        Font font_smllBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
+        Font font_smllBold = new Font(Font.FontFamily.TIMES_ROMAN, 11, Font.BOLD);
         Font font_small = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL);
         //Heading Sections
         Paragraph heading = new Paragraph();
@@ -171,7 +171,7 @@ public class TransportAllReportsActivity extends BaseActivity {
         heading.setAlignment(Element.ALIGN_CENTER);
         heading.add("FULL REPORT  \n");
         //Creating Table
-        int noofcolumns = 7;
+        int noofcolumns = 8;
         PdfPTable table = new PdfPTable(noofcolumns);
 
         // 100.0f mean width of table is same as Document size
@@ -187,6 +187,10 @@ public class TransportAllReportsActivity extends BaseActivity {
         columnText_1.setFont(font_smllBold);
         columnText_1.setAlignment(Element.ALIGN_CENTER);
         columnText_1.add("A/C NUMBER");
+        Paragraph columnText_8 = new Paragraph();
+        columnText_8.setFont(font_smllBold);
+        columnText_8.setAlignment(Element.ALIGN_CENTER);
+        columnText_8.add("A/C NAME");
 
         Paragraph columnText_2 = new Paragraph();
         columnText_2.setFont(font_smllBold);
@@ -220,9 +224,12 @@ public class TransportAllReportsActivity extends BaseActivity {
         PdfPCell column_Title_4 = new PdfPCell(columnText_4);
         PdfPCell column_Title_5 = new PdfPCell(columnText_5);
         PdfPCell column_Title_6 = new PdfPCell(columnText_6);
+        PdfPCell column_Title_8 = new PdfPCell(columnText_8);
+
         //Add table Rows
         table.addCell(column_Title_0);
         table.addCell(column_Title_1);
+        table.addCell(column_Title_8);
         table.addCell(column_Title_2);
         table.addCell(column_Title_3);
         table.addCell(column_Title_4);
@@ -235,6 +242,7 @@ public class TransportAllReportsActivity extends BaseActivity {
             row = i + 1;
             table.addCell(row + "");
             table.addCell(list.get(i).getACNumber());
+            table.addCell(list.get(i).getACName());
 
             if (list.get(i).getDeposits()==0){
                 table.addCell("0");

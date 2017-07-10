@@ -53,7 +53,7 @@ public class BankingActivity extends BaseActivity {
                 showBankRegister();
                 break;
             case R.id.bt_deposit:
-                startActivity(new Intent(BankingActivity.this,BankCashDepositActivity.class));
+                startActivity(new Intent(BankingActivity.this,BankDepositActivity.class));
                 break;
             case R.id.bt_funds_transfer:
                 break;

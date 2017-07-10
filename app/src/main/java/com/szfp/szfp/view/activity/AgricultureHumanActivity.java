@@ -32,6 +32,7 @@ public class AgricultureHumanActivity extends BaseActivity {
                 startActivity(new Intent(AgricultureHumanActivity.this,AgricultureRegisterEmployeeActivity.class));
                 break;
             case R.id.bt_human_reports:
+                startActivity(new Intent(AgricultureHumanActivity.this,AgricultureReportEmployeeActivity.class));
                 break;
         }
     }

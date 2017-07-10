@@ -63,9 +63,8 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/space_14" />
 
-            <EditText
-                android:singleLine="true"
-                android:id="@+id/et_cash_deposit_by"
+            <TextView
+                android:id="@+id/tv_cash_deposit_by"
                 android:layout_width="@dimen/space_250"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_divbox"
@@ -115,9 +114,29 @@
                 android:layout_width="@dimen/space_250"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_divbox"
+                android:inputType="numberDecimal"
                 android:lines="1"
                 android:padding="@dimen/space_10" />
         </LinearLayout>
+
+
+        <com.szfp.szfplib.weight.StateButton
+            android:layout_marginTop="@dimen/space_20"
+            android:minEms="11"
+            android:layout_gravity="right"
+            android:padding="@dimen/space_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_18"
+            android:gravity="center"
+            android:text="@string/please_to_print"
+            android:id="@+id/bt_comm_print"
+            app:normalBackgroundColor="@color/palegreen"
+            app:normalTextColor="@color/black"
+            app:radius="@dimen/space_2"
+            app:pressedBackgroundColor="@color/result_points"
+            android:textStyle="bold"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -19,19 +19,27 @@ public class AgricultureFarmerCollection implements Serializable {
     @Id(autoincrement = true)
     private Long id;
 
+    private String  registrationNumber;
 
     private boolean isPay =false;
     private String idNumber;
     private long time;
+    /**
+     * Liters
+     */
     private int amountCollected;
-    @Generated(hash = 53501553)
-    public AgricultureFarmerCollection(Long id, boolean isPay, String idNumber,
-            long time, int amountCollected) {
+    private float amount;
+    @Generated(hash = 1824050594)
+    public AgricultureFarmerCollection(Long id, String registrationNumber,
+            boolean isPay, String idNumber, long time, int amountCollected,
+            float amount) {
         this.id = id;
+        this.registrationNumber = registrationNumber;
         this.isPay = isPay;
         this.idNumber = idNumber;
         this.time = time;
         this.amountCollected = amountCollected;
+        this.amount = amount;
     }
     @Generated(hash = 307790114)
     public AgricultureFarmerCollection() {
@@ -60,7 +68,8 @@ public class AgricultureFarmerCollection implements Serializable {
     public String toString() {
         return "\n" +
                 "time=" + TimeUtils.milliseconds2String(time)+
-                "\namountCollected=" + amountCollected ;
+                "\nAmount collected (liters)=" + amountCollected
+                +"\nAmonut=" + amount ;
     }
     public void setId(Long id) {
         this.id = id;
@@ -73,5 +82,17 @@ public class AgricultureFarmerCollection implements Serializable {
     }
     public void setIsPay(boolean isPay) {
         this.isPay = isPay;
+    }
+    public float getAmount() {
+        return this.amount;
+    }
+    public void setAmount(float amount) {
+        this.amount = amount;
+    }
+    public String getRegistrationNumber() {
+        return this.registrationNumber;
+    }
+    public void setRegistrationNumber(String registrationNumber) {
+        this.registrationNumber = registrationNumber;
     }
 }

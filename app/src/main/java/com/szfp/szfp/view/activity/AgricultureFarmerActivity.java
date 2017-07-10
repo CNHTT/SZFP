@@ -32,6 +32,7 @@ public class AgricultureFarmerActivity extends BaseActivity {
                 startActivity(new Intent(AgricultureFarmerActivity.this,AgricultureRegisterFarmerActivity.class));
                 break;
             case R.id.bt_farmer_reports:
+                startActivity(new Intent(AgricultureFarmerActivity.this,AgricultureReportFramerActivity.class));
                 break;
         }
     }

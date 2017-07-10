@@ -35,6 +35,7 @@ public class AgricultureFarmerBeanDao extends AbstractDao<AgricultureFarmerBean,
         public final static Property DataOfBirth = new Property(8, String.class, "dataOfBirth", false, "DATA_OF_BIRTH");
         public final static Property HomeTown = new Property(9, String.class, "homeTown", false, "HOME_TOWN");
         public final static Property CollectionRoute = new Property(10, String.class, "collectionRoute", false, "COLLECTION_ROUTE");
+        public final static Property Amount = new Property(11, float.class, "amount", false, "AMOUNT");
     }
 
 
@@ -60,7 +61,8 @@ public class AgricultureFarmerBeanDao extends AbstractDao<AgricultureFarmerBean,
                 "\"NUMBER_OF_ANIMALS\" INTEGER NOT NULL ," + // 7: numberOfAnimals
                 "\"DATA_OF_BIRTH\" TEXT," + // 8: dataOfBirth
                 "\"HOME_TOWN\" TEXT," + // 9: homeTown
-                "\"COLLECTION_ROUTE\" TEXT);"); // 10: collectionRoute
+                "\"COLLECTION_ROUTE\" TEXT," + // 10: collectionRoute
+                "\"AMOUNT\" REAL NOT NULL );"); // 11: amount
     }
 
     /** Drops the underlying database table. */
@@ -119,6 +121,7 @@ public class AgricultureFarmerBeanDao extends AbstractDao<AgricultureFarmerBean,
         if (collectionRoute != null) {
             stmt.bindString(11, collectionRoute);
         }
+        stmt.bindDouble(12, entity.getAmount());
     }
 
     @Override
@@ -171,6 +174,7 @@ public class AgricultureFarmerBeanDao extends AbstractDao<AgricultureFarmerBean,
         if (collectionRoute != null) {
             stmt.bindString(11, collectionRoute);
         }
+        stmt.bindDouble(12, entity.getAmount());
     }
 
     @Override
@@ -191,7 +195,8 @@ public class AgricultureFarmerBeanDao extends AbstractDao<AgricultureFarmerBean,
             cursor.getInt(offset + 7), // numberOfAnimals
             cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // dataOfBirth
             cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9), // homeTown
-            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10) // collectionRoute
+            cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10), // collectionRoute
+            cursor.getFloat(offset + 11) // amount
         );
         return entity;
     }
@@ -209,6 +214,7 @@ public class AgricultureFarmerBeanDao extends AbstractDao<AgricultureFarmerBean,
         entity.setDataOfBirth(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
         entity.setHomeTown(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
         entity.setCollectionRoute(cursor.isNull(offset + 10) ? null : cursor.getString(offset + 10));
+        entity.setAmount(cursor.getFloat(offset + 11));
      }
     
     @Override

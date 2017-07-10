@@ -17,16 +17,19 @@ public class AccountReportBean implements Serializable {
     static final long serialVersionUID = 42L;
     @Id(autoincrement = true)
     private Long id;
+    private String ACName;
     private String ACNumber;
     private float deposits;
     private long  depositsDate;
     private float   farePaid;
     private long    farePaidDate;
     private float   balance;
-    @Generated(hash = 302613008)
-    public AccountReportBean(Long id, String ACNumber, float deposits,
-            long depositsDate, float farePaid, long farePaidDate, float balance) {
+    @Generated(hash = 811581821)
+    public AccountReportBean(Long id, String ACName, String ACNumber,
+            float deposits, long depositsDate, float farePaid, long farePaidDate,
+            float balance) {
         this.id = id;
+        this.ACName = ACName;
         this.ACNumber = ACNumber;
         this.deposits = deposits;
         this.depositsDate = depositsDate;
@@ -78,5 +81,11 @@ public class AccountReportBean implements Serializable {
     }
     public void setBalance(float balance) {
         this.balance = balance;
+    }
+    public String getACName() {
+        return this.ACName;
+    }
+    public void setACName(String ACName) {
+        this.ACName = ACName;
     }
 }

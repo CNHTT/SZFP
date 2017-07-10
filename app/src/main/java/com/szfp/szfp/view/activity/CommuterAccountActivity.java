@@ -256,7 +256,7 @@ public class CommuterAccountActivity extends BasePrintActivity {
                     reportBean.setDeposits(inputFloat);
                     reportBean.setDepositsDate(TimeUtils.getCurTimeMills());
                     reportBean.setBalance(bean.getBalance());
-
+                    reportBean.setACName(bean.getFullName());
                     reportBean.setACNumber(bean.getCommuterAccount());
                     reportBean.setFarePaidDate(0);
                     reportBean.setFarePaid(0);

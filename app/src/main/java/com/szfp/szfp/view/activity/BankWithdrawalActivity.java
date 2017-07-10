@@ -8,7 +8,6 @@ import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
@@ -42,30 +41,35 @@ import static com.szfp.szfp.asynctask.AsyncFingerprint.VALIDATE_RESULT1;
 import static com.szfp.szfp.asynctask.AsyncFingerprint.VALIDATE_RESULT2;
 import static com.szfp.szfplib.utils.DataUtils.isNullString;
 
-public class BankCashDepositActivity extends BasePrintActivity {
+public class BankWithdrawalActivity extends BasePrintActivity {
 
-    @BindView(R.id.et_cash_deposit_number)
-    EditText etCashDepositNumber;
-    @BindView(R.id.et_cash_deposit_name)
-    EditText etCashDepositName;
-    @BindView(R.id.et_cash_deposit_account)
-    EditText etCashDepositAccount;
+    @BindView(R.id.et_id_number)
+    EditText etIdNumber;
+    @BindView(R.id.et_amont)
+    EditText etAmont;
+    @BindView(R.id.tv_withdraw_money_from)
+    TextView tvWithdrawMoneyFrom;
     @BindView(R.id.bt_cash_deposit_enter)
     StateButton btCashDepositEnter;
     @BindView(R.id.bt_cash_deposit_cancel)
     StateButton btCashDepositCancel;
     @BindView(R.id.bt_comm_print)
     StateButton btCommPrint;
-    @BindView(R.id.ll_bank_statement)
-    LinearLayout llBankStatement;
-    @BindView(R.id.tv_cash_deposit_by)
-    TextView tvCashDepositBy;
 
-    private String acNumber;
-    private String acName;
-    private String deposiyed;
-    private String number;
-    private String finegerId;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private BankDepositBean bean;
 
@@ -181,11 +185,12 @@ public class BankCashDepositActivity extends BasePrintActivity {
      * @param r
      */
     private void showValidateResult(final Integer r) {
-        DbHelper.getBankCustomer(String.valueOf(r),bean, new OnVerifyDepositListener() {
+        DbHelper.getBankCustomerWith(String.valueOf(r),bean, new OnVerifyDepositListener() {
             @Override
             public void success(BankDepositBean bean) {
+                if (isPrint) PrintUtils.printBankWith(bean);
                 ToastUtils.success("OKOKOK");
-                if (isPrint)PrintUtils.printBankCash(bean);
+                etAmont.setText("");
             }
 
             @Override
@@ -200,32 +205,36 @@ public class BankCashDepositActivity extends BasePrintActivity {
 
 
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bank_cash_deposit);
+        setContentView(R.layout.activity_bank_withdrawal);
         ButterKnife.bind(this);
     }
 
     @Override
     protected void showConnecting() {
-        btCommPrint.setText("Connecting...");
+        btCommPrint.setText("Connecting....");
+
     }
 
     @Override
     protected void showConnectedDeviceName(String mConnectedDeviceName) {
-        btCommPrint.setText("Conn to "+mConnectedDeviceName);
-        isPrint = true;
-    }
+        btCommPrint.setText("Conn to " + mConnectedDeviceName);
+        isPrint =true;
 
+    }
 
     private List<BankRegistrationBean> bankList;
     private String[] bankNameList;
-
-    @OnClick({R.id.tv_cash_deposit_by, R.id.bt_comm_print, R.id.bt_cash_deposit_enter, R.id.bt_cash_deposit_cancel})
+    @OnClick({R.id.tv_withdraw_money_from, R.id.bt_comm_print, R.id.bt_cash_deposit_enter, R.id.bt_cash_deposit_cancel})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tv_cash_deposit_by:
+            case R.id.tv_withdraw_money_from:
                 bankList = new ArrayList<>();
                 bankList = DbHelper.getAllBank();
                 if (DataUtils.isEmpty(bankList)){
@@ -240,43 +249,38 @@ public class BankCashDepositActivity extends BasePrintActivity {
                         this, AlertView.Style.ActionSheet, new OnItemClickListener() {
                     @Override
                     public void onItemClick(Object o, int position) {
-                        tvCashDepositBy.setText(bankNameList[position]);
+                        tvWithdrawMoneyFrom.setText(bankNameList[position]);
                     }
                 }).show();
-
-
-
                 break;
             case R.id.bt_comm_print:
-                if (BluetoothPrintDriver.IsNoConnection()){
-                showDeviceList();
-            }
+                if (BluetoothPrintDriver.IsNoConnection())
+                    showDeviceList();
                 break;
             case R.id.bt_cash_deposit_enter:
+
                 save();
+
                 break;
             case R.id.bt_cash_deposit_cancel:
-                onBackPressed();
                 break;
         }
     }
 
+    private String idNumber;
+    private String amount;
+    private String bankName;
     private void save() {
-        acNumber =etCashDepositNumber.getText().toString();
-        acName  = etCashDepositName.getText().toString();
-        deposiyed = tvCashDepositBy.getText().toString();
-        number = etCashDepositAccount.getText().toString();
-
-        if (isNullString(acName)||isNullString(acName)||isNullString(deposiyed)||isNullString(number)){
-            showErrorToast("Please Input");
-            return;
+        idNumber = etIdNumber.getText().toString();
+        amount  = etAmont.getText().toString();
+        bankName = tvWithdrawMoneyFrom.getText().toString();
+        if (isNullString(idNumber)||isNullString(amount)||isNullString(bankName)){
+            showErrorToast("Please input");return;
         }
         bean = new BankDepositBean();
-        bean.setAcNumber(acNumber);
-        bean.setAcName(acName);
-        bean.setBankName(deposiyed);
-        bean.setCashNumber(Float.valueOf(number));
+        bean.setWaihNumber(Float.valueOf(amount));
+        bean.setAcNumber(idNumber);
+        bean.setBankName(bankName);
         asyncFingerprint.validate2();
-
     }
 }

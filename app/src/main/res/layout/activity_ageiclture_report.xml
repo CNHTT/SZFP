@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.szfp.szfp.view.activity.AgricultureReportActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+        <com.szfp.szfplib.weight.StateButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_framer_export"
+            android:text="@string/export_str"
+            android:gravity="center"
+            android:padding="@dimen/space_20"
+            app:normalBackgroundColor="@color/login_normal"
+            app:normalTextColor="@color/white"
+            app:pressedBackgroundColor="@color/login_pass"
+            app:pressedTextColor="@color/white"/>
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_30"
+            android:background="@color/springgreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/text_size_12"
+                android:gravity="center"
+                android:padding="@dimen/space_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minEms="5"
+                android:text="@string/no" />
+            <TextView
+                android:textSize="@dimen/text_size_12"
+                android:gravity="center"
+                android:id="@+id/textView3"
+                android:padding="@dimen/space_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minEms="7"
+                android:text="@string/name" />
+
+            <TextView
+                android:textSize="@dimen/text_size_12"
+                android:padding="@dimen/space_5"
+                android:minEms="9"
+                android:maxEms="9"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/id_number" />
+
+            <TextView
+                android:textSize="@dimen/text_size_12"
+                android:padding="@dimen/space_5"
+                android:minEms="9"
+                android:maxEms="9"
+                android:gravity="center"
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ac_number" />
+
+            <TextView
+                android:textSize="@dimen/text_size_12"
+                android:padding="@dimen/space_5"
+                android:minEms="10"
+                android:maxEms="10"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/litres" />
+            <TextView
+                android:padding="@dimen/space_5"
+                android:minEms="5"
+                android:maxEms="5"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/amount" />
+            <TextView
+                android:textSize="@dimen/text_size_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_5"
+                android:minEms="10"
+                android:maxEms="10"
+                android:gravity="center"
+                android:text="@string/date" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/agri_all_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </ListView>
+    </LinearLayout>
+</LinearLayout>

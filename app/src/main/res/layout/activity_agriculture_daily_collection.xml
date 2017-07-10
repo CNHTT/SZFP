@@ -31,17 +31,50 @@
         android:layout_height="wrap_content">
 
 
-        <EditText
-            android:id="@+id/et_amount_collected"
-            android:background="@drawable/text_divbox"
+
+        <LinearLayout
             android:padding="@dimen/space_10"
-            android:layout_width="@dimen/space_300"
-            android:inputType="numberDecimal"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:singleLine="true"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:minEms="10"
+                android:text="@string/litres"
+                android:textSize="@dimen/text_size_24"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
+            <EditText
+                android:id="@+id/et_amount_collected"
+                android:background="@drawable/text_divbox"
+                android:padding="@dimen/space_10"
+                android:layout_width="@dimen/space_300"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:singleLine="true"/>
+        </LinearLayout>
+        <LinearLayout
+            android:padding="@dimen/space_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:minEms="10"
+                android:text="@string/amount_li"
+                android:textSize="@dimen/text_size_24"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
+            <EditText
+                android:id="@+id/et_litres"
+                android:background="@drawable/text_divbox"
+                android:padding="@dimen/space_10"
+                android:layout_width="@dimen/space_300"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black"
+                android:singleLine="true"/>
+        </LinearLayout>
         <CheckBox
             android:id="@+id/ck_daily_collection"
             android:layout_marginTop="@dimen/space_12"

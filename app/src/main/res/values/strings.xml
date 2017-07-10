@@ -459,6 +459,11 @@
     <string name="check">Check</string>
     <string name="cash">CASH</string>
     <string name="month">Month</string>
+    <string name="withdrawal">Withdrawal</string>
+    <string name="withdraw_money_from">Withdraw By</string>
+    <string name="please_select_bank">Please Select Bank</string>
+    <string name="litres">Amount collected (liters)</string>
+    <string name="amount_li">The amount per liter</string>
 
 
 </resources>

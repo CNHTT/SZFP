@@ -4,6 +4,7 @@ import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
 import com.szfp.szfp.bean.AccountReportBean;
 import com.szfp.szfp.bean.AgricultureFarmerBean;
 import com.szfp.szfp.bean.AgricultureFarmerCollection;
+import com.szfp.szfp.bean.BankDepositBean;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
 import com.szfp.szfp.bean.ParkingInfoBean;
 import com.szfp.szfp.bean.VehicleParkingBean;
@@ -136,8 +137,10 @@ public class PrintUtils {
         BluetoothPrintDriver.BT_Write("TIME:" + TimeUtils.getCurTimeString());
         BluetoothPrintDriver.LF();
         BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
-        BluetoothPrintDriver.BT_Write("AmountCollected:" +result.getAmountCollected()+"\r");
+        BluetoothPrintDriver.BT_Write("Amount collected (liters):" +result.getAmountCollected()+"\r");
+        BluetoothPrintDriver.BT_Write("Amount:" +result.getAmountCollected()+"\r");
         BluetoothPrintDriver.BT_Write("NumberOf Animals:" +bean.getNumberOfAnimals()+"\r");
+        BluetoothPrintDriver.BT_Write("ALL Amount:" +bean.getAmount()+"\r");
         BluetoothPrintDriver.BT_Write("_"+"\r");
         BluetoothPrintDriver.BT_Write("_"+"\r");
         BluetoothPrintDriver.BT_Write("_"+"\r");
@@ -280,6 +283,52 @@ public class PrintUtils {
         BluetoothPrintDriver.BT_Write("TIME:" +bean.getTime()+"\r");
         BluetoothPrintDriver.BT_Write("PAY NUM:" +bean.getPayNum()+"\r");
         BluetoothPrintDriver.BT_Write("BALANCE " +DataUtils.getAmountValue(abean.getBalance())+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+    }
+
+    public static void printBankCash(BankDepositBean bean) {
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte) 1);
+        BluetoothPrintDriver.SetLineSpacing((byte)40);
+        BluetoothPrintDriver.SetFontEnlarge((byte) 0x01);
+        BluetoothPrintDriver.BT_Write("CASH DEPOSIT");
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write("AC NUMBER:"+bean.getAcNumber()+"\r");
+        BluetoothPrintDriver.BT_Write("AC NAME:"+bean.getAcName()+"\r");
+        BluetoothPrintDriver.BT_Write("Amount:" +DataUtils.getAmountValue(bean.getCashNumber())+"\r");
+        BluetoothPrintDriver.BT_Write("DEPOSITED BY:  "+bean.getBankName()+"\r");
+        BluetoothPrintDriver.BT_Write("TIME:" + TimeUtils.milliseconds2String(TimeUtils.getCurTimeMills())+"\r");
+        BluetoothPrintDriver.BT_Write("BALANCE: " +DataUtils.getAmountValue(bean.getBalance())+"\r");
+        BluetoothPrintDriver.BT_Write("SERVED BY: " +"ADMIN"+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+    }
+
+    public static void printBankWith(BankDepositBean bean) {
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte) 1);
+        BluetoothPrintDriver.SetLineSpacing((byte)40);
+        BluetoothPrintDriver.SetFontEnlarge((byte) 0x01);
+        BluetoothPrintDriver.BT_Write("WIRHDRAWING");
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write("AC NUMBER:"+bean.getAcNumber()+"\r");
+        BluetoothPrintDriver.BT_Write("AC NAME:"+bean.getAcName()+"\r");
+        BluetoothPrintDriver.BT_Write("Amount:" +DataUtils.getAmountValue(bean.getWaihNumber())+"\r");
+        BluetoothPrintDriver.BT_Write("DEPOSITED BY:  "+bean.getBankName()+"\r");
+        BluetoothPrintDriver.BT_Write("TIME:" + TimeUtils.milliseconds2String(TimeUtils.getCurTimeMills())+"\r");
+        BluetoothPrintDriver.BT_Write("BALANCE " +DataUtils.getAmountValue(bean.getBalance())+"\r");
+        BluetoothPrintDriver.BT_Write("SERVED BY: " +"ADMIN"+"\r");
         BluetoothPrintDriver.BT_Write(" "+"\r");
         BluetoothPrintDriver.BT_Write(" "+"\r");
         BluetoothPrintDriver.BT_Write(" "+"\r");

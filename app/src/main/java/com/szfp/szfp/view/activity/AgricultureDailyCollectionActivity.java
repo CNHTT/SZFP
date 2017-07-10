@@ -49,8 +49,11 @@ public class AgricultureDailyCollectionActivity extends BasePrintActivity {
     CheckBox ckDailyCollection;
     @BindView(R.id.tv_result)
     TextView tvResult;
+    @BindView(R.id.et_litres)
+    EditText etLitres;
 
     private String input;
+    private String amount;
     private boolean isPrint = false;
 
     private ProgressDialog progressDialog;
@@ -164,14 +167,14 @@ public class AgricultureDailyCollectionActivity extends BasePrintActivity {
      * @param r
      */
     private void showValidateResult(final Integer r) {
-        DbHelper.checkAgricultureFramer(String.valueOf(r), input,new OnVerifyDailyCollectionListener() {
+        DbHelper.checkAgricultureFramer(String.valueOf(r), input,amount,new OnVerifyDailyCollectionListener() {
 
             @Override
             public void success(AgricultureFarmerBean bean, AgricultureFarmerCollection result) {
                 etAmountCollected.setText("");
                 tvResult.setText(bean.toString());
                 tvResult.append(result.toString());
-                if (isPrint) PrintUtils.printAgricultureDailyCollection(bean,result);
+                if (isPrint) PrintUtils.printAgricultureDailyCollection(bean, result);
             }
 
             @Override
@@ -210,7 +213,7 @@ public class AgricultureDailyCollectionActivity extends BasePrintActivity {
     @Override
     protected void showConnectedDeviceName(String mConnectedDeviceName) {
         ckDailyCollection.setChecked(true);
-        isPrint =true;
+        isPrint = true;
         ckDailyCollection.setText("Conn to " + mConnectedDeviceName);
     }
 
@@ -218,8 +221,13 @@ public class AgricultureDailyCollectionActivity extends BasePrintActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_farmer_save:
-                input = etAmountCollected .getText().toString();
-                if (DataUtils.isNullString(input)){showErrorToast("Please input number"); return;}
+                input = etAmountCollected.getText().toString();
+                amount = etLitres.getText().toString();
+
+                if (DataUtils.isNullString(input)||DataUtils.isNullString(amount)) {
+                    showErrorToast("Please input number");
+                    return;
+                }
                 asyncFingerprint.validate2();
                 break;
             case R.id.bt_farmer_cancel:

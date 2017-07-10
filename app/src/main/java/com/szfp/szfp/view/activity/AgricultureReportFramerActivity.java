@@ -1,11 +1,10 @@
 package com.szfp.szfp.view.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.szfp.szfp.R;
 
-public class AgricultureReportFramerActivity extends AppCompatActivity {
+public class AgricultureReportFramerActivity extends BaseNoActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

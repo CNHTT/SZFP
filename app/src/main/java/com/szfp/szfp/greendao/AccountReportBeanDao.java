@@ -25,12 +25,13 @@ public class AccountReportBeanDao extends AbstractDao<AccountReportBean, Long> {
      */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property ACNumber = new Property(1, String.class, "ACNumber", false, "ACNUMBER");
-        public final static Property Deposits = new Property(2, float.class, "deposits", false, "DEPOSITS");
-        public final static Property DepositsDate = new Property(3, long.class, "depositsDate", false, "DEPOSITS_DATE");
-        public final static Property FarePaid = new Property(4, float.class, "farePaid", false, "FARE_PAID");
-        public final static Property FarePaidDate = new Property(5, long.class, "farePaidDate", false, "FARE_PAID_DATE");
-        public final static Property Balance = new Property(6, float.class, "balance", false, "BALANCE");
+        public final static Property ACName = new Property(1, String.class, "ACName", false, "ACNAME");
+        public final static Property ACNumber = new Property(2, String.class, "ACNumber", false, "ACNUMBER");
+        public final static Property Deposits = new Property(3, float.class, "deposits", false, "DEPOSITS");
+        public final static Property DepositsDate = new Property(4, long.class, "depositsDate", false, "DEPOSITS_DATE");
+        public final static Property FarePaid = new Property(5, float.class, "farePaid", false, "FARE_PAID");
+        public final static Property FarePaidDate = new Property(6, long.class, "farePaidDate", false, "FARE_PAID_DATE");
+        public final static Property Balance = new Property(7, float.class, "balance", false, "BALANCE");
     }
 
 
@@ -47,12 +48,13 @@ public class AccountReportBeanDao extends AbstractDao<AccountReportBean, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"ACCOUNT_REPORT_BEAN\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"ACNUMBER\" TEXT," + // 1: ACNumber
-                "\"DEPOSITS\" REAL NOT NULL ," + // 2: deposits
-                "\"DEPOSITS_DATE\" INTEGER NOT NULL ," + // 3: depositsDate
-                "\"FARE_PAID\" REAL NOT NULL ," + // 4: farePaid
-                "\"FARE_PAID_DATE\" INTEGER NOT NULL ," + // 5: farePaidDate
-                "\"BALANCE\" REAL NOT NULL );"); // 6: balance
+                "\"ACNAME\" TEXT," + // 1: ACName
+                "\"ACNUMBER\" TEXT," + // 2: ACNumber
+                "\"DEPOSITS\" REAL NOT NULL ," + // 3: deposits
+                "\"DEPOSITS_DATE\" INTEGER NOT NULL ," + // 4: depositsDate
+                "\"FARE_PAID\" REAL NOT NULL ," + // 5: farePaid
+                "\"FARE_PAID_DATE\" INTEGER NOT NULL ," + // 6: farePaidDate
+                "\"BALANCE\" REAL NOT NULL );"); // 7: balance
     }
 
     /** Drops the underlying database table. */
@@ -70,15 +72,20 @@ public class AccountReportBeanDao extends AbstractDao<AccountReportBean, Long> {
             stmt.bindLong(1, id);
         }
  
+        String ACName = entity.getACName();
+        if (ACName != null) {
+            stmt.bindString(2, ACName);
+        }
+ 
         String ACNumber = entity.getACNumber();
         if (ACNumber != null) {
-            stmt.bindString(2, ACNumber);
+            stmt.bindString(3, ACNumber);
         }
-        stmt.bindDouble(3, entity.getDeposits());
-        stmt.bindLong(4, entity.getDepositsDate());
-        stmt.bindDouble(5, entity.getFarePaid());
-        stmt.bindLong(6, entity.getFarePaidDate());
-        stmt.bindDouble(7, entity.getBalance());
+        stmt.bindDouble(4, entity.getDeposits());
+        stmt.bindLong(5, entity.getDepositsDate());
+        stmt.bindDouble(6, entity.getFarePaid());
+        stmt.bindLong(7, entity.getFarePaidDate());
+        stmt.bindDouble(8, entity.getBalance());
     }
 
     @Override
@@ -90,15 +97,20 @@ public class AccountReportBeanDao extends AbstractDao<AccountReportBean, Long> {
             stmt.bindLong(1, id);
         }
  
+        String ACName = entity.getACName();
+        if (ACName != null) {
+            stmt.bindString(2, ACName);
+        }
+ 
         String ACNumber = entity.getACNumber();
         if (ACNumber != null) {
-            stmt.bindString(2, ACNumber);
+            stmt.bindString(3, ACNumber);
         }
-        stmt.bindDouble(3, entity.getDeposits());
-        stmt.bindLong(4, entity.getDepositsDate());
-        stmt.bindDouble(5, entity.getFarePaid());
-        stmt.bindLong(6, entity.getFarePaidDate());
-        stmt.bindDouble(7, entity.getBalance());
+        stmt.bindDouble(4, entity.getDeposits());
+        stmt.bindLong(5, entity.getDepositsDate());
+        stmt.bindDouble(6, entity.getFarePaid());
+        stmt.bindLong(7, entity.getFarePaidDate());
+        stmt.bindDouble(8, entity.getBalance());
     }
 
     @Override
@@ -110,12 +122,13 @@ public class AccountReportBeanDao extends AbstractDao<AccountReportBean, Long> {
     public AccountReportBean readEntity(Cursor cursor, int offset) {
         AccountReportBean entity = new AccountReportBean( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // ACNumber
-            cursor.getFloat(offset + 2), // deposits
-            cursor.getLong(offset + 3), // depositsDate
-            cursor.getFloat(offset + 4), // farePaid
-            cursor.getLong(offset + 5), // farePaidDate
-            cursor.getFloat(offset + 6) // balance
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // ACName
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // ACNumber
+            cursor.getFloat(offset + 3), // deposits
+            cursor.getLong(offset + 4), // depositsDate
+            cursor.getFloat(offset + 5), // farePaid
+            cursor.getLong(offset + 6), // farePaidDate
+            cursor.getFloat(offset + 7) // balance
         );
         return entity;
     }
@@ -123,12 +136,13 @@ public class AccountReportBeanDao extends AbstractDao<AccountReportBean, Long> {
     @Override
     public void readEntity(Cursor cursor, AccountReportBean entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setACNumber(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setDeposits(cursor.getFloat(offset + 2));
-        entity.setDepositsDate(cursor.getLong(offset + 3));
-        entity.setFarePaid(cursor.getFloat(offset + 4));
-        entity.setFarePaidDate(cursor.getLong(offset + 5));
-        entity.setBalance(cursor.getFloat(offset + 6));
+        entity.setACName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setACNumber(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setDeposits(cursor.getFloat(offset + 3));
+        entity.setDepositsDate(cursor.getLong(offset + 4));
+        entity.setFarePaid(cursor.getFloat(offset + 5));
+        entity.setFarePaidDate(cursor.getLong(offset + 6));
+        entity.setBalance(cursor.getFloat(offset + 7));
      }
     
     @Override

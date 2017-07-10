@@ -8,6 +8,7 @@ import com.szfp.szfp.bean.AgricultureEmployeeBean;
 import com.szfp.szfp.bean.AgricultureFarmerBean;
 import com.szfp.szfp.bean.AgricultureFarmerCollection;
 import com.szfp.szfp.bean.BankCustomerBean;
+import com.szfp.szfp.bean.BankDepositBean;
 import com.szfp.szfp.bean.BankRegistrationBean;
 import com.szfp.szfp.bean.CommuterAccountInfoBean;
 import com.szfp.szfp.bean.ParkingInfoBean;
@@ -20,6 +21,7 @@ import com.szfp.szfp.greendao.AccountReportBeanDao;
 import com.szfp.szfp.greendao.AgricultureFarmerBeanDao;
 import com.szfp.szfp.greendao.AgricultureFarmerCollectionDao;
 import com.szfp.szfp.greendao.BankCustomerBeanDao;
+import com.szfp.szfp.greendao.BankDepositBeanDao;
 import com.szfp.szfp.greendao.CommuterAccountInfoBeanDao;
 import com.szfp.szfp.greendao.ParkingInfoBeanDao;
 import com.szfp.szfp.greendao.StudentBeanDao;
@@ -32,13 +34,16 @@ import com.szfp.szfp.inter.OnSaveVehicleParking;
 import com.szfp.szfp.inter.OnStaffGatePassVerify;
 import com.szfp.szfp.inter.OnStudentGatePassVerify;
 import com.szfp.szfp.inter.OnVerifyDailyCollectionListener;
+import com.szfp.szfp.inter.OnVerifyDepositListener;
 import com.szfp.szfp.inter.OnVerifyParkingListener;
 import com.szfp.szfp.inter.OnVerifyPaymentListener;
+import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.TimeUtils;
 
 import org.greenrobot.greendao.query.Query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.szfp.szfp.ConstantValue.FINGERPRINT;
 import static com.szfp.szfp.ConstantValue.FINGERPRINT_END;
@@ -55,6 +60,30 @@ public class DbHelper {
 
     long result;
 
+    public static List<BankRegistrationBean> getAllBank() {
+
+        try {
+            List<BankRegistrationBean> list =new ArrayList<>();
+            list =GreenDaoManager.getInstance().getSession().getBankRegistrationBeanDao().loadAll();
+            return list;
+        }catch (Exception e){
+            return null;
+        }
+
+
+
+    }
+
+    public static List<AgricultureFarmerCollection> getAllListAgriReport() {
+
+        try {
+            List<AgricultureFarmerCollection> list;
+            list = GreenDaoManager.getInstance().getSession().getAgricultureFarmerCollectionDao().loadAll();
+            return list;
+        }catch (Exception e){
+            return null;
+        }
+    }
 
 
     public boolean insertVehicleInfo(VehicleInfoBean vehicleInfoBean, Context context) {
@@ -155,7 +184,7 @@ public class DbHelper {
 
                     reportBean.setDeposits(0);
                     reportBean.setDepositsDate(0);
-
+                    reportBean.setACName(commuterAccountInfoBean.getFullName());
                     reportBean.setBalance(commuterAccountInfoBean.getBalance());
                     reportBean.setFarePaid(Float.valueOf(input));
                     reportBean.setACNumber(commuterAccountInfoBean.getCommuterAccount());
@@ -198,7 +227,7 @@ public class DbHelper {
 
                     reportBean.setDeposits(0);
                     reportBean.setDepositsDate(0);
-
+                    reportBean.setACName(commuterAccountInfoBean.getFullName());
                     reportBean.setBalance(commuterAccountInfoBean.getBalance());
                     reportBean.setFarePaid(Float.valueOf(input));
                     reportBean.setACNumber(commuterAccountInfoBean.getCommuterAccount());
@@ -241,7 +270,7 @@ public class DbHelper {
 
                     reportBean.setDeposits(0);
                     reportBean.setDepositsDate(0);
-
+                    reportBean.setACName(commuterAccountInfoBean.getFullName());
                     reportBean.setBalance(commuterAccountInfoBean.getBalance());
                     reportBean.setFarePaid(Float.valueOf(input));
                     reportBean.setACNumber(commuterAccountInfoBean.getCommuterAccount());
@@ -409,7 +438,7 @@ public class DbHelper {
         }
     }
 
-    public static void checkAgricultureFramer(String id, String num, OnVerifyDailyCollectionListener onVerifyDailyCollectionListener) {
+    public static void checkAgricultureFramer(String id, String num,String amount , OnVerifyDailyCollectionListener onVerifyDailyCollectionListener) {
         AgricultureFarmerBean bean ;
         try {
             bean = GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().queryBuilder()
@@ -419,11 +448,13 @@ public class DbHelper {
             }else {
 
             AgricultureFarmerCollection result = new AgricultureFarmerCollection();
+                result.setRegistrationNumber(bean.getRegistrationNumber());
             result .setTime(TimeUtils.getCurTimeMills());
             result.setIdNumber(bean.getIDNumber());
             result.setAmountCollected(Integer.valueOf(num));
-            bean.setNumberOfAnimals(bean.getNumberOfAnimals()+Integer.valueOf(num));
-
+                result.setAmount(Float.valueOf(num)*Float.valueOf(amount));
+            bean.setNumberOfAnimals(bean.getNumberOfAnimals()*Integer.valueOf(num));
+                bean.setAmount(bean.getAmount()+(Float.valueOf(num)+Float.valueOf(amount)));
                 GreenDaoManager.getInstance().getSession().getAgricultureFarmerCollectionDao().insert(result);
                 GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().update(bean);
                 onVerifyDailyCollectionListener.success(bean,result);
@@ -637,8 +668,99 @@ public class DbHelper {
         }catch (Exception e){
             listener.error(e.toString());
         }
+    }
+
+    public static void getBankCustomer(String id, BankDepositBean bean, OnVerifyDepositListener listener) {
+        BankDepositBean bankDepositBean;
+        BankCustomerBean bankCustomerBean;
+        try {
+
+        bankCustomerBean = GreenDaoManager.getInstance().getSession().getBankCustomerBeanDao().queryBuilder()
+                .where(BankCustomerBeanDao.Properties.FingerPrintFileUrl.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
+        if (DataUtils.isEmpty(bankCustomerBean)){
+            listener.error("No user please try again");
+        }else {
+            if (!bean.getAcName().equals(bankCustomerBean.getName())){
+                listener.error("please enter the correct name");
+                return;
+            }
+            if (!bean.getAcNumber().equals(bankCustomerBean.getFosaAccount()))
+            {
+                listener.error("please enter the correct id");
+                return;
+            }
+            bankDepositBean = GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().queryBuilder()
+                    .where(BankDepositBeanDao.Properties.AcName.eq(bean.getAcName()),
+                            BankDepositBeanDao.Properties.IsRecord.eq(false),
+                            BankDepositBeanDao.Properties.BankName.eq(bean.getBankName())).build().unique();
+            if (isEmpty(bankDepositBean)){
+                bean.setIdNumber("00000000");
+                bean.setBalance(bean.getCashNumber());
+                bean.setIsRecord(false);
+                GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().insert(bean);
+                listener.success(bean);
+            }else {
+                bean.setIsRecord(true);
+                bean.setIdNumber(TimeUtils.generateSequenceNo());
+                bankDepositBean.setBalance(bean.getCashNumber()+bankDepositBean.getBalance());
+                bean.setBalance(bankDepositBean.getBalance());
+                GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().insert(bean);
+                GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().update(bankDepositBean);
+                listener.success(bean);
+            }
+
+        }
+
+        }catch (Exception e){
+            listener.error(e.toString());
+        }
+    }
 
 
+    public static void getBankCustomerWith(String id, BankDepositBean bean, OnVerifyDepositListener listener) {
+        BankDepositBean bankDepositBean;
+        BankCustomerBean bankCustomerBean;
+        try {
 
+            bankCustomerBean = GreenDaoManager.getInstance().getSession().getBankCustomerBeanDao().queryBuilder()
+                    .where(BankCustomerBeanDao.Properties.FingerPrintFileUrl.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
+            if (DataUtils.isEmpty(bankCustomerBean)){
+                listener.error("No user please try again");
+            }else {
+                if (!bean.getAcNumber().equals(bankCustomerBean.getFosaAccount()))
+                {
+                    listener.error("please enter the correct id");
+                    return;
+                }
+
+                bankDepositBean = GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().queryBuilder()
+                        .where(BankDepositBeanDao.Properties.AcName.eq(bankCustomerBean.getName()),
+                                BankDepositBeanDao.Properties.IsRecord.eq(false),
+                                BankDepositBeanDao.Properties.BankName.eq(bean.getBankName())).build().unique();
+                if (isEmpty(bankDepositBean)){
+                    listener.error("No Record");
+                }else {
+
+
+                    if (bankDepositBean.getBalance()<bean.getWaihNumber())
+                    {
+                        listener.error("not sufficient funds");return;
+                    }
+                    bean.setAcNumber(bankDepositBean.getAcNumber());
+                    bean.setAcName(bankDepositBean.getAcNumber());
+                    bean.setIsRecord(true);
+                    bean.setIdNumber(TimeUtils.generateSequenceNo());
+                    bankDepositBean.setBalance(bankDepositBean.getBalance()-bean.getCashNumber());
+                    bean.setBalance(bankDepositBean.getBalance());
+                    GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().insert(bean);
+                    GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().update(bankDepositBean);
+                    listener.success(bean);
+                }
+
+            }
+
+        }catch (Exception e){
+            listener.error(e.toString());
+        }
     }
 }

@@ -443,7 +443,7 @@ public class DbHelper {
         try {
             bean = GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().queryBuilder()
                     .where(AgricultureFarmerBeanDao.Properties.FingerPrintId.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
-            if (isEmpty(bean)){
+            if (DataUtils.isEmpty(bean)){
                 onVerifyDailyCollectionListener.error("No Admin");
             }else {
 
@@ -454,8 +454,8 @@ public class DbHelper {
             result.setIdNumber(TimeUtils.generateSequenceNo());
             result.setAmountCollected(Integer.valueOf(num));
                 result.setAmount(Float.valueOf(num)*Float.valueOf(amount));
-            bean.setNumberOfAnimals(bean.getNumberOfAnimals()*Integer.valueOf(num));
-                bean.setAmount(bean.getAmount()+(Float.valueOf(num)+Float.valueOf(amount)));
+            bean.setNumberOfAnimals(bean.getNumberOfAnimals()+Integer.valueOf(num));
+                bean.setAmount(bean.getAmount()+(Float.valueOf(num)*Float.valueOf(amount)));
                 GreenDaoManager.getInstance().getSession().getAgricultureFarmerCollectionDao().insert(result);
                 GreenDaoManager.getInstance().getSession().getAgricultureFarmerBeanDao().update(bean);
                 onVerifyDailyCollectionListener.success(bean,result);

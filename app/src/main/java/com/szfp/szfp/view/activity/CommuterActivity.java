@@ -224,6 +224,7 @@ public class CommuterActivity extends BaseActivity {
             nationalID = infoBean.getNationalID();
             edNationalId.setText(nationalID);
             edNationalId.setEnabled(false);
+            if (!DataUtils.isNullString(infoBean.getPhotoFileUrl()))
             Glide.with(context).
                     load(Uri.parse(infoBean.getPhotoFileUrl())).
                     diskCacheStrategy(DiskCacheStrategy.RESULT).

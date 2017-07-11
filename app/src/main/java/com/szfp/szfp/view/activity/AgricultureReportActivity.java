@@ -72,7 +72,6 @@ public class AgricultureReportActivity extends BaseNoActivity {
         }
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Rendering the File...!! \n Please wait....");
-        progressDialog.show();
     }
     public int totalnoofpages = 1;
     public boolean counterFlag;

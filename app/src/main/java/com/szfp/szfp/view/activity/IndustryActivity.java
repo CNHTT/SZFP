@@ -52,11 +52,9 @@ public class IndustryActivity extends AppCompatActivity {
                         startActivity( new Intent(IndustryActivity.this,StudentManagementActivity.class));
                         break;
                     case 5:
-                        break;
-                    case 6:
                         startActivity( new Intent(IndustryActivity.this,AgricultureActivity.class));
                         break;
-                    case 7:
+                    case 6:
                         startActivity( new Intent(IndustryActivity.this,ParkingActivity.class));
                         break;
                 }

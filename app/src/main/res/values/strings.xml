@@ -215,6 +215,7 @@
         <item>Industry</item>
         <item>Reports</item>
         <item>Admin</item>
+        <item>Clear All FingerPrint</item>
     </string-array>
 
 
@@ -224,7 +225,6 @@
         <item>Hum an Resource</item>
         <item>WareHouse</item>
         <item>Education</item>
-        <item>Elections</item>
         <item>Agriculture</item>
         <item>PARKING/TICKETING</item>
     </string-array>
@@ -465,6 +465,9 @@
     <string name="litres">Amount collected (liters)</string>
     <string name="amount_li">The amount per liter</string>
     <string name="amount_ksh">Amount(Ksh)</string>
+    <string name="student_attend">Student Attend</string>
+    <string name="staff_attend">lecturers  Attend</string>
+    <string name="class_over">finish class class is over dismiss the class</string>
 
 
 </resources>

@@ -71,7 +71,6 @@ public class AgricultureReportFramerActivity extends BaseNoActivity {
         }else listView.setAdapter(new AgricultureFramerAdapter(this,list));
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Rendering the File...!! \n Please wait....");
-        progressDialog.show();
     }
     public int totalnoofpages = 1;
     public boolean counterFlag;
@@ -83,7 +82,7 @@ public class AgricultureReportFramerActivity extends BaseNoActivity {
     public void onViewClicked() {
         progressDialog.show();
         totalnoofpages = 0;
-        FILE_PATH =  Environment.getExternalStorageDirectory().getPath() + SzfpApplication.DISK_CACHE_PATH+SzfpApplication.PDF + "Agriculture Daily Report.pdf";
+        FILE_PATH =  Environment.getExternalStorageDirectory().getPath() + SzfpApplication.DISK_CACHE_PATH+SzfpApplication.PDF + "Agriculture Framer Report.pdf";
         document = new Document(PageSize.A4);
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override

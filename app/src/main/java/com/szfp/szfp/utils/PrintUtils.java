@@ -138,12 +138,12 @@ public class PrintUtils {
         BluetoothPrintDriver.LF();
         BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
         BluetoothPrintDriver.BT_Write("Amount collected (liters):" +result.getAmountCollected()+"\r");
-        BluetoothPrintDriver.BT_Write("Amount:" +result.getAmountCollected()+"\r");
+        BluetoothPrintDriver.BT_Write("Amount:" +result.getAmount()+"\r");
         BluetoothPrintDriver.BT_Write("NumberOf Animals:" +bean.getNumberOfAnimals()+"\r");
         BluetoothPrintDriver.BT_Write("ALL Amount:" +bean.getAmount()+"\r");
-        BluetoothPrintDriver.BT_Write("_"+"\r");
-        BluetoothPrintDriver.BT_Write("_"+"\r");
-        BluetoothPrintDriver.BT_Write("_"+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
         BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
 
     }

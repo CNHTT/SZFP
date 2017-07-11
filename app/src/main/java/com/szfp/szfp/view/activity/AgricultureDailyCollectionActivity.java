@@ -172,6 +172,7 @@ public class AgricultureDailyCollectionActivity extends BasePrintActivity {
             @Override
             public void success(AgricultureFarmerBean bean, AgricultureFarmerCollection result) {
                 etAmountCollected.setText("");
+                etLitres.setText("");
                 tvResult.setText(bean.toString());
                 tvResult.append(result.toString());
                 if (isPrint) PrintUtils.printAgricultureDailyCollection(bean, result);

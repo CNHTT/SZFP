@@ -50,17 +50,22 @@ public class StudentManagementActivity extends BaseActivity {
                 startActivity(new Intent(StudentManagementActivity.this,StudentGatePassActivity.class));
                 break;
             case R.id.bt_student_class_attendance:
+                startActivity(new Intent(StudentManagementActivity.this,StudentClassAttendanceActivity.class));
                 break;
             case R.id.bt_student_upload_student:
+                ToastUtils.success("Please build your own server and upload Student/Staff data");
                 break;
             case R.id.bt_student_attendance_report:
+
                 break;
             case R.id.bt_student_register_student_staff:
                 showStudentAndStaffRegister();
                 break;
             case R.id.bt_student_fee_statement:
+                ToastUtils.success("Please build your own server and upload Student/Staff data");
                 break;
             case R.id.bt_student_extra_curriculums:
+                ToastUtils.success("Additional course information is added if required......");
                 break;
         }
     }

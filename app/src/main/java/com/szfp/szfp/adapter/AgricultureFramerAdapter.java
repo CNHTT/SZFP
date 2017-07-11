@@ -37,7 +37,7 @@ public class AgricultureFramerAdapter extends BaseListAdapter<AgricultureFarmerB
             convertView.setTag(viewHolder);
         }else viewHolder = (ViewHolder) convertView.getTag();
        viewHolder.setData(getItem(position),position);
-        return null;
+        return convertView;
     }
 
     static class ViewHolder {
@@ -47,6 +47,8 @@ public class AgricultureFramerAdapter extends BaseListAdapter<AgricultureFarmerB
         TextView name;
         @BindView(R.id.id_number)
         TextView idNumber;
+        @BindView(R.id.ac_number)
+        TextView acNumber;
         @BindView(R.id.litres)
         TextView litres;
         @BindView(R.id.amount)
@@ -59,6 +61,7 @@ public class AgricultureFramerAdapter extends BaseListAdapter<AgricultureFarmerB
         public void setData(AgricultureFarmerBean item, int position) {
             name.setText(item.getName());
             no.setText(String.valueOf(position+1));
+            acNumber.setText(item.getRegistrationNumber());
             idNumber.setText(item.getIDNumber());
             litres.setText(String.valueOf(item.getNumberOfAnimals()));
             amount.setText(DataUtils.format2Decimals(String.valueOf(item.getAmount())));

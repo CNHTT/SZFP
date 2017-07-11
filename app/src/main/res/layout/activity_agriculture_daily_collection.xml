@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:inputType="numberDecimal"
                 android:id="@+id/et_amount_collected"
                 android:background="@drawable/text_divbox"
                 android:padding="@dimen/space_10"

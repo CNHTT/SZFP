@@ -350,16 +350,23 @@
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.BankDepositActivity"
+        <activity
+            android:name=".view.activity.BankDepositActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
-        <activity android:name=".view.activity.BankWithdrawalActivity"
+        <activity
+            android:name=".view.activity.BankWithdrawalActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@style/FullscreenTheme"
             android:windowSoftInputMode="stateHidden|stateUnchanged" />
+        <activity android:name=".view.activity.StudentClassAttendanceActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="landscape"
+                  android:theme="@style/FullscreenTheme"
+                  android:windowSoftInputMode="stateHidden|stateUnchanged" />
     </application>
 
 </manifest>

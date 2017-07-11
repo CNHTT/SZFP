@@ -468,6 +468,8 @@
     <string name="student_attend">Student Attend</string>
     <string name="staff_attend">lecturers  Attend</string>
     <string name="class_over">finish class class is over dismiss the class</string>
+    <string name="sign_in">SING in</string>
+    <string name="sing_up">SIGN UP</string>
 
 
 </resources>

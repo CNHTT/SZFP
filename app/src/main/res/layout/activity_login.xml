@@ -72,18 +72,34 @@
 
             <com.szfp.szfplib.weight.StateButton
                 android:id="@+id/loginButton"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingLeft="@dimen/space_40"
                 android:paddingRight="@dimen/space_40"
-                android:text="@string/login"
+                android:text="@string/sign_in"
                 android:textSize="@dimen/text_size_20"
                 android:textStyle="bold"
                 app:animationDuration="200"
                 app:normalBackgroundColor="@color/actionsheet_blue"
                 app:pressedBackgroundColor="@color/actionsheet_gray"
                 app:radius="5px" />
+            <com.szfp.szfplib.weight.StateButton
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/space_40"
+                android:paddingRight="@dimen/space_40"
+                android:text="@string/sing_up"
+                android:textSize="@dimen/text_size_20"
+                android:textStyle="bold"
+                app:animationDuration="200"
+                app:normalBackgroundColor="@color/actionsheet_blue"
+                app:pressedBackgroundColor="@color/actionsheet_gray"
+                app:radius="5px" />
+
+
 
         </LinearLayout>
 

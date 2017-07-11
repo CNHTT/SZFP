@@ -12,8 +12,8 @@
     <dimen name="title_height">48.0dip</dimen>
     <dimen name="title_btn_width">50.0dip</dimen>
 
-    <dimen name="login_width">300dp</dimen>
-    <dimen name="login_height">400dp</dimen>
+    <dimen name="login_width">500dp</dimen>
+    <dimen name="login_height">500dp</dimen>
 
     <dimen name="text_large">30sp</dimen>
     <dimen name="text_max">18sp</dimen>

@@ -7,8 +7,7 @@
     <string name="enter_pin" translatable="false">Enter PIN</string>
     <string name="login" translatable="false">LOG IN</string>
     <string name="main_menu">Main Menu</string>
-    <string name="transport_mian_title">Customer Service User Information</string>
-    <string name="year_of_vehicle">Year of vehicle</string>
+    <string name="main_service">Please select the service you need</string>
     <string-array name="features">
         <item>IDCard</item>
         <item>BDSystem</item>
@@ -535,5 +534,268 @@
     <string name="no_nfc">No NFC found on this device</string>
     <string name="nfc_disabled">NFC is not enabled. Please go to the wireless settings to enable it.</string>
     <string name="student_gate_pass">Student Gate Pass</string>
+
+
+
+
+    <string-array name="meaus">
+        <item>Industry</item>
+        <item>Reports</item>
+        <item>Admin</item>
+        <item>Clear All FingerPrint</item>
+    </string-array>
+
+
+    <string-array name="industrys">
+        <item>Transport</item>
+        <item>BanKing</item>
+        <item>Hum an Resource</item>
+        <item>WareHouse</item>
+        <item>Education</item>
+        <item>Agriculture</item>
+        <item>PARKING/TICKETING</item>
+    </string-array>
+
+
+    <string-array name="transports">
+        <item>Vehicles Registration</item>
+        <item>Commuter Registration</item>
+        <item>Dynamic Fare</item>
+        <item>Static Fare</item>
+        <item>Reverse Fare</item>
+    </string-array>
+    <string name="industry_menu">Industry</string>
+    <string name="transport_menu">Transport Management Module</string>
+    <string name="transport_mian_title" translatable="false">Customer Service User Information</string>
+    <string name="transport_mian_naviga">Navigaction Menu</string>
+    <string name="search_commuter">Search Commuter</string>
+    <string name="search_vehicles">Search Vehicles</string>
+    <string name="top_up">Top up</string>
+    <string name="upload_data">Upload data</string>
+    <string name="reports">Reports</string>
+    <string name="vechicles_reg">Vehicles Registration</string>
+    <string name="name_of_owner">Name of Owner</string>
+    <string name="id_no">ID No</string>
+    <string name="contacts">Contacts:</string>
+    <string name="home_address">Home Address</string>
+    <string name="photo">photo</string>
+    <string name="finger_print">Finger print</string>
+    <string name="finger_print_hine">Please input fingerprint</string>
+    <string name="name_of_primary_driver">Name of Primary Driver</string>
+    <string name="driving_license_no">Driving License No</string>
+    <string name="driver_fingerprint">Driver Fingerprint</string>
+    <string name="make_of_vehicle">Make Of Vehicle</string>
+    <string name="reg_no">Reg no</string>
+    <string name="model">Model</string>
+    <string name="year_of_vehicle">Year of vehicle</string>
+    <string name="color">color</string>
+    <string name="psv_no">psv No</string>
+    <string name="designated_route">Desiginnated Route</string>
+    <string name="passenger_no">passenger No</string>
+    <string name="conductor">Conductor</string>
+    <string name="registration">Registration</string>
+    <string name="cancel">Cancel</string>
+    <string name="commuter_title">Please fill in the form below to crate a new user</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="email">Email:</string>
+    <string name="national_id">National ID</string>
+    <string name="register_fingerprints">Register Fingerprints</string>
+    <string name="set_fixed_fare">Set Fixed Fare</string>
+    <string name="fare_ksh">Fare Ksh:</string>
+    <string name="save">Save</string>
+    <string name="dynamic_fare">Dynamic Fare</string>
+    <string name="minimum">Minimum:</string>
+    <string name="maximum">Maximum</string>
+    <string name="resverse_fare">Reverse Fare</string>
+    <string name="search_commuter1">Search Commuter:</string>
+    <string name="search">Search</string>
+    <string name="amount">Amount:</string>
+    <string name="reverse">Reverse</string>
+    <string name="home"><u>Home:</u></string>
+    <string name="commuter_account_information">Commuter Account Information</string>
+    <string name="user">User:</string>
+    <string name="acc">ACC</string>
+    <string name="commuter_account">Commuter Account</string>
+    <string name="full_name">Fullname</string>
+    <string name="registration_date">Registration Date</string>
+    <string name="fingerprint_key_status">Fingerprint Key Status</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="edit_account">Edif Account</string>
+    <string name="top_up_fare">Top up Fare</string>
+    <string name="reverse_transaction">Reverse Transaction</string>
+    <string name="full_report">Full report</string>
+    <string name="account_report">Account Report</string>
+    <string name="a_c">A/C Number</string>
+    <string name="deposits">Deposits</string>
+    <string name="date_deposited">Date Deposited</string>
+    <string name="fare_paid">Fare paid</string>
+    <string name="date">Date</string>
+    <string name="balance">Balance</string>
+    <string name="bank_module">BANK MODULE</string>
+    <string name="account_opening">Account opening</string>
+    <string name="deposit">Deposit</string>
+    <string name="funds_transfer">Funds transfer</string>
+    <string name="account_statement">Account statement</string>
+    <string name="shopping">Shopping</string>
+    <string name="bill_payment">Bill payment</string>
+    <string name="admin">Admin</string>
+    <string name="airtime_purchase">Airtime Purchase</string>
+    <string name="bank_register">Bank Registration</string>
+    <string name="bank_customer_registration">Bank customer registration</string>
+    <string name="bank_name">Bank Name:</string>
+    <string name="address">Address:</string>
+    <string name="branches">Branches:</string>
+    <string name="account_types">Account types:</string>
+    <string name="register">register</string>
+    <string name="bank_customer_register">Bank customer registration</string>
+    <string name="customer_Names">Customer Names</string>
+    <string name="gender">Gender</string>
+    <string name="choose_sex">Please select gender</string>
+    <string name="marital_status">Marital Status</string>
+    <string name="branch">Branch</string>
+    <string name="members_info">Members Info</string>
+    <string name="fosa_account">FOSA Account</string>
+    <string name="number">Number</string>
+    <string name="account_found">Account found</string>
+    <string name="edit_customer_details">Edit Customer Details</string>
+    <string name="account_code">Account Code</string>
+    <string name="account_type">Account Type</string>
+    <string name="account_status">Account Status</string>
+    <string name="total">Total</string>
+    <string name="student_gatas_pass">Student/Staff Gate Pass</string>
+    <string name="class_attendance">Class Attendance</string>
+    <string name="upload_student">Upload Student/Staff Data</string>
+    <string name="attendance_report">Attendance Report</string>
+    <string name="register_student_staff">Register Student/Staff</string>
+    <string name="fee_statement">Fee Statement</string>
+    <string name="extra_curriculums">Extra Curriculums</string>
+    <string name="register_student">Register student</string>
+    <string name="register_staff">Register Staff</string>
+    <string name="school_name">Hunan University of Science and Technology</string>
+    <string name="school_city">XiangTan</string>
+    <string name="c_b">Capture basic student information</string>
+    <string name="student_photo">Student Photo</string>
+    <string name="admission_number">Admission Number</string>
+    <string name="capture_fingerprints">Capture Fingerprints</string>
+    <string name="fingerprint_collection">Fingerprint collection</string>
+    <string name="admission_date">Admission Date</string>
+    <string name="Gender">Gender</string>
+    <string name="m">M</string>
+    <string name="f">F</string>
+    <string name="nationality">Nationality</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="department">Department</string>
+    <string name="zero">0</string>
+    <string name="boarding_type">Boarding type</string>
+    <string name="day">day</string>
+    <string name="hostel_part_time">Hostel part time</string>
+    <string name="call_photo">Cell phone</string>
+    <string name="next_o_kin">Next of kin/Guardhosian</string>
+    <string name="guardians_first">First guardian</string>
+    <string name="guardians_names">guardians names</string>
+    <string name="relationship">Relationship</string>
+    <string name="guardians_contacts">guardians contacts</string>
+    <string name="guardians_second">Second guardian</string>
+    <string name="permanent_home_address">Permanent Home Address</string>
+    <string name="present_home_address">Present Home Address</string>
+    <string name="finger_print_photo">Finger Print Photo</string>
+    <string name="vehicles_commuter_account">Commuter Account</string>
+    <string name="please_input">PLEASE INPUT</string>
+    <string name="no_find">No Find</string>
+    <string name="not_sufficient_funds">not sufficient funds</string>
+    <string name="please_input_fingerprint">Please enter your fingerprint</string>
+    <string name="give_receipt">give receipt</string>
+
+
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+    <string name="export_str">Export to PDF format</string>
+    <string name="no">NO</string>
+    <string name="static_fare">Static Fare</string>
+    <string name="fare">FARE</string>
+    <string name="please_press_the_fingerprint">Please press the fingerprint</string>
+    <string name="please_press_the_fingerprint_receipt">Please press the fingerprint \n Need a receipt</string>
+    <string name="pdf_error">Please install PDF reader</string>
+    <string name="type_static">static</string>
+    <string name="type_dynamic">dynamic</string>
+    <string name="type_cash">cash</string>
+    <string name="money">money:</string>
+    <string name="type_cash_A">CASH</string>
+    <string name="fare_cash">fare cash</string>
+    <string name="please_conn">Please connect the printer</string>
+    <string name="cash_deposit">Cash Deposit</string>
+    <string name="ac_number">A/c Number</string>
+    <string name="deposits_by">Deposiyed by</string>
+    <string name="ac_name">A/c Name</string>
+    <string name="enter">Enter</string>
+    <string name="staff_gate_pass">Staff Gate Pass</string>
     <string name="fee_payments">Fee payments</string>
+    <string name="clocking_time">Clocking time</string>
+    <string name="student_info">student information</string>
+
+    <string name="agri_business">Agri-Business and Afro Industry Module</string>
+    <string name="human_resource">Hum an Resource</string>
+    <string name="daily_company">Daily Company</string>
+    <string name="payments">Payments</string>
+    <string name="register_farmer">Register Farmer</string>
+    <string name="daily_collection">Daily Collection</string>
+    <string name="human_resource_mana">Hum an Resource Management</string>
+    <string name="farmer_resource_mana">Farmer Resource Management</string>
+    <string name="register_employee">Register Employee</string>
+    <string name="human_resource_reports">Hum an Resource Reports</string>
+    <string name="farmers_registration">Farmers registration</string>
+    <string name="employee_report">Employee report</string>
+    <string name="farmers_report">Farmers report:</string>
+    <string name="name">Name</string>
+    <string name="id_number">ID number</string>
+    <string name="register_number">Registration Number</string>
+    <string name="contact">Contact</string>
+    <string name="job_title">Job Title/Group</string>
+    <string name="salary">Salary</string>
+    <string name="date_employed">Date Employed</string>
+    <string name="home_town">Home Town</string>
+    <string name="collection_route">collection Route</string>
+    <string name="nature_of_employment">Nature of Employment</string>
+    <string name="number_animals">Number of Animals</string>
+    <string name="need_to_print">Do you need to print</string>
+    <string name="paid_amount">AMOUNT PAID PER LITTER</string>
+    <string name="expend">expend</string>
+    <string name="pay_parking">Pay parking</string>
+    <string name="vehicle_status">Vehicle status</string>
+    <string name="check_register">Check Register</string>
+    <string name="vehicle_number">Vehicle Reg Number</string>
+    <string name="add_fingerprint">Add the fingerprint</string>
+    <string name="information">INFORMATION</string>
+    <string name="affirm">affirm</string>
+    <string name="key_in_amount">Key in amount</string>
+    <string name="please_to_print">Please connect the printer</string>
+    <string name="set_parameters">Set Parking Fee</string>
+    <string name="parking_fee_hour">Parking Fee Per Hour</string>
+    <string name="parking_fee_day">Parking Fee Per Day</string>
+    <string name="parking_fee_month">Parking Fee Per Month</string>
+    <string name="special_discounts">Special Discounts</string>
+    <string name="park">Park</string>
+    <string name="leave">Leave</string>
+    <string name="check">Check</string>
+    <string name="cash">CASH</string>
+    <string name="month">Month</string>
+    <string name="withdrawal">Withdrawal</string>
+    <string name="withdraw_money_from">Withdraw By</string>
+    <string name="please_select_bank">Please Select Bank</string>
+    <string name="litres">Amount collected (liters)</string>
+    <string name="amount_li">The amount per liter</string>
+    <string name="amount_ksh">Amount(Ksh)</string>
+    <string name="student_attend">Student Attend</string>
+    <string name="staff_attend">lecturers  Attend</string>
+    <string name="class_over">finish class class is over dismiss the class</string>
+    <string name="sign_in">SING in</string>
+    <string name="sing_up">SIGN UP</string>
+
+
 </resources>

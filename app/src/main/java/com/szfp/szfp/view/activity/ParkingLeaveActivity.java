@@ -261,11 +261,12 @@ public class ParkingLeaveActivity extends BasePrintActivity {
                 if (position==0){
                     vehicleParkingBean.setEndTime(endTime);
                     vehicleParkingBean.setTime(time);
-                    vehicleParkingBean.setPayNum(DataUtils.getAmountValue(number));
+                    vehicleParkingBean.setPayNum(String.valueOf(number));
                     DbHelper.updateParkingLeave(vehicleParkingBean, bean, new OnSaveVehicleLeaveListener() {
                         @Override
                         public void success(VehicleParkingBean vehicleParkingBean, ParkingInfoBean bean) {
                             PrintUtils.printLeaveParkingFinger0(vehicleParkingBean,bean);
+                            ToastUtils.success("SUCCESS");
                         }
 
                         @Override

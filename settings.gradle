@@ -1,1 +1,1 @@
-include ':app', ':szfplib'
+include ':app', ':szfplib', ':home'

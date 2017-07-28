@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SZFP.iml" filepath="$PROJECT_DIR$/SZFP.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/home/home.iml" filepath="$PROJECT_DIR$/home/home.iml" />
       <module fileurl="file://$PROJECT_DIR$/szfplib/szfplib.iml" filepath="$PROJECT_DIR$/szfplib/szfplib.iml" />
     </modules>
   </component>

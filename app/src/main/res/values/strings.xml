@@ -308,7 +308,7 @@
     <string name="bank_module">BANK MODULE</string>
     <string name="account_opening">Account opening</string>
     <string name="deposit">Deposit</string>
-    <string name="funds_transfer">Funds ransfer</string>
+    <string name="funds_transfer">funds transfer</string>
     <string name="account_statement">Account statement</string>
     <string name="shopping">Shopping</string>
     <string name="bill_payment">Bill payment</string>
@@ -345,7 +345,7 @@
     <string name="extra_curriculums">Extra Curriculums</string>
     <string name="register_student">Register student</string>
     <string name="register_staff">Register Staff</string>
-    <string name="school_name">Hunan University of Science and Technology</string>
+    <string name="school_name">Hun an University of Science and Technology</string>
     <string name="school_city">XiangTan</string>
     <string name="c_b">Capture basic student information</string>
     <string name="student_photo">Student Photo</string>
@@ -414,15 +414,15 @@
     <string name="student_info">student information</string>
 
     <string name="agri_business">Agri-Business and Afro Industry Module</string>
-    <string name="human_resource">Human Resource</string>
+    <string name="human_resource">Hum an Resource</string>
     <string name="daily_company">Daily Company</string>
     <string name="payments">Payments</string>
     <string name="register_farmer">Register Farmer</string>
     <string name="daily_collection">Daily Collection</string>
-    <string name="human_resource_mana">Human Resource Management</string>
+    <string name="human_resource_mana">Hum an Resource Management</string>
     <string name="farmer_resource_mana">Farmer Resource Management</string>
     <string name="register_employee">Register Employee</string>
-    <string name="human_resource_reports">Human Resource Reports</string>
+    <string name="human_resource_reports">Hum an Resource Reports</string>
     <string name="farmers_registration">Farmers registration</string>
     <string name="employee_report">Employee report</string>
     <string name="farmers_report">Farmers report:</string>

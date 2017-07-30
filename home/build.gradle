@@ -37,4 +37,5 @@ dependencies {
     compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
     compile 'com.jakewharton:butterknife:8.6.0'
     testCompile 'junit:junit:4.12'
+    compile project(path: ':szfplib')
 }

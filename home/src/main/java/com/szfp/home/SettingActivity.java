@@ -1,6 +1,5 @@
 package com.szfp.home;
 
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -84,10 +83,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.set_condition:
                 Intent mIntent = new Intent();
-                ComponentName comp = new ComponentName("com.android.settings",
-                        "com.android.settings.users.UserSettings");
-                mIntent.setComponent(comp);
-                mIntent.setAction("android.intent.action.VIEW");
+                mIntent.setAction(Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS);
                 startActivity(mIntent);
 
                 break;
@@ -97,31 +93,45 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(ACTION_AIRPLANE_MODE_SETTINGS);
 
                 break;
+
+
+
+
             case R.id.set_show:
-                Intent ACTION_DISPLAY_SETTINGS =  new Intent(Settings.ACTION_DISPLAY_SETTINGS);
+                Intent ACTION_DISPLAY_SETTINGS =  new Intent(Settings.ACTION_DISPLAY_SETTINGS
+                );
                 startActivity(ACTION_DISPLAY_SETTINGS);
                 break;
             case R.id.set_volume:
-                Intent ACTION_SOUND_SETTINGS =  new Intent(Settings.ACTION_SOUND_SETTINGS);
+                Intent ACTION_SOUND_SETTINGS =  new Intent(Settings.ACTION_VOICE_CONTROL_AIRPLANE_MODE);
                 startActivity(ACTION_SOUND_SETTINGS);
                 break;
             case R.id.set_safety:
+                startActivity(new Intent(Settings.ACTION_SECURITY_SETTINGS));
                 break;
             case R.id.set_date_tine:
+                startActivity(new Intent(Settings.ACTION_DATE_SETTINGS  ));
                 break;
             case R.id.set_sound_notification:
+                startActivity(new Intent(Settings.ACTION_SOUND_SETTINGS));
                 break;
             case R.id.set_language_input:
+                startActivity(new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS ));
                 break;
             case R.id.set_other_more:
+                startActivity(new Intent(Settings.ACTION_SECURITY_SETTINGS));
                 break;
             case R.id.set_app:
+                startActivity(new Intent(Settings.ACTION_APPLICATION_SETTINGS));
                 break;
             case R.id.set_accessible:
+                startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
                 break;
             case R.id.set_developer_options:
+                startActivity(new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS ));
                 break;
             case R.id.set_about_device:
+                startActivity(new Intent(Settings.ACTION_DEVICE_INFO_SETTINGS));
                 break;
         }
     }

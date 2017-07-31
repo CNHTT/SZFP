@@ -2,9 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_wifi"
+            android:icon="@drawable/ic_wifi_black_24dp"
+            android:title="Wifi"/>
+        <item
+            android:id="@+id/nav_bluetooth"
+            android:icon="@drawable/ic_bluetooth_black_24dp"
+            android:title="Bluetooth"/>
+        <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import"/>
+            android:title="Camera"/>
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
@@ -13,6 +21,10 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Slideshow"/>
+        <item
+            android:id="@+id/file"
+            android:icon="@drawable/ic_insert_drive_file_black_24dp"
+            android:title="File Manager"/>
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"

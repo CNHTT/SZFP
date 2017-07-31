@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="settings">Settings</string>
+    <string name="wandnet">Wireless And networks</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="bluetooth">蓝牙</string>
+    <string name="condition">流量使用情况</string>
+    <string name="customize">个性化设置</string>
+    <string name="show">显示</string>
+    <string name="ustomize">用户自定义</string>
+    <string name="volume">音量键自定义</string>
+    <string name="safety">安全</string>
+    <string name="date_tine">日期和时间</string>
+    <string name="set_language_input">语言和输入法</string>
+    <string name="set_other_more">其他设置</string>
+    <string name="equipment">设备</string>
+    <string name="set_accessible">无障碍</string>
+    <string name="set_developer_options">开发者选项</string>
+    <string name="set_about_device">关于设备</string>
+
 </resources>

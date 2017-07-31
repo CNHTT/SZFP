@@ -4,4 +4,50 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <FrameLayout
+        android:id="@+id/id_img_content"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/id_img_src"
+                android:layout_width="90px"
+                android:layout_height="90px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_launcher_round"/>
+
+            <TextView
+                android:id="@+id/id_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/mintcream"
+                android:gravity="center"
+                android:layout_marginTop="12px"
+                android:text="imgdasdasdasdasdasd name"
+                android:textSize="20px"/>
+        </LinearLayout>
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/id_imv_dele"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="top|right"
+            android:layout_margin="10dp"
+            android:layoutDirection="rtl"
+            android:src="@drawable/ic_check_white_48dp"/>
+
+
+    </FrameLayout>
 </LinearLayout>

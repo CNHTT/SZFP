@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@drawable/shadow"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:padding="@dimen/space_40"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <com.szfp.szfplib.weight.StateButton
+            android:minEms="11"
+            android:padding="@dimen/space_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_18"
+            android:text="@string/bank_register"
+            android:id="@+id/bt_bank_registration"
+            app:normalBackgroundColor="@color/palegreen"
+            app:normalTextColor="@color/black"
+            app:radius="@dimen/space_2"
+            app:pressedBackgroundColor="@color/result_points"
+            android:textStyle="bold"/>
+        <com.szfp.szfplib.weight.StateButton
+            android:minEms="11"
+            android:layout_marginTop="@dimen/space_30"
+            android:padding="@dimen/space_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_18"
+            android:text="@string/bank_customer_registration"
+            android:id="@+id/bt_bank_customer_registration"
+            app:normalBackgroundColor="@color/palegreen"
+            app:normalTextColor="@color/black"
+            app:radius="@dimen/space_2"
+            app:pressedBackgroundColor="@color/result_points"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</LinearLayout>

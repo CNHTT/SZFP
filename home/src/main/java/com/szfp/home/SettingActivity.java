@@ -83,7 +83,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.set_condition:
                 Intent mIntent = new Intent();
-                mIntent.setAction(Settings.ACTION_MANAGE_DEFAULT_APPS_SETTINGS);
+                mIntent.setAction(Settings.ACTION_SEARCH_SETTINGS);
                 startActivity(mIntent);
 
                 break;
@@ -103,7 +103,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(ACTION_DISPLAY_SETTINGS);
                 break;
             case R.id.set_volume:
-                Intent ACTION_SOUND_SETTINGS =  new Intent(Settings.ACTION_VOICE_CONTROL_AIRPLANE_MODE);
+                Intent ACTION_SOUND_SETTINGS =  new Intent(Settings.ACTION_LOCALE_SETTINGS );
                 startActivity(ACTION_SOUND_SETTINGS);
                 break;
             case R.id.set_safety:

@@ -3,7 +3,6 @@ package com.szfp.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -14,7 +13,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.szfp.szfplib.utils.ContextUtils;
 import com.szfp.szfplib.utils.StatusBarUtil;
@@ -91,6 +89,10 @@ public class MainActivity extends BaseActivity {
                         wifi.setAction(Settings.ACTION_WIFI_SETTINGS);
                         startActivity(wifi);
                         break;
+//                    case R.id.nav_app:
+//                        Intent APP = getPackageManager().getLaunchIntentForPackage("com.estrongs.android.pop");
+//                        startActivity(APP);
+//                        break;
                     case R.id.nav_bluetooth:
                         Intent nav_bluetooth = new Intent();
                         nav_bluetooth.setAction(Settings.ACTION_BLUETOOTH_SETTINGS);
@@ -102,31 +104,16 @@ public class MainActivity extends BaseActivity {
                         startActivity(intent);
                         break;
                     case R.id.nav_gallery:
-                        Intent albumIntent = new Intent(Intent.ACTION_PICK, null);
-                        albumIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
-                        startActivity(albumIntent);
-                        break;
-                    case R.id.nav_slideshow:
-                        Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-                        startActivity(i);
+                        Intent nav_gallery = getPackageManager().getLaunchIntentForPackage("com.android.gallery3d");
+                        startActivity(nav_gallery);
                         break;
                     case R.id.nav_manage:
                         Intent setting =  new Intent(Settings.ACTION_SETTINGS);
                         startActivity(setting);
                         break;
                     case R.id.file:
-                        Intent file=
-                        new Intent(Intent.ACTION_GET_CONTENT);
-                        //系统调用Action属性
-                        file.setType("*/*");
-                        //设置文件类型
-                        file.addCategory(Intent.CATEGORY_OPENABLE);
-                        // 添加Category属性
-                        try{
-                            startActivity(file);
-                        }catch(Exception e){
-                            Toast.makeText(MainActivity.this, "没有正确打开文件管理器", Toast.LENGTH_LONG).show();
-                        }
+                        Intent APP = getPackageManager().getLaunchIntentForPackage("com.estrongs.android.pop.pro");
+                        startActivity(APP);
                         break;
                 }
                 return false;

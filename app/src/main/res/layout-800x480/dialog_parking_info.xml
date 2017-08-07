@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/shadow"
+        android:layout_width="500dp"
+        android:layout_height="300dp">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_10"
+            android:background="@drawable/divbox"
+            android:text="@string/information"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:padding="@dimen/space_30"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/text_size_24"
+                android:textColor="@color/black"
+                android:id="@+id/tv_dialog_parking_info"/>
+
+        </ScrollView>
+        <com.szfp.szfplib.weight.StateButton
+            android:id="@+id/bt_dialog_paring_cancel"
+            android:gravity="center"
+            android:layout_margin="@dimen/space_20"
+            android:layout_width="@dimen/space_200"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_5"
+            android:text="@string/affirm"
+            app:normalBackgroundColor="@color/login_normal"
+            app:normalTextColor="@color/white"
+            app:pressedBackgroundColor="@color/login_pass"
+            app:pressedTextColor="@color/white" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

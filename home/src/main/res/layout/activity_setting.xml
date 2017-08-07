@@ -14,7 +14,7 @@
         android:paddingTop="24px"
         android:paddingBottom="24px"
         android:paddingLeft="38px"
-        android:textSize="21sp"
+        android:textSize="@dimen/text_max"
         android:background="@color/mintcream"
         android:textColor="@color/black"
         android:text="@string/settings"/>
@@ -29,23 +29,23 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20px"
-                android:paddingBottom="20px"
+                android:paddingTop="18px"
+                android:paddingBottom="18px"
                 android:paddingLeft="30px"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_min"
                 android:background="@color/gainsboro"
-                android:textColor="@color/black"
+                android:textColor="@color/burlywood"
                 android:text="@string/wandnet"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
             <TextView
@@ -58,13 +58,13 @@
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/wifi"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
 
@@ -78,13 +78,13 @@
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/bluetooth"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
 
@@ -93,18 +93,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
+                android:visibility="gone"
                 android:drawableLeft="@drawable/ic_check_circle_black_24dp"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/condition"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
             <TextView
@@ -117,29 +118,29 @@
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/more"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20px"
-                android:paddingBottom="20px"
+                android:paddingTop="18px"
+                android:paddingBottom="18px"
                 android:paddingLeft="30px"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_min"
                 android:background="@color/gainsboro"
-                android:textColor="@color/black"
+                android:textColor="@color/burlywood"
                 android:text="@string/ustomize"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
             <TextView
@@ -147,115 +148,112 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_wifi_black_24dp"
+                android:drawableLeft="@drawable/ic_show"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/show"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
             <TextView
                 android:id="@+id/set_volume"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_wifi_black_24dp"
+                android:drawableLeft="@drawable/ic_language"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/volume"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
             <TextView
                 android:id="@+id/set_safety"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_wifi_black_24dp"
+                android:drawableLeft="@drawable/ic_safety"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/safety"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
             <TextView
                 android:id="@+id/set_date_tine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_wifi_black_24dp"
+                android:drawableLeft="@drawable/ic_data"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/date_tine"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
             <TextView
                 android:id="@+id/set_sound_notification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_wifi_black_24dp"
+                android:drawableLeft="@drawable/ic_sound"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/set_sound_notification"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
-                android:background="@color/slategray"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
             <TextView
                 android:id="@+id/set_language_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_wifi_black_24dp"
+                android:drawableLeft="@drawable/ic_inout"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/set_language_input"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/set_other_more"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -265,29 +263,30 @@
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/set_other_more"/>
             <View
+                android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20px"
-                android:paddingBottom="20px"
+                android:paddingTop="18px"
+                android:paddingBottom="18px"
                 android:paddingLeft="30px"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_min"
                 android:background="@color/gainsboro"
                 android:textColor="@color/black"
                 android:text="@string/equipment"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
             <TextView
@@ -295,18 +294,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_wifi_black_24dp"
+                android:drawableLeft="@drawable/ic_app"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/set_app"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.2dp"
+                android:layout_height="0.1dp"
                 android:background="@color/slategray"/>
 
 
@@ -315,12 +314,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_bluetooth_black_24dp"
+                android:drawableLeft="@drawable/ic_accessibility"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/set_accessible"/>
@@ -335,12 +334,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_check_circle_black_24dp"
+                android:drawableLeft="@drawable/ic_deve_options"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/set_developer_options"/>
@@ -354,12 +353,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="24px"
-                android:drawableLeft="@drawable/ic_more_horiz_black_24dp"
+                android:drawableLeft="@drawable/ic_about_device"
                 android:drawablePadding="33px"
                 android:paddingBottom="24px"
                 android:paddingLeft="38px"
                 android:drawableRight="@drawable/ic_right_black_24dp"
-                android:textSize="21sp"
+                android:textSize="@dimen/text_max"
                 android:background="@color/mintcream"
                 android:textColor="@color/black"
                 android:text="@string/set_about_device"/>

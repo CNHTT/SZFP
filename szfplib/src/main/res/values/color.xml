@@ -196,11 +196,11 @@
     <!-- 淡紫色 -->
     <color name="lightcyan">#E0FFFF</color>
     <!-- 亮青色 -->
-    <color name="burlywood">#DEB887</color>
+    <color name="burlywood">#909090</color>
     <!-- 实木色 -->
     <color name="plum">#DDA0DD</color>
     <!-- 洋李色 -->
-    <color name="gainsboro">#DCDCDC</color>
+    <color name="gainsboro">#F5F5F5</color>
     <!-- 淡灰色 -->
     <color name="crimson">#DC143C</color>
     <!-- 暗深红色 -->
@@ -367,7 +367,7 @@
     <color name="mediumspringgreen">#00FA9A</color>
 
 
-    <color name="black">#565656</color>
+    <color name="black">#212121</color>
     <color name="darkblack">#000000</color>
     <color name="text_sing">#e4e7f8</color>
 

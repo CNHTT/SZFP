@@ -134,7 +134,7 @@ public class AlertView {
             case ActionSheet:
                 params.gravity = Gravity.BOTTOM;
                 margin_alert_left_right = context.getResources().getDimensionPixelSize(R.dimen.margin_actionsheet_left_right);
-                params.setMargins(margin_alert_left_right,0,margin_alert_left_right,margin_alert_left_right);
+                params.setMargins(margin_alert_left_right,0,margin_alert_left_right,context.getResources().getDimensionPixelSize(R.dimen.height_actionsheet_title1));
                 contentContainer.setLayoutParams(params);
                 gravity = Gravity.BOTTOM;
                 initActionSheetViews(layoutInflater);

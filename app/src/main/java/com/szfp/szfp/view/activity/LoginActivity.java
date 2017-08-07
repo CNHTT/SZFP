@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -12,6 +13,7 @@ import com.szfp.szfp.presenter.LoginPresenter;
 import com.szfp.szfp.view.impl.ILoginView;
 import com.szfp.szfplib.inter.onRequestPermissionsListener;
 import com.szfp.szfplib.presenter.BasePresenter;
+import com.szfp.szfplib.utils.ContextUtils;
 import com.szfp.szfplib.utils.PermissionsUtils;
 import com.szfp.szfplib.view.activity.BaseActivity;
 import com.szfp.szfplib.weight.StateButton;
@@ -51,6 +53,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter>  implements ILog
 
     @Override
     protected void init() {
+
+
+        Log.e("W H", ContextUtils.getSreenHeight(this)+"    "+ContextUtils.getSreenWidth(this));
 
         PermissionsUtils.requestWriteExternalStorage(this, new onRequestPermissionsListener() {
             @Override

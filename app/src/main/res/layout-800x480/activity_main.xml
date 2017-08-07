@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.szfp.szfp.view.activity.MainActivity">
+
+    <com.szfp.szfplib.weight.StateButton
+        android:id="@+id/mainButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_40"
+        android:text="@string/main_menu"
+        android:textSize="@dimen/text_size_25"
+        app:normalBackgroundColor="@color/sbc_header_view"
+        app:normalTextColor="@color/contents_text"
+        app:pressedBackgroundColor="@color/contents_text"
+        app:pressedTextColor="@color/sbc_header_view" />
+
+
+    <TextView
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_service"
+        android:textSize="@dimen/text_size_7" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_list"
+        android:scrollbars="none"
+        android:padding="@dimen/space_30"></ListView>
+
+</LinearLayout>

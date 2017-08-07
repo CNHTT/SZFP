@@ -22,11 +22,18 @@ public class ApkTools {
 
         List<PackageInfo> packageInfos = packageManager .getInstalledPackages(0);
         for (PackageInfo page:packageInfos) {
-            //过滤掉系统app
+//            过滤掉系统app
             if((ApplicationInfo.FLAG_SYSTEM& page.applicationInfo.flags) !=0) {
                 continue;
             }
             if(page.applicationInfo.loadIcon(packageManager) ==null) {
+                continue;
+            }
+
+            if (page.packageName.equals("com.szfp.home")){
+                continue;
+            }
+            if (page.packageName.equals("com.estrongs.android.pop.pro")){
                 continue;
             }
             AppInfo  apk = new AppInfo();

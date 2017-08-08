@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,33 +8,22 @@
 
 
     <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scrollbars="none"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="6dp"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="6dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
         <LinearLayout
+            android:padding="@dimen/space_20"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
-                android:layout_marginTop="@dimen/space_80"
-                android:gravity="center"
+                android:layout_marginTop="@dimen/space_40"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:minEms="11"
+                    android:padding="@dimen/space_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/id_number"/>
@@ -43,20 +32,21 @@
                     android:id="@+id/et_id_number"
                     android:background="@drawable/text_divbox"
                     android:padding="@dimen/space_10"
-                    android:layout_width="@dimen/space_300"
+                    android:layout_width="match_parent"
                     android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:singleLine="true"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="@dimen/space_40"
-                android:gravity="center"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
                     android:minEms="11"
+                    android:padding="@dimen/space_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/amount"/>
@@ -72,13 +62,14 @@
                     android:singleLine="true"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="@dimen/space_40"
-                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/space_20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
                     android:minEms="11"
+                    android:padding="@dimen/space_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/withdraw_money_from"/>
@@ -101,9 +92,9 @@
                 android:minEms="11"
                 android:layout_gravity="right"
                 android:padding="@dimen/space_15"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/text_size_18"
+                android:textSize="@dimen/text_size_12"
                 android:gravity="center"
                 android:text="@string/please_to_print"
                 android:id="@+id/bt_comm_print"
@@ -117,11 +108,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="@dimen/space_40">
+                android:orientation="vertical"
+                android:padding="@dimen/space_10">
 
                 <com.szfp.szfplib.weight.StateButton
                     android:id="@+id/bt_cash_deposit_enter"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/space_10"
                     android:text="@string/enter"
@@ -131,12 +123,12 @@
                     app:pressedTextColor="@color/white" />
 
                 <View
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"></View>
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"></View>
 
                 <com.szfp.szfplib.weight.StateButton
                     android:id="@+id/bt_cash_deposit_cancel"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/space_10"
                     android:text="@string/cancel"
@@ -152,4 +144,4 @@
 
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

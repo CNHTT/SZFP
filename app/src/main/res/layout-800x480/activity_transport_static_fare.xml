@@ -17,13 +17,14 @@
         android:textSize="@dimen/text_size_24" />
 
     <LinearLayout
-
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="@dimen/space_60">
+        android:padding="@dimen/space_10">
 
         <TextView
+            android:padding="@dimen/space_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,14 +44,15 @@
 
     <LinearLayout
         android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/space_40">
+        android:padding="@dimen/space_10">
 
         <com.szfp.szfplib.weight.StateButton
             android:padding="@dimen/space_5"
             android:id="@+id/bt_stat_sava"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/save"
             app:normalBackgroundColor="@color/login_normal"
@@ -60,12 +62,12 @@
 
         <View
             android:layout_width="200dp"
-            android:layout_height="wrap_content"></View>
+            android:layout_height="@dimen/space_20"></View>
 
         <com.szfp.szfplib.weight.StateButton
             android:id="@+id/bt_stat_cancel"
             android:padding="@dimen/space_5"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
             app:normalBackgroundColor="@color/login_normal"

@@ -41,11 +41,13 @@
                 app:cardMaxElevation="@dimen/space_14"
                 app:contentPadding="8dp">
                 <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/space_10">
 
                     <TextView
+                        android:padding="@dimen/space_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:minEms="10"
@@ -55,7 +57,7 @@
 
                     <EditText
                         android:id="@+id/et_hour_number"
-                        android:layout_width="@dimen/space_300"
+                        android:layout_width="match_parent"
                         android:inputType="numberDecimal"
                         android:layout_height="wrap_content"
                         android:background="@drawable/text_divbox"
@@ -74,11 +76,13 @@
                 app:cardMaxElevation="@dimen/space_14"
                 app:contentPadding="8dp">
                 <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/space_10">
 
                     <TextView
+                        android:padding="@dimen/space_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:minEms="10"
@@ -108,11 +112,13 @@
                 app:cardMaxElevation="@dimen/space_14"
                 app:contentPadding="8dp">
                 <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/space_10">
 
                     <TextView
+                        android:padding="@dimen/space_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:minEms="10"
@@ -140,11 +146,13 @@
                 app:cardMaxElevation="@dimen/space_14"
                 app:contentPadding="8dp">
                 <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/space_10">
 
                     <TextView
+                        android:padding="@dimen/space_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:minEms="10"
@@ -167,14 +175,14 @@
 
             <LinearLayout
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/space_50"
-                android:orientation="horizontal"
+                android:layout_margin="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <com.szfp.szfplib.weight.StateButton
                     android:id="@+id/bt_parking_save"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/space_50"
                     android:padding="@dimen/space_5"
                     android:text="@string/save"
@@ -185,9 +193,8 @@
 
 
                 <com.szfp.szfplib.weight.StateButton
-                    android:layout_marginLeft="@dimen/space_200"
                     android:id="@+id/bt_paring_cancel"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/space_5"
                     android:text="@string/cancel"

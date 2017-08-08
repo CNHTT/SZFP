@@ -30,20 +30,20 @@
 
 
             <LinearLayout
-                android:padding="@dimen/space_80"
+                android:padding="@dimen/space_20"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <com.szfp.szfplib.weight.StateButton
                         android:minEms="11"
                         android:padding="@dimen/space_15"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/text_size_18"
                         android:text="@string/register_employee"
@@ -58,16 +58,16 @@
 
                 <View
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="20dp"
                     android:layout_weight="1" />
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <com.szfp.szfplib.weight.StateButton
                         android:id="@+id/bt_human_reports"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minEms="11"
                         android:padding="@dimen/space_15"

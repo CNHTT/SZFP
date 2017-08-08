@@ -70,10 +70,10 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_marginTop="@dimen/space_30"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="@dimen/space_40">
+            android:padding="@dimen/space_20">
 
             <com.szfp.szfplib.weight.StateButton
                 android:id="@+id/bt_payment_save"

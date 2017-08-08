@@ -269,7 +269,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="@dimen/space_40">
+                android:padding="@dimen/space_20">
 
                 <com.szfp.szfplib.weight.StateButton
                     android:id="@+id/bt_farmer_register"
@@ -283,8 +283,8 @@
                     app:pressedTextColor="@color/white" />
 
                 <View
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"></View>
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/space_20"></View>
 
                 <com.szfp.szfplib.weight.StateButton
                     android:id="@+id/bt_farmer_cancel"

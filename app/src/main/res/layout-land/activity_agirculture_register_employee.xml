@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.szfp.szfp.view.activity.AgricultureRegisterEmployeeActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:gravity="center"
+            android:paddingTop="@dimen/space_24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/name"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/et_employee_name"
+                    android:background="@drawable/text_divbox"
+                    android:padding="@dimen/space_10"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/id_number"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:enabled="false"
+                    android:id="@+id/et_employee_id_number"
+                    android:background="@drawable/text_divbox"
+                    android:padding="@dimen/space_10"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/gender"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioGroup
+                    android:id="@+id/rg_employee_Sex"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:checkedButton="@+id/male"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space_5">
+
+                    <RadioButton
+                        android:id="@+id/male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/m" />
+
+                    <RadioButton
+                        android:id="@+id/female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space_30"
+                        android:text="@string/f" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/register_number"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/et_employee_register_number"
+                    android:background="@drawable/text_divbox"
+                    android:padding="@dimen/space_10"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/contact"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/et_employee_contact"
+                    android:background="@drawable/text_divbox"
+                    android:padding="@dimen/space_10"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/job_title"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/et_employee_job_title"
+                    android:background="@drawable/text_divbox"
+                    android:padding="@dimen/space_10"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/salary"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/et_employee_salary"
+                    android:background="@drawable/text_divbox"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/space_10"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/date_of_birth"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_employee_date_of_birth"
+                    android:background="@drawable/text_divbox"
+                    android:padding="@dimen/space_10"
+                    android:drawableRight="@drawable/ic_date_range_black_24dp"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/date_employed"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_employee_date_employed"
+                    android:background="@drawable/text_divbox"
+                    android:padding="@dimen/space_10"
+                    android:drawableRight="@drawable/ic_date_range_black_24dp"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/home_town"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/tv_employee_home_town"
+                    android:background="@drawable/text_divbox"
+                    android:padding="@dimen/space_10"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/collection_route"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/tv_employee_collection_route"
+                    android:background="@drawable/text_divbox"
+                    android:padding="@dimen/space_10"
+                    android:layout_width="@dimen/space_300"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:singleLine="true"/>
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/nature_of_employment"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/sp_employee_nature"
+                    android:layout_width="@dimen/space_300"
+                    android:padding="@dimen/space_10"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="@dimen/space_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:minEms="10"
+                    android:text="@string/finger_print"
+                    android:textSize="@dimen/text_size_24"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+
+                <ImageView
+                    android:background="@mipmap/addphoto"
+                    android:id="@+id/iv_employee_finger_print"
+                    android:layout_width="@dimen/space_200"
+                    android:layout_marginLeft="@dimen/space_50"
+                    android:layout_marginRight="@dimen/space_50"
+                    android:layout_height="@dimen/space_100" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/space_40">
+
+                <com.szfp.szfplib.weight.StateButton
+                    android:id="@+id/bt_employee_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5"
+                    android:text="@string/register"
+                    app:normalBackgroundColor="@color/login_normal"
+                    app:normalTextColor="@color/white"
+                    app:pressedBackgroundColor="@color/login_pass"
+                    app:pressedTextColor="@color/white" />
+
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"></View>
+
+                <com.szfp.szfplib.weight.StateButton
+                    android:id="@+id/bt_employee_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5"
+                    android:text="@string/cancel"
+                    app:normalBackgroundColor="@color/login_normal"
+                    app:normalTextColor="@color/white"
+                    app:pressedBackgroundColor="@color/login_pass"
+                    app:pressedTextColor="@color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

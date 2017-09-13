@@ -18,6 +18,7 @@
             android:orientation="vertical">
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -40,15 +41,18 @@
 
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:minEms="10"
                     android:text="@string/id_number"
-                    android:textSize="@dimen/text_size_24"
                     android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textSize="@dimen/text_size_24"/>
 
                 <EditText
                     android:enabled="false"
@@ -63,6 +67,7 @@
 
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -97,6 +102,7 @@
 
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -120,6 +126,7 @@
 
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -142,6 +149,7 @@
 
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -164,6 +172,7 @@
 
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -187,6 +196,7 @@
 
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -210,6 +220,7 @@
 
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -232,6 +243,7 @@
             </LinearLayout>
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -253,6 +265,7 @@
             </LinearLayout>
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -274,6 +287,7 @@
             </LinearLayout>
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -292,6 +306,7 @@
             </LinearLayout>
             <LinearLayout
                 android:padding="@dimen/space_10"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
@@ -315,14 +330,15 @@
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="@dimen/space_40">
+                android:padding="@dimen/space_10">
 
                 <com.szfp.szfplib.weight.StateButton
                     android:id="@+id/bt_employee_register"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/space_5"
                     android:text="@string/register"
@@ -332,12 +348,12 @@
                     app:pressedTextColor="@color/white" />
 
                 <View
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"></View>
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"></View>
 
                 <com.szfp.szfplib.weight.StateButton
                     android:id="@+id/bt_employee_cancel"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/space_5"
                     android:text="@string/cancel"

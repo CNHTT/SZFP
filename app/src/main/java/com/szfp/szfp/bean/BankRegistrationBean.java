@@ -26,10 +26,14 @@ public class BankRegistrationBean implements Serializable {
     private String  bankAccountTypes;
     private String  registerTimeStr;
     private Long    registerTime;
-    @Generated(hash = 1894107997)
+
+    private String  bankPhotoUrl;
+    
+    @Generated(hash = 356957559)
     public BankRegistrationBean(Long id, String nationalID, String BankName,
             String bankAddress, String bankBranches, String bankContacts,
-            String bankAccountTypes, String registerTimeStr, Long registerTime) {
+            String bankAccountTypes, String registerTimeStr, Long registerTime,
+            String bankPhotoUrl) {
         this.id = id;
         this.nationalID = nationalID;
         this.BankName = BankName;
@@ -39,6 +43,7 @@ public class BankRegistrationBean implements Serializable {
         this.bankAccountTypes = bankAccountTypes;
         this.registerTimeStr = registerTimeStr;
         this.registerTime = registerTime;
+        this.bankPhotoUrl = bankPhotoUrl;
     }
     @Generated(hash = 490253563)
     public BankRegistrationBean() {
@@ -96,6 +101,12 @@ public class BankRegistrationBean implements Serializable {
     }
     public void setNationalID(String nationalID) {
         this.nationalID = nationalID;
+    }
+    public String getBankPhotoUrl() {
+        return this.bankPhotoUrl;
+    }
+    public void setBankPhotoUrl(String bankPhotoUrl) {
+        this.bankPhotoUrl = bankPhotoUrl;
     }
 
 }

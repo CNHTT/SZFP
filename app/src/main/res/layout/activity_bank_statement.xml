@@ -10,8 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/space_50"
-        android:layout_marginRight="@dimen/space_50"
+        android:layout_marginLeft="@dimen/space_20"
+        android:layout_marginRight="@dimen/space_20"
         android:orientation="vertical">
 
         <TextView
@@ -31,10 +31,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_40"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/space_20"
+            android:orientation="vertical">
 
             <TextView
+                android:padding="@dimen/space_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="@dimen/space_100"
@@ -58,6 +59,7 @@
                 android:layout_weight="1" />
 
             <TextView
+                android:padding="@dimen/space_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="@dimen/space_100"
@@ -81,11 +83,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="@dimen/space_40">
+            android:orientation="vertical"
+            android:padding="@dimen/space_10">
 
             <com.szfp.szfplib.weight.StateButton
                 android:id="@+id/bt_statement_enter"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/space_5"
                 android:text="@string/enter"
@@ -95,12 +98,12 @@
                 app:pressedTextColor="@color/white" />
 
             <View
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"></View>
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_20"></View>
 
             <com.szfp.szfplib.weight.StateButton
                 android:id="@+id/bt_statement_cancel"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/space_5"
                 android:text="@string/cancel"

@@ -34,12 +34,14 @@
 
         <LinearLayout
             android:padding="@dimen/space_10"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
                 android:minEms="10"
                 android:text="@string/litres"
-                android:textSize="@dimen/text_size_24"
+                android:textSize="@dimen/text_size_17"
+                android:padding="@dimen/space_5"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -56,12 +58,14 @@
         </LinearLayout>
         <LinearLayout
             android:padding="@dimen/space_10"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
                 android:minEms="10"
                 android:text="@string/amount_li"
-                android:textSize="@dimen/text_size_24"
+                android:textSize="@dimen/text_size_17"
+                android:padding="@dimen/space_5"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -85,14 +89,15 @@
 
         <LinearLayout
             android:layout_marginTop="@dimen/space_30"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="@dimen/space_40">
+            android:orientation="vertical"
+            android:padding="@dimen/space_20">
 
             <com.szfp.szfplib.weight.StateButton
                 android:id="@+id/bt_farmer_save"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/space_5"
                 android:text="@string/save"
@@ -107,7 +112,7 @@
 
             <com.szfp.szfplib.weight.StateButton
                 android:id="@+id/bt_farmer_cancel"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/space_5"
                 android:text="@string/cancel"

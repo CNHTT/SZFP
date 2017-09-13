@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              tools:context="com.szfp.szfp.view.activity.BankingActivity">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:background="@drawable/shadow"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/space_20"
+            android:textSize="@dimen/text_size_24"
+            android:paddingBottom="@dimen/space_15"
+            android:paddingTop="@dimen/space_15"
+            android:paddingRight="@dimen/space_30"
+            android:paddingLeft="@dimen/space_30"
+            android:text="@string/bank_module"/>
+
+
+        <LinearLayout
+            android:padding="@dimen/space_20"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.szfp.szfplib.weight.StateButton
+                    android:minEms="11"
+                    android:padding="@dimen/space_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/account_opening"
+                    android:id="@+id/bt_account_opening"
+                    app:normalBackgroundColor="@color/palegreen"
+                    app:normalTextColor="@color/black"
+                    app:radius="@dimen/space_2"
+                    app:pressedBackgroundColor="@color/result_points"
+                    android:textStyle="bold"/>
+                <com.szfp.szfplib.weight.StateButton
+                    android:minEms="11"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:padding="@dimen/space_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/deposit"
+                    android:id="@+id/bt_deposit"
+                    app:normalBackgroundColor="@color/palegreen"
+                    app:normalTextColor="@color/black"
+                    app:radius="@dimen/space_2"
+                    app:pressedBackgroundColor="@color/result_points"
+                    android:textStyle="bold"/>
+                <com.szfp.szfplib.weight.StateButton
+                    android:minEms="11"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:padding="@dimen/space_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/funds_transfer"
+                    android:id="@+id/bt_funds_transfer"
+                    app:normalBackgroundColor="@color/palegreen"
+                    app:normalTextColor="@color/black"
+                    app:radius="@dimen/space_2"
+                    app:pressedBackgroundColor="@color/result_points"
+                    android:textStyle="bold"/>
+                <com.szfp.szfplib.weight.StateButton
+                    android:minEms="11"
+                    android:padding="@dimen/space_15"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/account_statement"
+                    android:id="@+id/bt_account_statement"
+                    app:normalBackgroundColor="@color/palegreen"
+                    app:normalTextColor="@color/black"
+                    app:radius="@dimen/space_2"
+                    app:pressedBackgroundColor="@color/result_points"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.szfp.szfplib.weight.StateButton
+                    android:minEms="11"
+                    android:padding="@dimen/space_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/shopping"
+                    android:id="@+id/bt_shopping"
+                    app:normalBackgroundColor="@color/palegreen"
+                    app:normalTextColor="@color/black"
+                    app:radius="@dimen/space_2"
+                    app:pressedBackgroundColor="@color/result_points"
+                    android:textStyle="bold"/>
+                <com.szfp.szfplib.weight.StateButton
+                    android:minEms="11"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:padding="@dimen/space_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/bill_payment"
+                    android:id="@+id/bt_bill_payment"
+                    app:normalBackgroundColor="@color/palegreen"
+                    app:normalTextColor="@color/black"
+                    app:radius="@dimen/space_2"
+                    app:pressedBackgroundColor="@color/result_points"
+                    android:textStyle="bold"/>
+                <com.szfp.szfplib.weight.StateButton
+                    android:minEms="11"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:padding="@dimen/space_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/admin"
+                    android:id="@+id/bt_bank_admin"
+                    app:normalBackgroundColor="@color/palegreen"
+                    app:normalTextColor="@color/black"
+                    app:radius="@dimen/space_2"
+                    app:pressedBackgroundColor="@color/result_points"
+                    android:textStyle="bold"/>
+                <com.szfp.szfplib.weight.StateButton
+                    android:minEms="11"
+                    android:padding="@dimen/space_15"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_size_18"
+                    android:text="@string/airtime_purchase"
+                    android:id="@+id/bt_airtime_purchase"
+                    app:normalBackgroundColor="@color/palegreen"
+                    app:normalTextColor="@color/black"
+                    app:radius="@dimen/space_2"
+                    app:pressedBackgroundColor="@color/result_points"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+</LinearLayout>

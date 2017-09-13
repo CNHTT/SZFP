@@ -19,16 +19,15 @@
         android:text="@string/resverse_fare" />
 
     <LinearLayout
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="@dimen/space_20"
+        android:padding="@dimen/space_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_marginLeft="@dimen/space_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/space_20"
+            android:padding="@dimen/space_3"
             android:minEms="10"
             android:text="@string/search_commuter1"/>
 
@@ -36,56 +35,45 @@
             android:id="@+id/ed_reverse_commuter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/space_20"
             android:layout_weight="1"
             android:maxLines="1"
             android:background="@drawable/text_divbox"
             android:padding="@dimen/space_15" />
 
-        <com.szfp.szfplib.weight.StateButton
-            android:padding="@dimen/space_5"
-            android:id="@+id/bt_reverse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/search"
-            android:layout_marginRight="@dimen/space_20"
-            app:normalBackgroundColor="@color/login_normal"
-            app:normalTextColor="@color/white"
-            app:pressedBackgroundColor="@color/login_pass"
-            app:pressedTextColor="@color/white" />
     </LinearLayout>
     <LinearLayout
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="@dimen/space_20"
+        android:padding="@dimen/space_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:minEms="10"
-            android:layout_marginLeft="@dimen/space_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/space_20"
+            android:padding="@dimen/space_3"
             android:text="@string/amount"/>
 
         <EditText
             android:id="@+id/ed_reverse_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/space_20"
             android:layout_weight="1"
             android:maxLines="1"
             android:inputType="numberDecimal"
             android:background="@drawable/text_divbox"
             android:padding="@dimen/space_15" />
 
-        <Button
+        <com.szfp.szfplib.weight.StateButton
             android:padding="@dimen/space_5"
-            android:layout_width="wrap_content"
+            android:id="@+id/bt_reverse"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/search"
-            android:visibility="invisible"
-            android:layout_marginRight="@dimen/space_20"/>
+            app:normalBackgroundColor="@color/login_normal"
+            app:normalTextColor="@color/white"
+            app:pressedBackgroundColor="@color/login_pass"
+            app:pressedTextColor="@color/white" />
     </LinearLayout>
 
     <CheckBox
@@ -101,14 +89,15 @@
 
     <LinearLayout
         android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/space_40">
+        android:padding="@dimen/space_10">
 
         <com.szfp.szfplib.weight.StateButton
             android:padding="@dimen/space_5"
             android:id="@+id/bt_reverse_sava"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/reverse"
             app:normalBackgroundColor="@color/login_normal"
@@ -117,13 +106,13 @@
             app:pressedTextColor="@color/white" />
 
         <View
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"></View>
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_10"></View>
 
         <com.szfp.szfplib.weight.StateButton
             android:id="@+id/bt_reverse_cancel"
             android:padding="@dimen/space_5"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
             app:normalBackgroundColor="@color/login_normal"

@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:padding="@dimen/space_12"
             android:orientation="vertical"
-            android:layout_width="@dimen/login_width"
+            android:layout_width="match_parent"
             android:background="@drawable/shadow"
             android:layout_height="@dimen/login_height">
             <TextView

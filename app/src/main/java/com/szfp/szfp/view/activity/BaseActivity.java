@@ -103,7 +103,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void stopAsy(AsyncFingerprint asyncFingerprint){
         asyncFingerprint.setStop(true);
     };
-    void showErrorToast(String s){
+    public void showErrorToast(String s){
         ToastUtils.error(s);
     }
 }

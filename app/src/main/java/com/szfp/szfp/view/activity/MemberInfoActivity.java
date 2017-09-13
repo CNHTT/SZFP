@@ -1,10 +1,14 @@
 package com.szfp.szfp.view.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.szfp.szfp.ConstantValue;
 import com.szfp.szfp.R;
 import com.szfp.szfp.bean.BankCustomerBean;
@@ -97,6 +101,18 @@ public class MemberInfoActivity extends BaseActivity {
         tvMemberDeposits.setText(String.valueOf(bean.getDeposit()));
         tvAcBalance.setText(String.valueOf(bean.getTotal()));
 
+        if (!DataUtils.isNullString(bean.getPhotoFileUrl())){
+            Glide.with(MemberInfoActivity.this).
+                    load(Uri.parse(bean.getPhotoFileUrl())).
+                    diskCacheStrategy(DiskCacheStrategy.RESULT).
+                    thumbnail(0.5f).
+                    placeholder(R.drawable.ic_check_white_48dp).
+                    priority(Priority.LOW).
+                    error(R.drawable.linecode_icon).
+                    fallback(R.drawable.ic_clear_white_48dp).
+                    dontAnimate().
+                    into(memberPhoto);
+        }
 
 
     }

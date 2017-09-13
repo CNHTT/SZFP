@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.RT_Printer.BluetoothPrinter.BLUETOOTH.BluetoothPrintDriver;
 import com.szfp.szfp.R;
 import com.szfp.szfp.asynctask.AsyncFingerprint;
+import com.szfp.szfp.bean.BankCustomerBean;
 import com.szfp.szfp.bean.BankDepositBean;
 import com.szfp.szfp.bean.BankRegistrationBean;
 import com.szfp.szfp.inter.OnVerifyDepositListener;
@@ -205,6 +206,24 @@ public class BankCashDepositActivity extends BasePrintActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank_cash_deposit);
         ButterKnife.bind(this);
+
+        initEvent();
+    }
+    BankCustomerBean sbean;
+    private void initEvent() {
+        etCashDepositNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus){
+                    acNumber = etCashDepositNumber.getText().toString();
+                    if (!DataUtils.isNullString(acNumber))
+                    sbean=  DbHelper.selectBankCashDeposit(acNumber);
+
+                    if (!DataUtils.isEmpty(sbean))
+                        etCashDepositName.setText(sbean.getName());
+                }
+            }
+        });
     }
 
     @Override

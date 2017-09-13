@@ -27,6 +27,7 @@ import com.szfp.szfp.greendao.ParkingInfoBeanDao;
 import com.szfp.szfp.greendao.StudentBeanDao;
 import com.szfp.szfp.greendao.StudentStaffBeanDao;
 import com.szfp.szfp.greendao.VehicleParkingBeanDao;
+import com.szfp.szfp.inter.OnFundsTransferListener;
 import com.szfp.szfp.inter.OnSaveByParkingListener;
 import com.szfp.szfp.inter.OnSaveListener;
 import com.szfp.szfp.inter.OnSaveVehicleLeaveListener;
@@ -681,10 +682,10 @@ public class DbHelper {
         if (DataUtils.isEmpty(bankCustomerBean)){
             listener.error("No user please try again");
         }else {
-            if (!bean.getAcName().equals(bankCustomerBean.getName())){
-                listener.error("please enter the correct name");
-                return;
-            }
+//            if (!bean.getAcName().equals(bankCustomerBean.getName())){
+//                listener.error("please enter the correct name");
+//                return;
+//            }
             if (!bean.getAcNumber().equals(bankCustomerBean.getFosaAccount()))
             {
                 listener.error("please enter the correct id");
@@ -751,7 +752,7 @@ public class DbHelper {
                     bean.setAcName(bankDepositBean.getAcNumber());
                     bean.setIsRecord(true);
                     bean.setIdNumber(TimeUtils.generateSequenceNo());
-                    bankDepositBean.setBalance(bankDepositBean.getBalance()-bean.getCashNumber());
+                    bankDepositBean.setBalance(bankDepositBean.getBalance()-bean.getWaihNumber());
                     bean.setBalance(bankDepositBean.getBalance());
                     GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().insert(bean);
                     GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().update(bankDepositBean);
@@ -772,4 +773,117 @@ public class DbHelper {
             return null;
         }
     }
+
+    public static void getBankFundTransfer(String id, BankDepositBean bean, BankDepositBean beanFundsTransfer, OnFundsTransferListener lister) {
+        Float amount = bean.getCashNumber();
+        BankCustomerBean    bankCustomerBean;
+        BankCustomerBean    bankCustomerBeanFunds;
+
+        BankDepositBean    bankDepositBean;
+        BankDepositBean    bankDepositBeanFunds;
+        try{
+            bankCustomerBean = GreenDaoManager.getInstance().getSession().getBankCustomerBeanDao().queryBuilder()
+                    .where(BankCustomerBeanDao.Properties.FingerPrintFileUrl.like(PAH+FINGERPRINT+id+FINGERPRINT_END+PAH)).build().unique();
+
+            bankCustomerBeanFunds = GreenDaoManager.getInstance().getSession().getBankCustomerBeanDao().queryBuilder()
+                    .where(BankCustomerBeanDao.Properties.FosaAccount.like(beanFundsTransfer.getAcNumber())).build().unique();
+
+            if (DataUtils.isEmpty(bankCustomerBean)){
+                lister.error("The corresponding account for the fingerprint does not exist,please try again");
+                return;
+            }
+
+            if (!bankCustomerBean.getFosaAccount().equals(bean.getAcNumber())){
+                lister.error("The corresponding account for the fingerprint does not exist,please try again");
+                return;
+            }
+
+            if (DataUtils.isEmpty(bankCustomerBean)){
+
+                lister.error("The user who needs to be transferred does not exist,please try again");
+                return;
+            }
+
+            bankDepositBean = GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().queryBuilder()
+                    .where(BankDepositBeanDao.Properties.AcNumber.eq(bean.getAcNumber()),
+                            BankDepositBeanDao.Properties.IsRecord.eq(false),
+                            BankDepositBeanDao.Properties.BankName.eq(bean.getBankName())).build().unique();
+            bankDepositBeanFunds = GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().queryBuilder()
+                    .where(BankDepositBeanDao.Properties.AcNumber.eq(beanFundsTransfer.getAcNumber()),
+                            BankDepositBeanDao.Properties.IsRecord.eq(false),
+                            BankDepositBeanDao.Properties.BankName.eq(bean.getBankName())).build().unique();
+
+            if (DataUtils.isEmpty(bankDepositBean))
+            {
+                lister.error( bankCustomerBean.getName()+" account does not have an account in "+bean.getBankName()+" banks");
+                return;
+            }
+
+            if (DataUtils.isEmpty(bankCustomerBeanFunds))
+            {
+                lister.error( bankCustomerBeanFunds.getName()+" account does not have an account in "+bean.getBankName()+" banks");
+                return;
+            }
+
+            if (amount>bankDepositBean.getCashNumber()){
+                lister.error( "The balance of the account is insufficient and the balance is " +DataUtils.getAmountValue(bankDepositBean.getCashNumber()));
+                return;
+            }
+
+            bean.setIsRecord(true);
+            bean.setAcNumber(bankCustomerBean.getFosaAccount());
+            bean.setAcName(bankCustomerBean.getName());
+            bean.setIdNumber(TimeUtils.generateSequenceNo());
+            bean.setWaihNumber(amount);
+            bankDepositBean.setBalance(bankDepositBean.getBalance()-amount);
+            bean.setBalance(bankDepositBean.getBalance());
+            GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().insert(bean);
+            GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().update(bankDepositBean);
+
+            beanFundsTransfer.setIsRecord(true);
+            beanFundsTransfer.setAcNumber(bankCustomerBean.getFosaAccount());
+            beanFundsTransfer.setAcName(bankCustomerBean.getName());
+            beanFundsTransfer.setIdNumber(TimeUtils.generateSequenceNo());
+            beanFundsTransfer.setCashNumber(amount);
+            beanFundsTransfer.setBankName(bean.getBankName());
+            bankDepositBeanFunds.setBalance(bankDepositBean.getBalance()+amount);
+            beanFundsTransfer.setBalance(bankDepositBean.getBalance());
+            GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().insert(beanFundsTransfer);
+            GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().update(bankDepositBeanFunds);
+
+            lister.success(bean,beanFundsTransfer);
+
+
+        }catch (Exception e){
+
+        }
+
+    }
+
+    public static BankCustomerBean selectBankCashDeposit(String acNumber) {
+        BankCustomerBean bean = null;
+        try {
+            bean =
+            GreenDaoManager.getInstance().getSession().getBankCustomerBeanDao().queryBuilder()
+                    .where(BankCustomerBeanDao.Properties.FosaAccount.eq(acNumber)).build().unique();
+        }catch (Exception e){
+            return null;
+
+        }
+        return bean;
+    }
+
+    public static BankDepositBean getShowBankFA(String acNumber, String deposiyed) {
+        BankDepositBean bankDepositBean;
+        try {
+            bankDepositBean= GreenDaoManager.getInstance().getSession().getBankDepositBeanDao().queryBuilder()
+                    .where(BankDepositBeanDao.Properties.AcNumber.eq(acNumber),
+                            BankDepositBeanDao.Properties.IsRecord.eq(false),
+                            BankDepositBeanDao.Properties.BankName.eq(deposiyed)).build().unique();
+        }catch (Exception e){
+            return null;
+        }
+        return bankDepositBean;
+    }
+
 }

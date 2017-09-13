@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.szfp.szfp.view.activity.ParkingSettingActivity"
+    android:orientation="vertical">
+
+
+
+
+    <TextView
+        android:padding="@dimen/space_20"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_24"
+        android:background="@drawable/divbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/set_parameters"/>
+
+    <ScrollView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/space_100"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_14"
+                app:cardCornerRadius="@dimen/space_4"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="@dimen/space_14"
+                app:contentPadding="8dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minEms="10"
+                        android:text="@string/parking_fee_hour"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <EditText
+                        android:id="@+id/et_hour_number"
+                        android:layout_width="@dimen/space_300"
+                        android:inputType="numberDecimal"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_divbox"
+                        android:padding="@dimen/space_10"
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_14"
+                app:cardCornerRadius="@dimen/space_4"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="@dimen/space_14"
+                app:contentPadding="8dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minEms="10"
+                        android:text="@string/parking_fee_day"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <EditText
+                        android:id="@+id/et_park_day_number"
+                        android:layout_width="@dimen/space_300"
+                        android:inputType="numberDecimal"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_divbox"
+                        android:padding="@dimen/space_10"
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_14"
+                app:cardCornerRadius="@dimen/space_4"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="@dimen/space_14"
+                app:contentPadding="8dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minEms="10"
+                        android:text="@string/parking_fee_month"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <EditText
+                        android:id="@+id/et_park_month_number"
+                        android:layout_width="@dimen/space_300"
+                        android:inputType="numberDecimal"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_divbox"
+                        android:padding="@dimen/space_10"
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_14"
+                app:cardCornerRadius="@dimen/space_4"
+                app:cardElevation="5dp"
+                app:cardMaxElevation="@dimen/space_14"
+                app:contentPadding="8dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minEms="10"
+                        android:text="@string/special_discounts"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_24" />
+
+                    <EditText
+                        android:id="@+id/et_park_special_discounts"
+                        android:layout_width="@dimen/space_300"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_divbox"
+                        android:padding="@dimen/space_10"
+                        android:inputType="numberDecimal"
+                        android:hint="90/100 please input 90"
+                        android:singleLine="true"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/space_50"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.szfp.szfplib.weight.StateButton
+                    android:id="@+id/bt_parking_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/space_50"
+                    android:padding="@dimen/space_5"
+                    android:text="@string/save"
+                    app:normalBackgroundColor="@color/login_normal"
+                    app:normalTextColor="@color/white"
+                    app:pressedBackgroundColor="@color/login_pass"
+                    app:pressedTextColor="@color/white" />
+
+
+                <com.szfp.szfplib.weight.StateButton
+                    android:layout_marginLeft="@dimen/space_200"
+                    android:id="@+id/bt_paring_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/space_5"
+                    android:text="@string/cancel"
+                    app:normalBackgroundColor="@color/login_normal"
+                    app:normalTextColor="@color/white"
+                    app:pressedBackgroundColor="@color/login_pass"
+                    app:pressedTextColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

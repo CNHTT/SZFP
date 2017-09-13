@@ -334,4 +334,43 @@ public class PrintUtils {
         BluetoothPrintDriver.BT_Write(" "+"\r");
         BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
     }
+
+    public static void printFundTransfer(BankDepositBean bean, BankDepositBean beanFundsTransfer) {
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte) 1);
+        BluetoothPrintDriver.SetLineSpacing((byte)40);
+        BluetoothPrintDriver.SetFontEnlarge((byte) 0x01);
+        BluetoothPrintDriver.BT_Write("FOUNDS TRANSFER ");
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write("DEPOSITED BY:  "+bean.getBankName()+"\r");
+        BluetoothPrintDriver.BT_Write("Transfer Out AC NUMBER:"+bean.getAcNumber()+"\r");
+        BluetoothPrintDriver.BT_Write("Transfer Out AC NAME:"+bean.getAcName()+"\r");
+        BluetoothPrintDriver.BT_Write("Transfer Out Amount:" +DataUtils.getAmountValue(bean.getWaihNumber())+"\r");
+        BluetoothPrintDriver.BT_Write("Transfer Out Acc BALANCE " +DataUtils.getAmountValue(bean.getBalance())+"\r");
+
+        BluetoothPrintDriver.BT_Write("Transfer In AC NUMBER:"+beanFundsTransfer.getAcNumber()+"\r");
+        BluetoothPrintDriver.BT_Write("Transfer In AC NAME:"+beanFundsTransfer.getAcName()+"\r");
+        BluetoothPrintDriver.BT_Write("Transfer In Acc BALANCE " +DataUtils.getAmountValue(beanFundsTransfer.getBalance())+"\r");
+
+        BluetoothPrintDriver.BT_Write("TIME:" + TimeUtils.milliseconds2String(TimeUtils.getCurTimeMills())+"\r");
+        BluetoothPrintDriver.BT_Write("SERVED BY: " +"ADMIN"+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+
+    }
+
+    public static void printStr(String str){
+        BluetoothPrintDriver.Begin();
+        BluetoothPrintDriver.LF();
+        BluetoothPrintDriver.SetAlignMode((byte)0);//左对齐
+        BluetoothPrintDriver.SetFontEnlarge((byte)0x00);//默认宽度、默认高度
+        BluetoothPrintDriver.BT_Write(str+"\r");
+        BluetoothPrintDriver.BT_Write(" "+"\r");
+        BluetoothPrintDriver.BT_Write(print_ticket_line+"\r");
+    }
 }

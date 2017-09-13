@@ -39,6 +39,7 @@ import static com.szfp.szfp.asynctask.AsyncFingerprint.SHOW_PROGRESSDIALOG;
 import static com.szfp.szfp.asynctask.AsyncFingerprint.UP_IMAGE_RESULT;
 import static com.szfp.szfp.asynctask.AsyncFingerprint.VALIDATE_RESULT1;
 import static com.szfp.szfp.asynctask.AsyncFingerprint.VALIDATE_RESULT2;
+import static com.szfp.szfplib.utils.DataUtils.getAmountValue;
 import static com.szfp.szfplib.utils.DataUtils.isNullString;
 
 public class BankWithdrawalActivity extends BasePrintActivity {
@@ -214,6 +215,26 @@ public class BankWithdrawalActivity extends BasePrintActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank_withdrawal);
         ButterKnife.bind(this);
+        initEvent();
+    }
+
+    BankDepositBean showBean ;
+    private void initEvent() {
+        etIdNumber.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus){
+                    idNumber = etIdNumber.getText().toString();
+                    bankName =tvWithdrawMoneyFrom.getText().toString();
+                    if (DataUtils.isNullString(idNumber))return;
+                    if (DataUtils.isNullString(bankName))return;
+                    showBean = DbHelper.getShowBankFA(idNumber,bankName);
+                    if (!DataUtils.isEmpty(showBean))
+                        etAmont.setHint(getAmountValue(showBean.getBalance()));
+
+                }
+            }
+        });
     }
 
     @Override
@@ -250,6 +271,14 @@ public class BankWithdrawalActivity extends BasePrintActivity {
                     @Override
                     public void onItemClick(Object o, int position) {
                         tvWithdrawMoneyFrom.setText(bankNameList[position]);
+
+                        idNumber = etIdNumber.getText().toString();
+                        bankName =tvWithdrawMoneyFrom.getText().toString();
+                        if (DataUtils.isNullString(idNumber))return;
+                        if (DataUtils.isNullString(bankName))return;
+                        showBean = DbHelper.getShowBankFA(idNumber,bankName);
+                        if (!DataUtils.isEmpty(showBean))
+                            etAmont.setHint(getAmountValue(showBean.getBalance()));
                     }
                 }).show();
                 break;

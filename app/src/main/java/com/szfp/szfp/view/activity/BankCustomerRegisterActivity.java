@@ -2,6 +2,7 @@ package com.szfp.szfp.view.activity;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -17,11 +18,17 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.szfp.szfp.R;
 import com.szfp.szfp.asynctask.AsyncFingerprint;
 import com.szfp.szfp.bean.BankCustomerBean;
 import com.szfp.szfp.utils.DbHelper;
+import com.szfp.szfplib.inter.onRequestPermissionsListener;
 import com.szfp.szfplib.utils.DataUtils;
+import com.szfp.szfplib.utils.PermissionsUtils;
+import com.szfp.szfplib.utils.PhotoUtils;
 import com.szfp.szfplib.utils.TimeUtils;
 import com.szfp.szfplib.utils.ToastUtils;
 import com.szfp.szfplib.weight.StateButton;
@@ -59,6 +66,8 @@ public class BankCustomerRegisterActivity extends BaseActivity {
     StateButton btBankCustomerCancel;
     @BindView(R.id.bank_customer_fingerphoto)
     ImageView bankCustomerFingerphoto;
+    @BindView(R.id.bank_customer_photo)
+    ImageView bankCustomerPhoto;
 
 
     private BankCustomerBean bean;
@@ -95,11 +104,11 @@ public class BankCustomerRegisterActivity extends BaseActivity {
                         Integer id = (Integer) msg.obj;
 
                         if (DataUtils.isNullString(fingerPrintFileUrl))
-                            fingerPrintFileUrl=FINGERPRINT+ String.valueOf(id)+FINGERPRINT_END;
+                            fingerPrintFileUrl = FINGERPRINT + String.valueOf(id) + FINGERPRINT_END;
 
                         else {
                             //please user StringBuffer
-                            fingerPrintFileUrl= fingerPrintFileUrl+"_"+FINGERPRINT+ String.valueOf(id)+FINGERPRINT_END;
+                            fingerPrintFileUrl = fingerPrintFileUrl + "_" + FINGERPRINT + String.valueOf(id) + FINGERPRINT_END;
                         }
 
                         ToastUtils.showToast(
@@ -310,6 +319,13 @@ public class BankCustomerRegisterActivity extends BaseActivity {
         }
         bean.setBranch(branch);
 
+        if (DataUtils.isNullString(customerPhotoStr)){
+            ToastUtils.error("Please take pictures");
+            return;
+        }
+
+        bean.setPhotoFileUrl(customerPhotoStr);
+
         bean.setFingerPrintFileUrl(fingerPrintFileUrl);
 
         if (DbHelper.insertBankCustomer(bean)) {
@@ -319,8 +335,9 @@ public class BankCustomerRegisterActivity extends BaseActivity {
             ToastUtils.error("ERROR");
         }
     }
-
-    @OnClick({R.id.bt_bank_customer_register, R.id.bt_bank_customer_cancel,R.id.bank_customer_fingerphoto})
+    private boolean isPhoto=true;
+    private String customerPhotoStr;
+    @OnClick({R.id.bt_bank_customer_register, R.id.bt_bank_customer_cancel, R.id.bank_customer_fingerphoto ,R.id.bank_customer_photo})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_bank_customer_register:
@@ -328,9 +345,74 @@ public class BankCustomerRegisterActivity extends BaseActivity {
                 break;
             case R.id.bt_bank_customer_cancel:
                 break;
+            case R.id.bank_customer_photo:
+                isPhoto=false;
+                PermissionsUtils.requestCamera(this, new onRequestPermissionsListener() {
+                    @Override
+                    public void onRequestBefore() {
+
+                    }
+
+                    @Override
+                    public void onRequestLater() {
+                        PhotoUtils.openCameraImage(BankCustomerRegisterActivity.this);
+                    }
+                });
+
+                break;
             case R.id.bank_customer_fingerphoto:
                 asyncFingerprint.register2();
                 break;
         }
+    }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+
+            case PhotoUtils.GET_IMAGE_BY_CAMERA://选择照相机之后的处理
+                if (resultCode == RESULT_OK) {
+                   /* data.getExtras().get("data");*/
+                    PhotoUtils.cropImage(this, PhotoUtils.imageUriFromCamera);// 裁剪图片
+//                    initUCrop(PhotoUtils.imageUriFromCamera);
+                }
+
+                break;
+            case PhotoUtils.CROP_IMAGE://普通裁剪后的处理
+
+                if (isPhoto) {
+                    customerPhotoStr = PhotoUtils.cropImageUri.toString();
+                    Glide.with(this).
+                            load(PhotoUtils.cropImageUri).
+                            diskCacheStrategy(DiskCacheStrategy.RESULT).
+                            thumbnail(0.5f).
+                            placeholder(R.drawable.ic_check_white_48dp).
+                            priority(Priority.LOW).
+                            error(R.drawable.linecode_icon).
+                            fallback(R.drawable.ic_clear_white_48dp).
+                            dontAnimate().
+                            into(bankCustomerPhoto);
+                }else {
+                    customerPhotoStr = PhotoUtils.cropImageUri.toString();
+                    Glide.with(this).
+                            load(PhotoUtils.cropImageUri).
+                            diskCacheStrategy(DiskCacheStrategy.RESULT).
+                            thumbnail(0.5f).
+                            placeholder(R.drawable.ic_check_white_48dp).
+                            priority(Priority.LOW).
+                            error(R.drawable.linecode_icon).
+                            fallback(R.drawable.ic_clear_white_48dp).
+                            dontAnimate().
+                            into(bankCustomerPhoto);
+                }
+
+//                RequestUpdateAvatar(new File(PhotoUtils.getRealFilePath(mContext, RxPhotoUtils.cropImageUri)));
+                break;
+            default:
+                break;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

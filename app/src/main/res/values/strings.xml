@@ -252,7 +252,7 @@
     <string name="contacts">Contacts:</string>
     <string name="home_address">Home Address</string>
     <string name="photo">photo</string>
-    <string name="finger_print">Finger print</string>
+    <string name="finger_print">Finger Print</string>
     <string name="finger_print_hine">Please input fingerprint</string>
     <string name="name_of_primary_driver">Name of Primary Driver</string>
     <string name="driving_license_no">Driving License No</string>
@@ -319,7 +319,7 @@
     <string name="bank_name">Bank Name:</string>
     <string name="address">Address:</string>
     <string name="branches">Branches:</string>
-    <string name="account_types">Account types:</string>
+    <string name="account_types">Account Types:</string>
     <string name="register">register</string>
     <string name="bank_customer_register">Bank customer registration</string>
     <string name="customer_Names">Customer Names</string>

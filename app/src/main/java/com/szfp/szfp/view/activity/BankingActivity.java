@@ -11,6 +11,7 @@ import com.szfp.szfp.ConstantValue;
 import com.szfp.szfp.R;
 import com.szfp.szfp.bean.BankCustomerBean;
 import com.szfp.szfp.utils.DbHelper;
+import com.szfp.szfp.view.BankFundsTransferActivity;
 import com.szfp.szfplib.utils.ContextUtils;
 import com.szfp.szfplib.utils.DataUtils;
 import com.szfp.szfplib.utils.ToastUtils;
@@ -56,6 +57,7 @@ public class BankingActivity extends BaseActivity {
                 startActivity(new Intent(BankingActivity.this,BankDepositActivity.class));
                 break;
             case R.id.bt_funds_transfer:
+                startActivity(new Intent(this, BankFundsTransferActivity.class));
                 break;
             case R.id.bt_account_statement:
                 startActivity(new Intent(BankingActivity.this,BankStatementActivity.class));

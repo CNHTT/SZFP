@@ -37,3 +37,4 @@ public class BankDepositActivity extends BaseNoActivity {
         }
     }
 }
+

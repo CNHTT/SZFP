@@ -11,40 +11,41 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <com.szfp.szfplib.weight.StateButton
             android:id="@+id/sbt_charge"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_margin="@dimen/space_10"
-            android:layout_weight="1"
             android:gravity="center"
             android:padding="@dimen/space_5"
             android:text="@string/please_press_the_fingerprint"
-            android:textSize="@dimen/text_size_50"
+            android:textSize="@dimen/text_size_17"
             app:normalBackgroundColor="@color/login_normal"
             app:normalTextColor="@color/white"
             app:pressedBackgroundColor="@color/login_pass"
             app:pressedTextColor="@color/white"
-            app:radius="@dimen/space_2" />
+            app:radius="@dimen/space_2"
+            android:layout_weight="1"/>
 
 
         <com.szfp.szfplib.weight.StateButton
             android:id="@+id/sbt_charge_print"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_margin="@dimen/space_10"
-            android:layout_weight="1"
             android:gravity="center"
             android:padding="@dimen/space_5"
             android:text="@string/please_press_the_fingerprint_receipt"
-            android:textSize="@dimen/text_size_50"
+            android:textSize="@dimen/text_size_17"
             app:normalBackgroundColor="@color/login_normal"
             app:normalTextColor="@color/white"
             app:pressedBackgroundColor="@color/login_pass"
             app:pressedTextColor="@color/white"
-            app:radius="@dimen/space_2" />
+            app:radius="@dimen/space_2"
+            android:layout_weight="1"/>
     </LinearLayout>
 
     <com.szfp.szfplib.weight.StateButton
@@ -52,7 +53,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/space_10"
-        android:gravity="center"
         android:visibility="gone"
         android:padding="@dimen/space_5"
         android:text="@string/back"

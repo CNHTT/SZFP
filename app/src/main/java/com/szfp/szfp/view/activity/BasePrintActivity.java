@@ -184,7 +184,7 @@ public abstract class BasePrintActivity extends BaseActivity {
     };
 
 
-    void showDeviceList(){
+    public void showDeviceList(){
         if (BluetoothPrintDriver.IsNoConnection()){
             Intent serverIntent = new Intent(this, DeviceListActivity.class);
             startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);

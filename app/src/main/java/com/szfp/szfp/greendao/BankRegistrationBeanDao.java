@@ -33,6 +33,7 @@ public class BankRegistrationBeanDao extends AbstractDao<BankRegistrationBean, L
         public final static Property BankAccountTypes = new Property(6, String.class, "bankAccountTypes", false, "BANK_ACCOUNT_TYPES");
         public final static Property RegisterTimeStr = new Property(7, String.class, "registerTimeStr", false, "REGISTER_TIME_STR");
         public final static Property RegisterTime = new Property(8, Long.class, "registerTime", false, "REGISTER_TIME");
+        public final static Property BankPhotoUrl = new Property(9, String.class, "bankPhotoUrl", false, "BANK_PHOTO_URL");
     }
 
 
@@ -56,7 +57,8 @@ public class BankRegistrationBeanDao extends AbstractDao<BankRegistrationBean, L
                 "\"BANK_CONTACTS\" TEXT," + // 5: bankContacts
                 "\"BANK_ACCOUNT_TYPES\" TEXT," + // 6: bankAccountTypes
                 "\"REGISTER_TIME_STR\" TEXT," + // 7: registerTimeStr
-                "\"REGISTER_TIME\" INTEGER);"); // 8: registerTime
+                "\"REGISTER_TIME\" INTEGER," + // 8: registerTime
+                "\"BANK_PHOTO_URL\" TEXT);"); // 9: bankPhotoUrl
     }
 
     /** Drops the underlying database table. */
@@ -113,6 +115,11 @@ public class BankRegistrationBeanDao extends AbstractDao<BankRegistrationBean, L
         if (registerTime != null) {
             stmt.bindLong(9, registerTime);
         }
+ 
+        String bankPhotoUrl = entity.getBankPhotoUrl();
+        if (bankPhotoUrl != null) {
+            stmt.bindString(10, bankPhotoUrl);
+        }
     }
 
     @Override
@@ -163,6 +170,11 @@ public class BankRegistrationBeanDao extends AbstractDao<BankRegistrationBean, L
         if (registerTime != null) {
             stmt.bindLong(9, registerTime);
         }
+ 
+        String bankPhotoUrl = entity.getBankPhotoUrl();
+        if (bankPhotoUrl != null) {
+            stmt.bindString(10, bankPhotoUrl);
+        }
     }
 
     @Override
@@ -181,7 +193,8 @@ public class BankRegistrationBeanDao extends AbstractDao<BankRegistrationBean, L
             cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // bankContacts
             cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // bankAccountTypes
             cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // registerTimeStr
-            cursor.isNull(offset + 8) ? null : cursor.getLong(offset + 8) // registerTime
+            cursor.isNull(offset + 8) ? null : cursor.getLong(offset + 8), // registerTime
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9) // bankPhotoUrl
         );
         return entity;
     }
@@ -197,6 +210,7 @@ public class BankRegistrationBeanDao extends AbstractDao<BankRegistrationBean, L
         entity.setBankAccountTypes(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
         entity.setRegisterTimeStr(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
         entity.setRegisterTime(cursor.isNull(offset + 8) ? null : cursor.getLong(offset + 8));
+        entity.setBankPhotoUrl(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
      }
     
     @Override

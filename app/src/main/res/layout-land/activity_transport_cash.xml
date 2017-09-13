@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.szfp.szfp.view.activity.TransportCashActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/divbox"
+        android:padding="@dimen/space_20"
+        android:text="@string/type_cash_A"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_24" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/space_60">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/fare_cash"
+            android:textColor="@color/black" />
+
+        <EditText
+
+            android:id="@+id/ed_fixed_fare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/text_divbox"
+            android:inputType="numberDecimal"
+            android:padding="@dimen/space_5" />
+    </LinearLayout>
+
+    <CheckBox
+        android:layout_marginTop="@dimen/space_20"
+        android:textSize="@dimen/text_size_24"
+        android:layout_marginLeft="@dimen/space_50"
+        android:id="@+id/ck_staic_fare_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/please_conn"/>
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_40">
+
+        <com.szfp.szfplib.weight.StateButton
+            android:padding="@dimen/space_5"
+            android:id="@+id/bt_cash_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            app:normalBackgroundColor="@color/login_normal"
+            app:normalTextColor="@color/white"
+            app:pressedBackgroundColor="@color/login_pass"
+            app:pressedTextColor="@color/white" />
+
+        <View
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"></View>
+
+        <com.szfp.szfplib.weight.StateButton
+            android:id="@+id/bt_cash_cancel"
+            android:padding="@dimen/space_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            app:normalBackgroundColor="@color/login_normal"
+            app:normalTextColor="@color/white"
+            app:pressedBackgroundColor="@color/login_pass"
+            app:pressedTextColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

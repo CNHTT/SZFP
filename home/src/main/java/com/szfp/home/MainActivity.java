@@ -111,10 +111,6 @@ public class MainActivity extends BaseActivity {
                         Intent setting =  new Intent(Settings.ACTION_SETTINGS);
                         startActivity(setting);
                         break;
-                    case R.id.file:
-                        Intent APP = getPackageManager().getLaunchIntentForPackage("com.estrongs.android.pop.pro");
-                        startActivity(APP);
-                        break;
                 }
                 return false;
             }

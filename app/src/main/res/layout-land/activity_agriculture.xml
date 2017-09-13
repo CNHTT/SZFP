@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.szfp.szfp.view.activity.AgricultureActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:background="@drawable/shadow"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/space_20"
+                android:textSize="@dimen/text_size_24"
+                android:paddingBottom="@dimen/space_15"
+                android:paddingTop="@dimen/space_15"
+                android:paddingRight="@dimen/space_30"
+                android:paddingLeft="@dimen/space_30"
+                android:text="@string/agri_business"/>
+
+
+            <LinearLayout
+                android:padding="@dimen/space_40"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.szfp.szfplib.weight.StateButton
+                        android:minEms="11"
+                        android:padding="@dimen/space_15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_18"
+                        android:text="@string/human_resource"
+                        android:id="@+id/bt_agriculture_human"
+                        app:normalBackgroundColor="@color/palegreen"
+                        app:normalTextColor="@color/black"
+                        app:radius="@dimen/space_2"
+                        app:pressedBackgroundColor="@color/result_points"
+                        android:textStyle="bold"/>
+                    <com.szfp.szfplib.weight.StateButton
+                        android:minEms="11"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:padding="@dimen/space_15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_18"
+                        android:text="@string/daily_company"
+                        android:id="@+id/bt_agriculture_daily_company"
+                        app:normalBackgroundColor="@color/palegreen"
+                        app:normalTextColor="@color/black"
+                        app:radius="@dimen/space_2"
+                        app:pressedBackgroundColor="@color/result_points"
+                        android:textStyle="bold"/>
+                    <com.szfp.szfplib.weight.StateButton
+                        android:minEms="11"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:padding="@dimen/space_15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_18"
+                        android:text="@string/payments"
+                        android:id="@+id/bt_agriculture_payments"
+                        app:normalBackgroundColor="@color/palegreen"
+                        app:normalTextColor="@color/black"
+                        app:radius="@dimen/space_2"
+                        app:pressedBackgroundColor="@color/result_points"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.szfp.szfplib.weight.StateButton
+                        android:id="@+id/bt_agriculture_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minEms="11"
+                        android:padding="@dimen/space_15"
+                        android:text="@string/register_farmer"
+                        android:textSize="@dimen/text_size_18"
+                        android:textStyle="bold"
+                        app:normalBackgroundColor="@color/palegreen"
+                        app:normalTextColor="@color/black"
+                        app:pressedBackgroundColor="@color/result_points"
+                        app:radius="@dimen/space_2" />
+
+                    <com.szfp.szfplib.weight.StateButton
+                        android:minEms="11"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:padding="@dimen/space_15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_18"
+                        android:text="@string/daily_collection"
+                        android:id="@+id/bt_agriculture_daily_collection"
+                        app:normalBackgroundColor="@color/palegreen"
+                        app:normalTextColor="@color/black"
+                        app:radius="@dimen/space_2"
+                        app:pressedBackgroundColor="@color/result_points"
+                        android:textStyle="bold"/>
+                    <com.szfp.szfplib.weight.StateButton
+                        android:minEms="11"
+                        android:layout_marginTop="@dimen/space_20"
+                        android:padding="@dimen/space_15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_18"
+                        android:text="@string/reports"
+                        android:id="@+id/bt_agriculture_reports"
+                        app:normalBackgroundColor="@color/palegreen"
+                        app:normalTextColor="@color/black"
+                        app:radius="@dimen/space_2"
+                        app:pressedBackgroundColor="@color/result_points"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

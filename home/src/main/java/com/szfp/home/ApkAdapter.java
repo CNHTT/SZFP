@@ -81,7 +81,7 @@ public class ApkAdapter extends BaseListAdapter<AppInfo> {
             idImgContent.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    new AlertView(null, null, null, new String[]{"uninstallApp"}, new String[]{"Cancel","Please Select"}
+                    new AlertView(null, null, null, new String[]{"UninstallApp"}, new String[]{"Cancel","Please Select"}
                             ,
                             mContext, AlertView.Style.ActionSheet, new OnItemClickListener() {
                         @Override
